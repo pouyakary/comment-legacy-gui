@@ -9,7 +9,3 @@
 //    Author: Pouya Kary <k@karyfoundation.org>
 //
 /// <reference path="Comment.ts" />
-var UI;
-(function (UI) {
-    console.log('hello');
-})(UI || (UI = {}));
