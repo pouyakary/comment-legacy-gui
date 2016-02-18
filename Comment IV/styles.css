@@ -27,6 +27,16 @@ header {
   padding-top: 9px;
   padding-left: 13px;
 }
+.text-box-base {
+  background-color: #ffffff;
+  height: 28px;
+  width: 200px;
+  border-radius: 14px;
+  padding-left: 14px;
+  border: none;
+  font-size: 14px;
+  text-transform: uppercase;
+}
 #container {
   width: 100vw;
   height: calc(100vh - 50px);
