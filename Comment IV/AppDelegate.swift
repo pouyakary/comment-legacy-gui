@@ -8,18 +8,25 @@
 
 import Cocoa
 
+import WebKit
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
 
+    @IBOutlet weak var View: WebView!
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        // Insert code here to initialize your application
+    
+        View.mainFrameURL = NSBundle.mainBundle().pathForResource("index", ofType: "html")
+        
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
-        // Insert code here to tear down your application
+
+        // NOTHING SPECIAL IN HERE
+    
     }
 
 
