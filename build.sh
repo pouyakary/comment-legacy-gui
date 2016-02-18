@@ -32,9 +32,9 @@ done
 echo "   [ done ]"
 
 # Compiling the Swift View
-echo "-> Compiling the Swift View"
-xcodebuild -list -project "Comment IV.xcodeproj"
-echo "   [ done ]"
+#echo "-> Compiling the Swift View"
+#xcodebuild -list -project "Comment IV.xcodeproj"
+#echo "   [ done ]"
 
 
 # Done
