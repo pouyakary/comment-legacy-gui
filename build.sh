@@ -18,7 +18,7 @@ echo "   [ done ]"
 
 # Bulding the Style Sheets
 echo "-> Builing the Style Sheets"
-lessc Styles/Styles.less Resources/styles.css
+lessc Styles/Styles.less Resources/Styles.css
 echo "   [ done ]"
 
 # Copying the Resource Files
