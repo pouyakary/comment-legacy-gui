@@ -7,5 +7,5 @@
 /// <reference path="Comment.ts" />
 
 module UI {
-	console.log('hello')
+	
 }

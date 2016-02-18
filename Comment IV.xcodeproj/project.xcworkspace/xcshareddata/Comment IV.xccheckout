@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B7E33DE1-13DB-4DAC-8040-6EFD60C25CCE</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Comment IV</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>FA19E03EFC47A0671B0E5ED3ACF6258F47E56DB2</key>
+		<string>https://github.com/karyfoundation/comment.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Comment IV.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>FA19E03EFC47A0671B0E5ED3ACF6258F47E56DB2</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/karyfoundation/comment.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>FA19E03EFC47A0671B0E5ED3ACF6258F47E56DB2</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FA19E03EFC47A0671B0E5ED3ACF6258F47E56DB2</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Comment%20IV</string>
+		</dict>
+	</array>
+</dict>
+</plist>
