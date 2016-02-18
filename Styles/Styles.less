@@ -75,13 +75,16 @@
 //
 
 	.text-box-base {
+		float: left;
 		background-color: @tone1;
 		height: @button-height;
-		width: @control-bar-width - @pad-padding;
+		// width: ( @control-bar-width / 2 ) - @pad-padding * 1.35;
+		margin-left: @pad-padding / 2;
 		border-radius: @button-height / 2;
 		padding-left: @button-height / 2;
 		border: none;
 		font-size: @font-size;
+		font-family: monospace;
 		text-transform: uppercase;
 	}
 

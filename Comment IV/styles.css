@@ -28,13 +28,15 @@ header {
   padding-left: 13px;
 }
 .text-box-base {
+  float: left;
   background-color: #ffffff;
   height: 28px;
-  width: 200px;
+  margin-left: 15px;
   border-radius: 14px;
   padding-left: 14px;
   border: none;
   font-size: 14px;
+  font-family: monospace;
   text-transform: uppercase;
 }
 #container {
