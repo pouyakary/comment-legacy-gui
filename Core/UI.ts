@@ -56,9 +56,12 @@ module UI {
 			UpdateGlobalInputVariables( );
 			UpdateCommentChars( );
 			
+			const commentString = GenerateComment( );
+			
 			var commentBox = document.createElement( 'pre' );
 			commentBox.className = CommentBoxStyleClassName;
-			commentBox.innerHTML = GenerateComment( );
+			commentBox.innerHTML = commentString;
+			
 			
 			var viewDiv = document.getElementById( ViewDivID );
 			if ( viewDiv.children.length == 0 ) {

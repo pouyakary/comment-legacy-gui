@@ -63,7 +63,7 @@ module Core {
 		}
 		
 	//
-	// ─── SUBSECTION COMMENT GENERATOR ───────────────────────────────────────────────
+	// ─── SECTION COMMENT GENERATOR ──────────────────────────────────────────────────
 	//
 
 		export function GenerateSectionComment (  ) : string {
@@ -80,6 +80,10 @@ module Core {
 			return comment;	
 		}
 		
+	//
+	// ─── SUBSECTION COMMENT GENERATOR ───────────────────────────────────────────────
+	//
+	
 		export function GenerateSubSectionComment (  ) : string {
 			// Line 1
 			var comment = languageOneLine + '\n';
