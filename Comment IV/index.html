@@ -1,11 +1,13 @@
 <!DOCTYPE HTML>
 <html>
+	<!-- Header -->
 	<head>
 		<link rel="stylesheet" href="Styles.css">
 		<script type="text/javascript" src="Comment.js"></script>
 		<title>Comment IV</title>
 	</head>
-	<body onload="UI.LoadInputBoxes(); UI.UpdateCommentChars()">
+	<!-- Body -->
+	<body onload="UI.LoadInputBoxes( ); UI.UpdateCommentChars( )">
 		<!-- Header -->
 		<header>
 			<div class="gerda-header-name">
@@ -27,6 +29,7 @@
 					Dashboard
 				</div>
 				<div class="control-bar-spacer"></div>
+				<!-- Comment Kind Control -->
 				<div class="button-zone">
 					Kind <select id="commentformatbox" onchange="UI.LoadInputBoxes()" onclick="UI.LoadInputBoxes()" onselect="UI.LoadInputBoxes()" class="text-box-base">
 						<option value="class">Class Comment</option>
@@ -44,12 +47,15 @@
 				</div>
 				<div class="control-bar-spacer"></div>
 				<div class="button-zone">
+					<!-- Text Value -->
 					<span id="one-line-value-div">
 						Text <input type="text" id="cp-value" name="cp-value" class="text-box-base" value="Hello World" size="16" /><br />
 					</span>
+					<!-- Size Value -->
 					<span id="size-value-div">
 						Size <input type="text" id="cp-size" name="cp-size" class="text-box-base" value="80" size="3" />
 					</span>
+					<!-- Index Value -->
 					<span id="index-value-div">
 						Index <input type="text" id="cp-index" name="cp-index" class="text-box-base" value="1" size="3" /> 
 					</span>
