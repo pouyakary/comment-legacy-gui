@@ -2,10 +2,10 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="Styles.css">
-		<script src="Comment.js"></script>
+		<script type="text/javascript" src="Comment.js"></script>
 		<title>Comment IV</title>
 	</head>
-	<body>
+	<body onload="UI.LoadInputBoxes(); UI.UpdateCommentChars()">
 		<!-- Header -->
 		<header>
 			<div class="gerda-header-name">
@@ -20,45 +20,58 @@
 			</div>
 		</header>
 		<!-- Body -->
-		<div id="container">
+		<div id="container" >
 			<div id="control-bar" class="containerChildern">
 				<!-- Comment Model -->
 				<div class="controlBarTitle controlBarTitleTop">
-					Comment Model
+					Dashboard
 				</div>
 				<div class="control-bar-spacer"></div>
-				<select id="commentformatbox" class="controlBarRows">
-					<option value="class">Class</option>
-					<option value="flag">Flag</option>
-					<option value="section">Section</option>
-					<option value="subsection">SubSection</option>
-					<option value="line">Line</option>
-				</select>
+				<div class="button-zone">
+					Kind <select id="commentformatbox" onchange="UI.LoadInputBoxes()" onclick="UI.LoadInputBoxes()" onselect="UI.LoadInputBoxes()" class="text-box-base">
+						<option value="class">Class Comment</option>
+						<option value="flag">Flag Comment</option>
+						<option value="section">Section Comment</option>
+						<option value="subsection">Subsection Comment</option>
+						<option value="line">Line Comment</option>
+						<option value="note">Note Comment</option>
+					</select>
+				</div>
+				<!-- Inputs -->
+				<div class="control-bar-spacer"></div>
+				<div class="controlBarTitle">
+					Parameters
+				</div>
+				<div class="control-bar-spacer"></div>
+				<div class="button-zone">
+					<span id="one-line-value-div">
+						Text <input type="text" id="cp-value" name="cp-value" class="text-box-base" value="Hello World" size="16" /><br />
+					</span>
+					<span id="size-value-div">
+						Size <input type="text" id="cp-size" name="cp-size" class="text-box-base" value="80" size="3" />
+					</span>
+					<span id="index-value-div">
+						Index <input type="text" id="cp-index" name="cp-index" class="text-box-base" value="1" size="3" /> 
+					</span>
+				</div>
 				<!-- Language Settings -->
 				<div class="control-bar-spacer"></div>
 				<div class="controlBarTitle">
 					Language Settings
 				</div>
 				<div class="control-bar-spacer"></div>
-				<div>
-					<input type="text" name="mail" class="text-box-base" value="/*" size="2">
-					<input type="text" name="mail" class="text-box-base" value="*" size="2">
-					<input type="text" name="mail" class="text-box-base" value="//" size="4">
+				<div class="button-zone">
+					<input type="text" id="cs-top-left" name="cs-top-left" class="text-box-base text-box-monofont" value="/*" size="2" onkeypress="UI.UpdateCommentChars()">
+					<input type="text" id="cs-top-right" name="cs-top-right" class="text-box-base text-box-monofont" value="*" size="2" onkeypress="UI.UpdateCommentChars()">
+					<input type="text" id="cs-one-line" name="cs-one-line" class="text-box-base text-box-monofont" value="//" size="3" onkeypress="UI.UpdateCommentChars()"><br />
+					<input type="text" id="cs-bottom-left" name="cs-bottom-left text-box-monofont" class="text-box-base text-box-monofont" value=" *" size="2" onkeypress="UI.UpdateCommentChars()">
+					<input type="text" id="cs-bottom-right" name="cs-bottom-right" class="text-box-base text-box-monofont" value="*/" size="2" onkeypress="UI.UpdateCommentChars()">
 					<div style="clear: both;"></div>
-					<div class="control-bar-spacer"></div>
-					<input type="text" name="mail" class="text-box-base" value=" *" size="2">
-					<input type="text" name="mail" class="text-box-base" value="*/" size="2">
-					<div style="clear: both;"></div>
-				</div>
-				<!-- Inputs -->
-				<div class="control-bar-spacer"></div>
-				<div class="controlBarTitle">
-					Dashboard
 				</div>
 			</div>
 			<!-- Where the Comments are displayed -->
 			<div id="view" class="containerChildern">
-				
+				<pre class="comment-box">helle world</pre>
 			</div>
 		</div>
 	</body>
