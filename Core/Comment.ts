@@ -10,6 +10,10 @@ var languageMultiLineBottomLeft: string;
 var languageMultiLineBottomRight: string;
 var languageOneLine: string;
 
+var globalTextValue: string;
+var globalSizeValue: number;
+var globalIndexValue: number;
+
 module Core {
 	
 	const boxVerticalCharacter 		= '&boxv;';

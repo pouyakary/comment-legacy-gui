@@ -13,15 +13,15 @@ module UI {
 	//
 
 		// Input Divs
-		const OneLineInputDivID = "one-line-value-div";
-		const SizeInputDivID 	= "size-value-div";
-		const IndexInputDivID 	= "index-value-div";
+		const OneLineInputDivID 				= "one-line-value-div";
+		const SizeInputDivID 					= "size-value-div";
+		const IndexInputDivID 					= "index-value-div";
 		
 		// Input Box IDs
-		const CommentKindBox 	= "commentformatbox";
-		const CommentValueBox 	= "cp-value";
-		const CommentSizeBox	= "cp-size";
-		const CommentIndexBox 	= "cp-index";
+		const CommentKindBox 					= "commentformatbox";
+		const CommentValueBox 					= "cp-value";
+		const CommentSizeBox					= "cp-size";
+		const CommentIndexBox 					= "cp-index";
 		
 		// Language Settings
 		const CommentStyleMultiLineTopLeft 		= 'cs-top-left';
@@ -42,6 +42,11 @@ module UI {
 	// ─── ON GENERATE COMMENT ────────────────────────────────────────────────────────
 	//
 
+		/**
+		 * Gives the comment style and calls the currect
+		 * function to generate that kind of comment
+		 * and then returns the comment as a string.
+		 */
 		export function OnGenerateComment ( ) : string {
 			var commentString: string;
 			switch ( GetCommentKind( ) ) {
@@ -56,6 +61,12 @@ module UI {
 	// ─── EVENT HANDLERS ─────────────────────────────────────────────────────────────
 	//
 
+		/**
+		 * Set's the visibility of the user input elements
+		 * based on the current comment style to reduce user
+		 * errors and show the necessary settings for the
+		 * current comment style.
+		 */
 		export function LoadInputBoxes (  ) {
 			
 			var 	sizeBox 		= document.getElementById( SizeInputDivID );
@@ -108,30 +119,47 @@ module UI {
 	// ─── UPDATE COMMENT CHARS ───────────────────────────────────────────────────────
 	//
 
+		/**
+		 * Updates the global language setting variables based on the user input.
+		 */
 		export function UpdateCommentChars ( ) {
-			var element = <HTMLInputElement> document.getElementById( CommentStyleMultiLineBottomLeft );
-			languageMultiLineBottomLeft = element.value;
-			
-			element = <HTMLInputElement> document.getElementById( CommentStyleMultiLineBottomRight );
-			languageMultiLineBottomRight = element.value;
-			
-			element = <HTMLInputElement> document.getElementById( CommentStyleMultiLineTopLeft );
-			languageMultiLineTopLeft = element.value;
-			
-			element = <HTMLInputElement> document.getElementById( CommentStyleMultiLineTopRight );
-			languageMultiLineTopRight = element.value;
-			
-			element = <HTMLInputElement> document.getElementById( CommentStyleOneLine );
-			languageOneLine = element.value;
+			languageMultiLineBottomLeft = ( <HTMLInputElement> document.getElementById( CommentStyleMultiLineBottomLeft ) ).value;
+			languageMultiLineBottomRight = ( <HTMLInputElement> document.getElementById( CommentStyleMultiLineBottomRight ) ).value;
+			languageMultiLineTopLeft = ( <HTMLInputElement> document.getElementById( CommentStyleMultiLineTopLeft ) ).value;
+			languageMultiLineTopRight = ( <HTMLInputElement> document.getElementById( CommentStyleMultiLineTopRight ) ).value;
+			languageOneLine = ( <HTMLInputElement> document.getElementById( CommentStyleOneLine ) ).value;
 		}
 
 	//
 	// ─── GET MODEL INFO ─────────────────────────────────────────────────────────────
 	//
 
+		/** 
+		 * Getts the current Command Kind from the select box of dashboard. 
+		 */
 		function GetCommentKind ( ) : string {
 			var styleBox = <HTMLSelectElement> document.getElementById( CommentKindBox );
 			return styleBox.options[ styleBox.selectedIndex ].value;
+		}
+
+	//
+	// ─── READ FROM NUMBER INPUT ─────────────────────────────────────────────────────
+	//
+	
+		/** 
+		 * Reads the number input from HTML Input Elements by a 
+		 * given ID and returns 0 when fails to interpret the 
+		 * user input.
+		 */
+		function ReadNumberInput ( id: string ) : number {
+			var result = parseInt (
+				( <HTMLInputElement> ( document.getElementById( id ) ) ).value 
+			)
+			if ( isNaN( result) ) {
+				return 0;
+			} else {
+				return result;
+			}
 		}
 
 	// ────────────────────────────────────────────────────────────────────────────────
