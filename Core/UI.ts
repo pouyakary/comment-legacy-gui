@@ -166,6 +166,12 @@ module UI {
 					valueBox.style.display 	= displayOff;
 					break;
 					
+				case CommentStyleSubLine:
+					sizeBox.style.display 	= displayOn;
+					indexBox.style.display 	= displayOff;
+					valueBox.style.display 	= displayOff;
+					break;
+					
 				case CommentStyleNote:
 					sizeBox.style.display 	= displayOff;
 					indexBox.style.display 	= displayOff;
