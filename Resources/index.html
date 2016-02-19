@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+	<!-- Header -->
+	<head>
+		<link rel="stylesheet" href="Styles.css">
+		<script type="text/javascript" src="Comment.js"></script>
+		<title>Comment IV</title>
+	</head>
+	<!-- Body -->
+	<body onload="UI.LoadInputBoxes( ); UI.UpdateCommentChars( )">
+		<!-- Header -->
+		<header>
+			<div class="gerda-header-name">
+				<span style="font-size: 24.0px; color: #ccc;">
+					<span id="logoFont">
+						Comment IV
+					</span>
+				</span>
+			</div>
+			<div class="kary-header-logo">
+				<img src="kf-logo.png" width="200px;" draggable="false"/>
+			</div>
+		</header>
+		<!-- Body -->
+		<div id="container" >
+			<div id="control-bar" class="containerChildern">
+				<!-- Comment Model -->
+				<div class="controlBarTitle controlBarTitleTop">
+					Dashboard
+				</div>
+				<div class="control-bar-spacer"></div>
+				<!-- Comment Kind Control -->
+				<div class="button-zone">
+					Kind <select id="commentformatbox" onchange="UI.LoadInputBoxes()" onclick="UI.LoadInputBoxes()" onselect="UI.LoadInputBoxes()" class="text-box-base">
+						<option value="class">Class Comment</option>
+						<option value="flag">Flag Comment</option>
+						<option value="section">Section Comment</option>
+						<option value="subsection">Subsection Comment</option>
+						<option value="line">Line Comment</option>
+						<option value="note">Note Comment</option>
+					</select>
+				</div>
+				<!-- Inputs -->
+				<div class="control-bar-spacer"></div>
+				<div class="controlBarTitle">
+					Parameters
+				</div>
+				<div class="control-bar-spacer"></div>
+				<div class="button-zone">
+					<!-- Text Value -->
+					<span id="one-line-value-div">
+						Text <input type="text" id="cp-value" name="cp-value" class="text-box-base" value="Hello World" size="16" /><br />
+					</span>
+					<!-- Size Value -->
+					<span id="size-value-div">
+						Size <input type="text" id="cp-size" name="cp-size" class="text-box-base" value="80" size="3" />
+					</span>
+					<!-- Index Value -->
+					<span id="index-value-div">
+						Index <input type="text" id="cp-index" name="cp-index" class="text-box-base" value="1" size="3" /> 
+					</span>
+				</div>
+				<!-- Language Settings -->
+				<div class="control-bar-spacer"></div>
+				<div class="controlBarTitle">
+					Language Settings
+				</div>
+				<div class="control-bar-spacer"></div>
+				<div class="button-zone">
+					<input type="text" id="cs-top-left" name="cs-top-left" class="text-box-base text-box-monofont" value="/*" size="2" onkeypress="UI.UpdateCommentChars()">
+					<input type="text" id="cs-top-right" name="cs-top-right" class="text-box-base text-box-monofont" value="*" size="2" onkeypress="UI.UpdateCommentChars()">
+					<input type="text" id="cs-one-line" name="cs-one-line" class="text-box-base text-box-monofont" value="//" size="3" onkeypress="UI.UpdateCommentChars()"><br />
+					<input type="text" id="cs-bottom-left" name="cs-bottom-left text-box-monofont" class="text-box-base text-box-monofont" value=" *" size="2" onkeypress="UI.UpdateCommentChars()">
+					<input type="text" id="cs-bottom-right" name="cs-bottom-right" class="text-box-base text-box-monofont" value="*/" size="2" onkeypress="UI.UpdateCommentChars()">
+					<div style="clear: both;"></div>
+				</div>
+			</div>
+			<!-- Where the Comments are displayed -->
+			<div id="view" class="containerChildern">
+				<pre class="comment-box">helle world</pre>
+			</div>
+		</div>
+	</body>
+</html>
