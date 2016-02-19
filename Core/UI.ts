@@ -36,6 +36,7 @@ module UI {
 		const CommentStyleSection				= 'section';
 		const CommentStyleSubSection			= 'subsection';
 		const CommentStyleLine					= 'line';
+		const CommentStyleSubLine				= 'subline';
 		const CommentStyleNote					= 'note';
 		
 		// Generating Settings
@@ -69,6 +70,10 @@ module UI {
 			} else {
 				viewDiv.insertBefore( commentBox , viewDiv.firstChild );
 			}
+			
+			if ( viewDiv.children.length > 20 ) {
+				viewDiv.removeChild( viewDiv.lastChild );
+			}
 		}
 
 	//
@@ -87,6 +92,10 @@ module UI {
 					commentString = Core.GenerateClassComment( );
 					break;
 				
+				case CommentStyleFlag:
+					commentString = Core.GenerateFlagCommet( );
+					break;
+				
 				case CommentStyleSection: 
 					commentString = Core.GenerateSectionComment( );
 					break;
@@ -94,6 +103,15 @@ module UI {
 				case CommentStyleSubSection:
 					commentString = Core.GenerateSubSectionComment( );
 					break;
+					
+				case CommentStyleLine:
+					commentString = Core.GenerateLineComment( );
+					break;
+				
+				case CommentStyleSubLine:
+					commentString = Core.GenerateSubLineComment( );
+					break;
+					
 			}
 			return commentString;
 		}
