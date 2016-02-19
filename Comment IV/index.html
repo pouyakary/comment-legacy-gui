@@ -37,7 +37,8 @@
 						<option value="section">Section Comment</option>
 						<option value="subsection">Subsection Comment</option>
 						<option value="line">Line Comment</option>
-						<option value="note">Note Comment</option>
+						<option value="line">SubLine Comment</option>
+						<!--option value="note">Note Comment</option-->
 					</select>
 				</div>
 				<!-- Inputs -->
@@ -53,11 +54,11 @@
 					</span>
 					<!-- Size Value -->
 					<span id="size-value-div">
-						Size <input type="text" id="cp-size" name="cp-size" class="text-box-base" value="80" size="3" />
+						Size <input type="text" id="cp-size" name="cp-size" class="text-box-base" value="80" size="3"  onkeypress="UI.OnTextInputKeyPress( event )"/>
 					</span>
 					<!-- Index Value -->
 					<span id="index-value-div">
-						Index <input type="text" id="cp-index" name="cp-index" class="text-box-base" value="1" size="3" /> 
+						Index <input type="text" id="cp-index" name="cp-index" class="text-box-base" value="1" size="3"  onkeypress="UI.OnTextInputKeyPress( event )"/> 
 					</span>
 				</div>
 				<!-- Language Settings -->
