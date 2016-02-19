@@ -9,12 +9,6 @@ body {
   overflow: hidden;
   outline-color: transparent;
   outline-style: none;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 :focus {
   outline-color: transparent;
@@ -24,6 +18,12 @@ header {
   height: 50px;
   width: 100vw;
   background-color: #171717;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .kary-header-logo {
   float: right;
@@ -107,6 +107,12 @@ header {
   float: left;
   width: 230px;
   height: calc(100vh - 110px);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 #view {
   float: left;

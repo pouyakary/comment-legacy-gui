@@ -11,6 +11,8 @@
 		A627D9CA1C760FBF0096F166 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A627D9C91C760FBF0096F166 /* Images.xcassets */; };
 		A627D9CD1C760FBF0096F166 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A627D9CB1C760FBF0096F166 /* MainMenu.xib */; };
 		A627D9D91C760FBF0096F166 /* Comment_IVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A627D9D81C760FBF0096F166 /* Comment_IVTests.swift */; };
+		A66096CB1C77CC930084A4C3 /* Icon4.iconset in Resources */ = {isa = PBXBuildFile; fileRef = A66096CA1C77CC930084A4C3 /* Icon4.iconset */; };
+		A66096CD1C77CCBD0084A4C3 /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A66096CC1C77CCBD0084A4C3 /* Images-2.xcassets */; };
 		A6C7B16F1C76645700DF5E61 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = A6C7B16C1C76645700DF5E61 /* index.html */; };
 		A6C7B1701C76645700DF5E61 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6C7B16D1C76645700DF5E61 /* Info.plist */; };
 		A6C7B1711C76645700DF5E61 /* styles.css in Resources */ = {isa = PBXBuildFile; fileRef = A6C7B16E1C76645700DF5E61 /* styles.css */; };
@@ -37,6 +39,8 @@
 		A627D9D21C760FBF0096F166 /* Comment IVTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Comment IVTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A627D9D71C760FBF0096F166 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A627D9D81C760FBF0096F166 /* Comment_IVTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment_IVTests.swift; sourceTree = "<group>"; };
+		A66096CA1C77CC930084A4C3 /* Icon4.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = Icon4.iconset; sourceTree = "<group>"; };
+		A66096CC1C77CCBD0084A4C3 /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-2.xcassets"; sourceTree = "<group>"; };
 		A6C7B16C1C76645700DF5E61 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		A6C7B16D1C76645700DF5E61 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6C7B16E1C76645700DF5E61 /* styles.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = styles.css; sourceTree = "<group>"; };
@@ -89,8 +93,10 @@
 				A6C7B1731C76646000DF5E61 /* kf-logo.png */,
 				A6C7B16E1C76645700DF5E61 /* styles.css */,
 				A627D9C71C760FBF0096F166 /* AppDelegate.swift */,
+				A66096CA1C77CC930084A4C3 /* Icon4.iconset */,
 				A627D9C91C760FBF0096F166 /* Images.xcassets */,
 				A627D9CB1C760FBF0096F166 /* MainMenu.xib */,
+				A66096CC1C77CCBD0084A4C3 /* Images-2.xcassets */,
 				A627D9C51C760FBF0096F166 /* Supporting Files */,
 			);
 			path = "Comment IV";
@@ -202,11 +208,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A66096CD1C77CCBD0084A4C3 /* Images-2.xcassets in Resources */,
 				A6C7B1701C76645700DF5E61 /* Info.plist in Resources */,
 				A6C7B16F1C76645700DF5E61 /* index.html in Resources */,
 				A627D9CA1C760FBF0096F166 /* Images.xcassets in Resources */,
 				A6C7B1711C76645700DF5E61 /* styles.css in Resources */,
 				A6C7B1741C76646000DF5E61 /* Comment.js in Resources */,
+				A66096CB1C77CC930084A4C3 /* Icon4.iconset in Resources */,
 				A627D9CD1C760FBF0096F166 /* MainMenu.xib in Resources */,
 				A6C7B1751C76646000DF5E61 /* kf-logo.png in Resources */,
 			);
