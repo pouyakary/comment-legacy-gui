@@ -10,6 +10,8 @@
 	@tone5: #2E2E2E;
 	@tone6: #171717;
 	
+	@focos-color: #4E7C3B ;
+	
 //
 // ─── SIZES ──────────────────────────────────────────────────────────────────────
 //
@@ -22,6 +24,7 @@
 	@button-height: 			28px;
 	@font-size: 				14px;
 	@control-bar-spacer-size: 	@pad-padding / 2;
+	@text-box-border-size: 		3px;
 	
 //
 // ─── MAIN ELEMENTS ──────────────────────────────────────────────────────────────
@@ -69,23 +72,47 @@
 // ─── BUTTONS ────────────────────────────────────────────────────────────────────
 //
 
+	.button-zone {
+		padding-left: @control-bar-spacer-size - @text-box-border-size;
+	}
 
 //
 // ─── TEXTBOX BASE ───────────────────────────────────────────────────────────────
 //
+	
+	.text-box-monofont {
+		font-family: monospace;
+	}
 
 	.text-box-base {
 		float: left;
 		background-color: @tone1;
-		height: @button-height;
-		// width: ( @control-bar-width / 2 ) - @pad-padding * 1.35;
-		margin-left: @pad-padding / 2;
-		border-radius: @button-height / 2;
-		padding-left: @button-height / 2;
-		border: none;
+		
+		@text-box-height: @button-height - @text-box-border-size;
+		height: @text-box-height;
+		margin:  @text-box-border-size / 2;
+		border-radius: ( @text-box-height / 2 ) + 2 * @text-box-border-size ;
+		
+		@padding-text-box: ( @button-height / 2 ) - 3px ;
+		padding-left: @padding-text-box;
+		padding-right: @padding-text-box;
+		padding-bottom: @text-box-border-size;
+		
+		border: @text-box-border-size solid @tone4;
 		font-size: @font-size;
-		font-family: monospace;
-		text-transform: uppercase;
+	}
+	
+	.text-box-base:hover {
+		border-color: @tone3;
+	}
+	
+	.text-box-base:active,
+	.text-box-base:focus {
+		border-color:  @focos-color;
+	}
+	
+	.button-spacer {
+		height: ( @pad-padding / 2 ) - 3 * @text-box-border-size;
 	}
 
 //
