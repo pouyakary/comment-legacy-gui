@@ -51,7 +51,7 @@ module UI {
 			var commentString: string;
 			switch ( GetCommentKind( ) ) {
 				case CommentStyleClass:
-					
+					commentString = Core.GenerateClassComment( );
 					break;
 			}
 			return commentString;
@@ -123,11 +123,24 @@ module UI {
 		 * Updates the global language setting variables based on the user input.
 		 */
 		export function UpdateCommentChars ( ) {
-			languageMultiLineBottomLeft = ( <HTMLInputElement> document.getElementById( CommentStyleMultiLineBottomLeft ) ).value;
-			languageMultiLineBottomRight = ( <HTMLInputElement> document.getElementById( CommentStyleMultiLineBottomRight ) ).value;
-			languageMultiLineTopLeft = ( <HTMLInputElement> document.getElementById( CommentStyleMultiLineTopLeft ) ).value;
-			languageMultiLineTopRight = ( <HTMLInputElement> document.getElementById( CommentStyleMultiLineTopRight ) ).value;
-			languageOneLine = ( <HTMLInputElement> document.getElementById( CommentStyleOneLine ) ).value;
+			languageMultiLineBottomLeft 	= GetInputElementValue( CommentStyleMultiLineBottomLeft );
+			languageMultiLineBottomRight 	= GetInputElementValue( CommentStyleMultiLineBottomRight );
+			languageMultiLineTopLeft 		= GetInputElementValue( CommentStyleMultiLineTopLeft );
+			languageMultiLineTopRight 		= GetInputElementValue( CommentStyleMultiLineTopRight );
+			languageOneLine 				= GetInputElementValue( CommentStyleOneLine );
+		}
+	
+	//
+	// ─── UPDATE GLOBAL VARIABLE INFOS ───────────────────────────────────────────────
+	//
+
+		/** 
+		 * Updates the global variables once they are changed 
+		 */
+		export function UpdateGlobalInputVariables ( ) {
+			globalSizeValue = ReadNumberInput( CommentSizeBox );
+			globalIndexValue = ReadNumberInput( CommentIndexBox );
+			globalTextValue = GetInputElementValue( CommentValueBox );
 		}
 
 	//
@@ -160,6 +173,17 @@ module UI {
 			} else {
 				return result;
 			}
+		}
+		
+	//
+	// ─── GET INPUT ELEMENT VALUE ────────────────────────────────────────────────────
+	//
+	
+		/** 
+		 * Reads the value of an HTML Input Element by ID. 
+		 */
+		function GetInputElementValue ( id: string ) {
+			return ( <HTMLInputElement> document.getElementById( id ) ).value;
 		}
 
 	// ────────────────────────────────────────────────────────────────────────────────

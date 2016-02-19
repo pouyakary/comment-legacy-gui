@@ -16,16 +16,27 @@ var globalIndexValue: number;
 
 module Core {
 	
-	const boxVerticalCharacter 		= '&boxv;';
-	const boxHorizontalCharacter 	= '&boxh;';
-	const boxTopLeftCharacter 		= '&boxdr;';
-	const boxTopRightCharacter 		= '&boxdl;';
-	const boxBottomLeftCharacter 	= '&boxur;';
-	const boxBottomRightCharacter	= '&boxul;';
-	
-	export function GenerateClassComment ( commentText: string , size: number ) {
-		var commnet: string = '';
+	//
+	// ─── SPECIAL CHARACTERS ─────────────────────────────────────────────────────────
+	//
+
+		const boxVerticalCharacter 		= '&boxv;';
+		const boxHorizontalCharacter 	= '&boxh;';
+		const boxTopLeftCharacter 		= '&boxdr;';
+		const boxTopRightCharacter 		= '&boxdl;';
+		const boxBottomLeftCharacter 	= '&boxur;';
+		const boxBottomRightCharacter	= '&boxul;';
 		
-	}
+	//
+	// ─── COMMENT CLASS GENERATOR ────────────────────────────────────────────────────
+	//
+
+		export function GenerateClassComment ( ) : string {
+			var commnet: string = 'Hello World';
+			
+			return commnet;
+		}
+
+	// ────────────────────────────────────────────────────────────────────────────────
 
 }
