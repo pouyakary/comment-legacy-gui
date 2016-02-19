@@ -123,6 +123,7 @@ header {
   overflow-x: hidden;
   padding: 15px;
   font-family: 'Menlo';
+  font-size: 12px;
 }
 @font-face {
   font-family: 'logoFont';

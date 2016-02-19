@@ -38,6 +38,36 @@ module UI {
 		const CommentStyleLine					= 'line';
 		const CommentStyleNote					= 'note';
 		
+		// Generating Settings
+		const ViewDivID							= 'view';
+		const CommentBoxStyleClassName 			= 'comment-box';
+			
+	//
+	// ─── ON ADD COMMENT ─────────────────────────────────────────────────────────────
+	//
+	
+		export function OnTextInputKeyPress ( event: any ) {
+			if ( event.keyCode == 13 ) {
+				CreateNewComment( );
+			}
+		}
+		
+		function CreateNewComment ( ) {
+			UpdateGlobalInputVariables( );
+			UpdateCommentChars( );
+			
+			var commentBox = document.createElement( 'pre' );
+			commentBox.className = CommentBoxStyleClassName;
+			commentBox.innerHTML = GenerateComment( );
+			
+			var viewDiv = document.getElementById( ViewDivID );
+			if ( viewDiv.children.length == 0 ) {
+				viewDiv.appendChild( commentBox );
+			} else {
+				viewDiv.insertBefore( commentBox , viewDiv.firstChild );
+			}
+		}
+
 	//
 	// ─── ON GENERATE COMMENT ────────────────────────────────────────────────────────
 	//
@@ -47,11 +77,19 @@ module UI {
 		 * function to generate that kind of comment
 		 * and then returns the comment as a string.
 		 */
-		export function OnGenerateComment ( ) : string {
+		function GenerateComment ( ) : string {
 			var commentString: string;
 			switch ( GetCommentKind( ) ) {
 				case CommentStyleClass:
 					commentString = Core.GenerateClassComment( );
+					break;
+				
+				case CommentStyleSection: 
+					commentString = Core.GenerateSectionComment( );
+					break;
+					
+				case CommentStyleSubSection:
+					commentString = Core.GenerateSubSectionComment( );
 					break;
 			}
 			return commentString;

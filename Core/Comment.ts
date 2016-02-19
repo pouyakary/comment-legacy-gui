@@ -32,11 +32,97 @@ module Core {
 	//
 
 		export function GenerateClassComment ( ) : string {
-			var commnet: string = 'Hello World';
+			// First Info
+			var commnet: string;
 			
+			// Line One
+			commnet = languageMultiLineTopLeft + ' ' + MakeLine( globalSizeValue ) + ' ' + languageMultiLineTopRight + '\n';
+			
+			// Line Two
+			const titleText = MakeTitle( globalTextValue );
+			var	  inCaseOfOddNumber = '';
+			var   dots = '';
+			
+			for ( var counter = 1; counter < ( globalSizeValue - titleText.length ) / 2 ; counter++ ) {
+				dots += '&colon;';
+			}
+			
+			if ( ( globalSizeValue - titleText.length ) % 2 == 0 ) {
+				console.log( 'here');
+				inCaseOfOddNumber = '&colon;';
+			}
+			
+			commnet += languageMultiLineBottomLeft + ' ' + inCaseOfOddNumber + dots + titleText + ' ' + dots + ' ' + languageMultiLineTopRight + '\n' ;
+			
+			// Line Tree
+			commnet += languageMultiLineBottomLeft + ' ' + MakeLine( globalSizeValue ) + ' ' + languageMultiLineBottomRight;
+			
+			// Done!
+			console.log( commnet );
 			return commnet;
+		}
+		
+	//
+	// ─── SUBSECTION COMMENT GENERATOR ───────────────────────────────────────────────
+	//
+
+		export function GenerateSectionComment (  ) : string {
+			// Line 1
+			var comment = languageOneLine + '\n';
+			// Line 2
+			comment += (
+				languageOneLine + ' ' + MakeRepeat( boxHorizontalCharacter , 3 ) + ' ' +
+				globalTextValue.toUpperCase( ) + ' ' + MakeRepeat( boxHorizontalCharacter , globalSizeValue - globalTextValue.length - 5 ) + '\n'
+			);
+			// Line 3
+			comment += languageOneLine;
+			// Done
+			return comment;	
+		}
+		
+		export function GenerateSubSectionComment (  ) : string {
+			// Line 1
+			var comment = languageOneLine + '\n';
+			// Line 2
+			comment += languageOneLine + ' ' + '- -' + ' ' + globalTextValue.toLowerCase( );
+			var lineSize = ( globalSizeValue - globalTextValue.length - 5 ) / 2;
+			if ( lineSize % 2 == 0 ) {
+				comment += ' ' + MakeRepeat( ' -' , lineSize ) + '\n'; 
+			} else {
+				comment += MakeRepeat( ' -' , lineSize ) + '\n';
+			}
+			// Line 3
+			comment += languageOneLine;
+			// Done
+			return comment;	
 		}
 
 	// ────────────────────────────────────────────────────────────────────────────────
+	
+		function MakeLine ( size: number ) : string {
+			return MakeRepeat( boxHorizontalCharacter , size );
+		}
 
+	// ────────────────────────────────────────────────────────────────────────────────
+	
+		function MakeTitle ( text: string ) {
+			var result = '';
+			for ( var index = 0 ; index < text.length ; index++ ) {
+				var element = text[ index ];
+				result += ' ' + element;
+			}
+			return result.toUpperCase( );			
+		}
+		
+	// ────────────────────────────────────────────────────────────────────────────────
+		
+		function MakeRepeat ( character: string , size: number ) : string {
+			var text = '';
+			for ( var counter = 0 ; counter < size ; counter++ ) {
+				text += character;
+			}
+			return text;
+		}
+		
+	// ────────────────────────────────────────────────────────────────────────────────
 }
