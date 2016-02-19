@@ -1,4 +1,6 @@
 body {
+  width: 100vw;
+  height: 100vh;
   font-family: 'Avenir';
   font-size: 14px;
   padding: 0px;
@@ -7,6 +9,12 @@ body {
   overflow: hidden;
   outline-color: transparent;
   outline-style: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 :focus {
   outline-color: transparent;
@@ -27,17 +35,33 @@ header {
   padding-top: 9px;
   padding-left: 13px;
 }
+.button-zone {
+  padding-left: 12px;
+  color: #cccccc;
+}
+.text-box-monofont {
+  font-family: 'Menlo';
+}
 .text-box-base {
-  float: left;
   background-color: #ffffff;
-  height: 28px;
-  margin-left: 15px;
-  border-radius: 14px;
-  padding-left: 14px;
-  border: none;
+  height: 25px;
+  margin: 1.5px;
+  border-radius: 18.5px;
+  padding-left: 11px;
+  padding-right: 11px;
+  padding-bottom: 3px;
+  border: 3px solid #424242;
   font-size: 14px;
-  font-family: monospace;
-  text-transform: uppercase;
+}
+.text-box-base:hover {
+  border-color: #AEAEAE;
+}
+.text-box-base:active,
+.text-box-base:focus {
+  border-color: #3CA2DF;
+}
+.button-spacer {
+  height: 6px;
 }
 #container {
   width: 100vw;
@@ -47,6 +71,7 @@ header {
 .containerChildern {
   background-color: #424242;
   border-radius: 5px;
+  overflow: hidden;
 }
 .controlBarRows {
   width: 200px;
@@ -69,15 +94,11 @@ header {
   letter-spacing: 1.2;
 }
 #commentformatbox {
-  background-color: #ffffff;
   padding: 5px;
-  height: 28px;
-  border: none;
-  border-radius: 14px;
-  padding-left: 14px;
-  padding-top: -5px;
+  height: 36.4px;
+  padding-left: 9px;
+  padding-right: 14px;
   font-size: 14px;
-  text-transform: uppercase;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -92,6 +113,16 @@ header {
   margin-left: 30px;
   width: calc(100vw - 320px);
   height: calc(100vh - 110px);
+}
+.comment-box {
+  margin: 30px;
+  width: calc(100vw - 410px);
+  border-radius: 5px;
+  background-color: #5B5B5B;
+  color: #cccccc;
+  overflow-x: hidden;
+  padding: 15px;
+  font-family: 'Menlo';
 }
 @font-face {
   font-family: 'logoFont';

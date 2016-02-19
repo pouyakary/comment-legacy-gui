@@ -10,7 +10,8 @@
 	@tone5: #2E2E2E;
 	@tone6: #171717;
 	
-	@focos-color: #4E7C3B ;
+	@focos-color: #3CA2DF;
+	@hover-color: @tone3;
 	
 //
 // ─── SIZES ──────────────────────────────────────────────────────────────────────
@@ -26,12 +27,17 @@
 	@control-bar-spacer-size: 	@pad-padding / 2;
 	@text-box-border-size: 		3px;
 	
+	@mono-type-face: 'Menlo';
+	@regular-type-face: 'Avenir';
+	
 //
 // ─── MAIN ELEMENTS ──────────────────────────────────────────────────────────────
 //
 
 	body {
-		font-family: 'Avenir';
+		width: 100vw;
+		height: 100vh;
+		font-family: @regular-type-face;
 		font-size: @font-size;
 		padding: 0px;
 		margin: 0px;
@@ -39,6 +45,12 @@
 		overflow: hidden;
 		outline-color: transparent;
 		outline-style: none;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+    	user-select: none;
 	}
 	
 	:focus {
@@ -74,6 +86,7 @@
 
 	.button-zone {
 		padding-left: @control-bar-spacer-size - @text-box-border-size;
+		color: @tone2;
 	}
 
 //
@@ -81,11 +94,11 @@
 //
 	
 	.text-box-monofont {
-		font-family: monospace;
+		font-family: @mono-type-face;
 	}
 
 	.text-box-base {
-		float: left;
+		//float: left;
 		background-color: @tone1;
 		
 		@text-box-height: @button-height - @text-box-border-size;
@@ -103,7 +116,7 @@
 	}
 	
 	.text-box-base:hover {
-		border-color: @tone3;
+		border-color: @hover-color;
 	}
 	
 	.text-box-base:active,
@@ -128,6 +141,7 @@
 	.containerChildern {
 		background-color: @tone4;
 		border-radius: @border-round;
+		overflow: hidden;
 	}
 
 //
@@ -169,17 +183,14 @@
 //
 
 	#commentformatbox {
-		background-color: @tone1;
-
 		padding: @border-round;
-		height: @button-height;
-		border: none;
-		border-radius: @button-height / 2;
-		padding-left: @button-height / 2;
-		padding-top: @border-round - 10px;
+		height: @button-height * 1.3;
+		
+		@comment-format-left-right-padding: ( @button-height / 2 ) - @border-round;
+		padding-left: @comment-format-left-right-padding;
+		padding-right: @button-height / 2;
 
-		font-size: @font-size;
-		text-transform: uppercase;
+		font-size: @font-size; 
 		
 		-webkit-appearance: none;
 		-moz-appearance:none;
@@ -203,8 +214,19 @@
 	#view {
 		float: left;
 		margin-left: @pad-padding;
-		width: calc( ~'100vw' - unit( @control-bar-width + ( 3 * @pad-padding ) , px ) );
+		width: calc( ~'100vw' - unit( @control-bar-width + 3 * @pad-padding, px ) );
 		height: calc( ~'100vh' - unit( ( @header-height + 2 * @pad-padding ) , px ) );
+	}
+	
+	.comment-box {
+		margin: @pad-padding;
+		width: calc( ~'100vw' - unit( @control-bar-width + 6 * @pad-padding, px ) );
+		border-radius: @border-round;
+		background-color: #5B5B5B;
+		color: @tone2;
+		overflow-x: hidden;
+		padding: @pad-padding / 2;
+		font-family: @mono-type-face;
 	}
 
 //
