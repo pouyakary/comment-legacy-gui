@@ -1,12 +1,19 @@
+//
+// Comment IV 
+//    Copyright 2016 Kary Foundation, Inc.
+//    Author: Pouya Kary <k@karyfoundation.org>
+//
+
 @font-face {
   font-family: 'Menlo-Regular';
   src: url('Menlo-Regular.eot') format('embedded-opentype');
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Menlo-Regular';
-  src: url(data:application/x-font-woff;charset=utf-8;base64,d09GRgABAAAAA8uQABEAAAAHQBgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAPLdAAAABwA
+  src:  url(data:application/x-font-woff;charset=utf-8;base64,d09GRgABAAAAA8uQABEAAAAHQBgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAPLdAAAABwA
 AAAcUl9XPEdERUYAA6+gAAAAiQAAALB6im4AR1BPUwADs3wAABf3AAA4iBOr+OVHU1VCAAOwLAAA
 A00AAAUo1Q+0/E9TLzIAAAH0AAAAYAAAAGCO844aY21hcAAADhwAAA2hAAAVmjYEgYZjdnQgAAAh
 pAAAAawAAAIy6cEHDGZwZ20AABvAAAABZAAAAh9xazAtZ2x5ZgAAQkgAAzKjAAYYMKeFaNZoZWFk
@@ -4369,161 +4376,9 @@ wSj5pD6tQ08RBrPuJA+QClJNNpN6so00kl2QIftIK2kjR8hxchJypIucJz3kCukj18kg5MgICVNB
 7dRL42giTaZpdDHNoNk0ly6n+bSQFtN1tIxuopW0htbRrXQ73Ul302a6nx6k7YSKd/Fd1rv6/OLM
 XJ/wno9+vnZm5Rf1SaY/gP7dmfQfkTP4fE58Fd8AMrFZwBO++LqArCMekKUg+vyZ/t9qBSD6+WQt
 SClwHT0V8KlPl20GqQfZBqLPpe0iNPKBPncGfXz13hgdwcQ4qi28BHGLBUvu5pPxedd4/xvqJxjg
-AAAAAAEAAAAAxtQumQAAAADFdBkzAAAAAMYXD28=) format('woff'), url('Menlo-Regular.ttf') format('truetype'), url('Menlo-Regular.svg#Menlo-Regular') format('svg');
+AAAAAAEAAAAAxtQumQAAAADFdBkzAAAAAMYXD28=) format('woff'), url('Menlo-Regular.ttf')  format('truetype'), url('Menlo-Regular.svg#Menlo-Regular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
-body {
-  width: 100vw;
-  height: 100vh;
-  font-family: 'avenir-light';
-  font-size: 14px;
-  padding: 0px;
-  margin: 0px;
-  background-color: #2E2E2E;
-  overflow: hidden;
-  outline-color: transparent;
-  outline-style: none;
-}
-:focus {
-  outline-color: transparent;
-  outline-style: none;
-}
-header {
-  height: 50px;
-  width: 100vw;
-  background-color: #171717;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-.kary-header-logo {
-  float: right;
-  padding-top: 14px;
-  padding-right: 20px;
-}
-.gerda-header-name {
-  float: left;
-  padding-top: 13px;
-  padding-left: 13px;
-}
-.button-zone {
-  padding-left: 12px;
-  color: #cccccc;
-}
-.text-box-monofont {
-  font-family: 'Menlo-Regular';
-}
-.text-box-base {
-  background-color: #ffffff;
-  height: 25px;
-  margin: 1.5px;
-  border-radius: 18.5px;
-  padding-left: 11px;
-  padding-right: 11px;
-  padding-bottom: 3px;
-  border: 3px solid #424242;
-  font-size: 14px;
-}
-.text-box-base:hover {
-  border-color: #AEAEAE;
-}
-.text-box-base:active,
-.text-box-base:focus {
-  border-color: #3CA2DF;
-}
-.button-spacer {
-  height: 6px;
-}
-#container {
-  width: 100vw;
-  height: calc(100vh - 50px);
-  padding: 30px;
-}
-.containerChildern {
-  background-color: #424242;
-  border-radius: 5px;
-  overflow: hidden;
-}
-.controlBarRows {
-  width: 200px;
-  margin-right: 15px;
-  margin-left: 15px;
-}
-.control-bar-spacer {
-  width: 230px;
-  height: 15px;
-}
-.controlBarTitleTop {
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-.controlBarTitle {
-  color: #AEAEAE;
-  background-color: #4F4F4F;
-  width: 216px;
-  padding: 7px;
-  letter-spacing: 1.2;
-}
-#commentformatbox {
-  padding: 5px;
-  height: 36.4px;
-  padding-left: 9px;
-  padding-right: 14px;
-  font-size: 14px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-#control-bar {
-  float: left;
-  width: 230px;
-  height: calc(100vh - 110px);
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-#view {
-  float: left;
-  margin-left: 30px;
-  width: calc(100vw - 320px);
-  height: calc(100vh - 110px);
-}
-.comment-box {
-  position: relative;
-  margin: 30px;
-  width: calc(100vw - 410px);
-  border-radius: 5px;
-  background-color: #5B5B5B;
-  color: #cccccc;
-  overflow-x: hidden;
-  padding: 15px;
-  font-family: 'Menlo-Regular';
-  font-size: 12px;
-}
-.copy-box-icon {
-  position: absolute;
-  top: 0;
-  right: 15px;
-  width: 40px;
-  height: 40px;
-}
-.copy-box-icon-image-background {
-  width: 40px;
-  height: 40px;
-  background-image: url("copy-icon.svg");
-  background-size: 40px 40px;
-}
-@font-face {
-  font-family: "avenir-light";
-  src: url("avenir-light.eot");
-  src: url("venir-light.eot?#iefix") format("embedded-opentype"), url("avenir-light.woff") format("woff"), url("avenir-light.ttf") format("truetype"), url("avenir-light.svg#avenir-light") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
+
+
