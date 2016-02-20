@@ -28,6 +28,7 @@ do
 	echo "    -> Copying ${file}"
 	name=${file##*/}
 	cp $file "Comment IV/${name}"
+ 	cp $file "/Applications/Comment IV.app/Contents/Resources/${name}"
 done
 echo "   [ done ]"
 
