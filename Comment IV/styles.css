@@ -4420,20 +4420,29 @@ header {
 .text-box-base {
   background-color: #ffffff;
   height: 25px;
-  margin: 1.5px;
+  margin: 3px;
+  margin-bottom: 9px;
   border-radius: 18.5px;
   padding-left: 11px;
   padding-right: 11px;
   padding-bottom: 3px;
-  border: 3px solid #424242;
+  border: none;
   font-size: 14px;
+  transition-duration: 0.5s;
 }
-.text-box-base:hover {
-  border-color: #AEAEAE;
-}
+/*
+	.text-box-base:hover {
+		//margin:  ( @text-box-border-size / 2 );
+		//border: @text-box-border-size solid @hover-color;
+		margin:  ( @text-box-border-size / 2 ) + @text-box-border-size;
+		border: none;
+		box-shadow: 0 0 20px @hover-color;
+	}
+	*/
 .text-box-base:active,
 .text-box-base:focus {
-  border-color: #3CA2DF;
+  border: none;
+  box-shadow: 0 0 20px #9A9A9A;
 }
 .button-spacer {
   height: 6px;
@@ -4470,7 +4479,7 @@ header {
 }
 #commentformatbox {
   padding: 5px;
-  height: 36.4px;
+  height: 28px;
   padding-left: 9px;
   padding-right: 14px;
   font-size: 14px;

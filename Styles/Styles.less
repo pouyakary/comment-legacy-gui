@@ -17,8 +17,8 @@
 	@tone5: #2E2E2E;
 	@tone6: #171717;
 	
-	@focos-color: #3CA2DF;
-	@hover-color: @tone3;
+	@focos-color: #005CFF;
+	@hover-color: #9A9A9A;
 	
 //
 // ─── SIZES ──────────────────────────────────────────────────────────────────────
@@ -33,6 +33,7 @@
 	@font-size: 				14px;
 	@control-bar-spacer-size: 	@pad-padding / 2;
 	@text-box-border-size: 		3px;
+	@focus-glow-radius: 		20px;
 	
 	@mono-type-face: 'Menlo-Regular';
 	@regular-type-face: 'avenir-light';
@@ -110,7 +111,8 @@
 		
 		@text-box-height: @button-height - @text-box-border-size;
 		height: @text-box-height;
-		margin:  @text-box-border-size / 2;
+		margin: @text-box-border-size;
+		margin-bottom: @text-box-border-size * 3;
 		border-radius: ( @text-box-height / 2 ) + 2 * @text-box-border-size ;
 		
 		@padding-text-box: ( @button-height / 2 ) - 3px ;
@@ -118,17 +120,26 @@
 		padding-right: @padding-text-box;
 		padding-bottom: @text-box-border-size;
 		
-		border: @text-box-border-size solid @tone4;
+		border: none;
 		font-size: @font-size;
+		
+		transition-duration: 0.5s
 	}
 	
+	/*
 	.text-box-base:hover {
-		border-color: @hover-color;
+		//margin:  ( @text-box-border-size / 2 );
+		//border: @text-box-border-size solid @hover-color;
+		margin:  ( @text-box-border-size / 2 ) + @text-box-border-size;
+		border: none;
+		box-shadow: 0 0 20px @hover-color;
 	}
+	*/
 	
 	.text-box-base:active,
 	.text-box-base:focus {
-		border-color:  @focos-color;
+		border: none;
+		box-shadow: 0 0 @focus-glow-radius @hover-color;
 	}
 	
 	.button-spacer {
@@ -191,7 +202,7 @@
 
 	#commentformatbox {
 		padding: @border-round;
-		height: @button-height * 1.3;
+		height: @button-height;
 		
 		@comment-format-left-right-padding: ( @button-height / 2 ) - @border-round;
 		padding-left: @comment-format-left-right-padding;
