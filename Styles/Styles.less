@@ -194,6 +194,7 @@
 //
 // ─── TEXT BOX BUTTON EXTENSIONS ─────────────────────────────────────────────────
 //
+	@button-width-unit: ( @control-bar-width - @pad-padding - 3 * @border-round ) / 3;
 
 	.text-box-button-extention {
 		float: left;
@@ -201,9 +202,13 @@
 		padding-left: 0;
 		padding-right: 0;
 		text-align: center;
-		width: ( @control-bar-width - @pad-padding - 3 * @border-round ) / 3;
+		width: @button-width-unit;
 		height: 24px;
 		display: block;
+	}
+	
+	#GenerateButton {
+		width: @button-width-unit * 2 + 3px;
 	}
 	
 // ────────────────────────────────────────────────────────────────────────────────

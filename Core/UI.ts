@@ -37,6 +37,7 @@ module UI {
 		const CommentStyleFlag					= 'flag';
 		const CommentStyleSection				= 'section';
 		const CommentStyleSubSection			= 'subsection';
+		const CommentStyleInSection				= 'insection';
 		const CommentStyleLine					= 'line';
 		const CommentStyleSubLine				= 'subline';
 		const CommentStyleNote					= 'note';
@@ -114,6 +115,8 @@ module UI {
 			if ( viewDiv.children.length > 10 ) {
 				viewDiv.removeChild( viewDiv.lastChild );
 			}
+			
+			FadeResultViews( );
 		}
 
 	//
@@ -142,6 +145,10 @@ module UI {
 					
 				case CommentStyleSubSection:
 					commentString = Core.GenerateSubSectionComment( );
+					break;
+					
+				case CommentStyleInSection:
+					commentString = Core.GenerateInSectionComment( );
 					break;
 					
 				case CommentStyleLine:
@@ -226,6 +233,13 @@ module UI {
 					valueBox.style.display 		= displayOff;
 					separtorBox.style.display	= displayOn;
 					break;
+				
+				case CommentStyleInSection:
+					sizeBox.style.display 		= displayOff;
+					indexBox.style.display 		= displayOff;
+					valueBox.style.display 		= displayOn;
+					separtorBox.style.display	= displayOff;
+					break;
 					
 				case CommentStyleNote:
 					sizeBox.style.display 		= displayOff;
@@ -259,17 +273,20 @@ module UI {
 		 * Updates the global variables once they are changed 
 		 */
 		export function UpdateGlobalInputVariables ( ) : boolean {
+			// Loading the data
 			globalSizeValue 				= ReadNumberInput( CommentSizeBox );
 			globalIndexValue 				= ReadNumberInput( CommentIndexBox );
 			globalSeparatorCharacterValue 	= GetInputElementValue( CommentSeparatorCharacterBox );
 			globalTextValue 				= GetInputElementValue( CommentValueBox );
 			
+			// Checking their results
 			var result = true;
 			if ( globalSizeValue == 0 ) 
 				result = false;
 			if ( globalIndexValue == 0 ) 
 				result = false;
-				
+			
+			// return time
 			return result;
 		}
 
@@ -337,6 +354,15 @@ module UI {
 		export function CleanCommentView ( ) {
 			document.getElementById( ViewDivID ).innerHTML = '';
 			ShowTheKaryHorse( );
+		}
+		
+	//
+	// ─── FADE EFFECT ────────────────────────────────────────────────────────────────
+	//
+		
+		/** Generates a fade effect for the rows */
+		function FadeResultViews ( ) {
+			// to be completed
 		}
 
 	// ────────────────────────────────────────────────────────────────────────────────

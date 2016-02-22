@@ -144,6 +144,14 @@ module Core {
 		}
 		
 	//
+	// ─── IS SECTION COMMENT GENERATOR ───────────────────────────────────────────────
+	//
+
+		export function GenerateInSectionComment ( ) : string {
+			return '//\n// ' + globalTextValue.toUpperCase( ) + '\n//';
+		}
+		
+	//
 	// ─── SEPARATOR COMMENT GENERATOR ────────────────────────────────────────────────
 	//
 	

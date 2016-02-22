@@ -37,14 +37,15 @@
 						<option value="flag">Flag Comment</option>
 						<option value="section" selected="selected">Section Comment</option>
 						<option value="subsection">Subsection Comment</option>
+						<option value="insection">InSection Comment</option>
 						<option value="line">Line Comment</option>
 						<option value="subline">SubLine Comment</option>
 						<option value="separator">Separator Comment</option>
 						<!--option value="note">Note Comment</option-->
 					</select>
 					<!-- Buttons -->
-					<button class="text-box-base text-box-button-extention" onclick="UI.CreateNewComment( );">Make</button>
-					<button class="text-box-base text-box-button-extention" onclick="">Copy</button>
+					<button id="GenerateButton" class="text-box-base text-box-button-extention" onclick="UI.CreateNewComment( );">Generate</button>
+					<!--button class="text-box-base text-box-button-extention" onclick="">Copy</button-->
 					<button class="text-box-base text-box-button-extention" onclick="UI.CleanCommentView( );">Clean</button>
 					<div style="clear: both;"></div>
 				</div>
@@ -89,11 +90,6 @@
 			</div>
 			<!-- Where the Comments are displayed -->
 			<div id="view" class="containerChildern kary-horse-back-show">
-				<!--pre class="comment-box">
-					<div class="copy-box-icon">
-						<div class="copy-box-icon-image-background"></div>
-					</div>
-				</pre-->
 			</div>
 		</div>
 	</body>
