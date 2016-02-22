@@ -4429,7 +4429,8 @@ header {
   font-family: 'Menlo-Regular';
 }
 .text-box-base {
-  background-color: #ffffff;
+  background-color: #4F4F4F;
+  color: #cccccc;
   height: 25px;
   margin: 3px;
   margin-bottom: 9px;
@@ -4437,23 +4438,31 @@ header {
   padding-left: 11px;
   padding-right: 11px;
   padding-bottom: 3px;
+  padding-top: 0px;
   border: none;
   font-size: 14px;
   transition-duration: 0.5s;
 }
-/*
-	.text-box-base:hover {
-		//margin:  ( @text-box-border-size / 2 );
-		//border: @text-box-border-size solid @hover-color;
-		margin:  ( @text-box-border-size / 2 ) + @text-box-border-size;
-		border: none;
-		box-shadow: 0 0 20px @hover-color;
-	}
-	*/
+.text-box-base:hover {
+  background-color: #858585;
+  color: #ffffff;
+}
 .text-box-base:active,
 .text-box-base:focus {
+  background-color: #ffffff;
+  color: black;
   border: none;
   box-shadow: 0 0 20px #9A9A9A;
+}
+.text-box-button-extention {
+  float: left;
+  padding-top: 1px;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+  width: 61.66666667px;
+  height: 24px;
+  display: block;
 }
 .button-spacer {
   height: 6px;
@@ -4493,6 +4502,7 @@ header {
   height: 28px;
   padding-left: 9px;
   padding-right: 14px;
+  padding-bottom: 7px;
   font-size: 14px;
   -webkit-appearance: none;
   -moz-appearance: none;

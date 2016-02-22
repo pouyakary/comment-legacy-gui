@@ -10,12 +10,15 @@
 // ─── COLORS ─────────────────────────────────────────────────────────────────────
 //
 
-	@tone1: #ffffff;
-	@tone2: #cccccc;
-	@tone3: #AEAEAE;
-	@tone4: #424242;
-	@tone5: #2E2E2E;
-	@tone6: #171717;
+	@tone1: 	#ffffff;
+	@tone1-2:  	#eeeeee;
+	@tone2: 	#cccccc;
+	@tone3: 	#AEAEAE;
+	@tone3-2: 	#858585;
+	@tone3-3: 	#4F4F4F;
+	@tone4: 	#424242;
+	@tone5: 	#2E2E2E;
+	@tone6: 	#171717;
 	
 	@focos-color: #005CFF;
 	@hover-color: #9A9A9A;
@@ -135,7 +138,8 @@
 
 	.text-box-base {
 		//float: left;
-		background-color: @tone1;
+		background-color: @tone3-3;
+		color: @tone2;
 		
 		@text-box-height: @button-height - @text-box-border-size;
 		height: @text-box-height;
@@ -147,6 +151,7 @@
 		padding-left: @padding-text-box;
 		padding-right: @padding-text-box;
 		padding-bottom: @text-box-border-size;
+		padding-top: 0px;
 		
 		border: none;
 		font-size: @font-size;
@@ -154,22 +159,36 @@
 		transition-duration: 0.5s
 	}
 	
-	/*
 	.text-box-base:hover {
-		//margin:  ( @text-box-border-size / 2 );
-		//border: @text-box-border-size solid @hover-color;
-		margin:  ( @text-box-border-size / 2 ) + @text-box-border-size;
-		border: none;
-		box-shadow: 0 0 20px @hover-color;
+		background-color: @tone3-2;
+		color: @tone1;
 	}
-	*/
 	
 	.text-box-base:active,
 	.text-box-base:focus {
+		background-color: @tone1;
+		color: black;
 		border: none;
 		box-shadow: 0 0 @focus-glow-radius @hover-color;
 	}
 	
+//
+// ─── TEXT BOX BUTTON EXTENSIONS ─────────────────────────────────────────────────
+//
+
+	.text-box-button-extention {
+		float: left;
+		padding-top: 1px;
+		padding-left: 0;
+		padding-right: 0;
+		text-align: center;
+		width: ( @control-bar-width - @pad-padding - 3 * @border-round ) / 3;
+		height: 24px;
+		display: block;
+	}
+	
+// ────────────────────────────────────────────────────────────────────────────────
+
 	.button-spacer {
 		height: ( @pad-padding / 2 ) - 3 * @text-box-border-size;
 	}
@@ -218,7 +237,7 @@
 	
 	.controlBarTitle {
 		color: @tone3;
-		background-color: #4F4F4F;
+		background-color: @tone3-3;
 		width: @control-bar-width - ( 2 * @control-bar-padding );
 		padding: @control-bar-padding;
 		letter-spacing: 1.2;
@@ -235,6 +254,8 @@
 		@comment-format-left-right-padding: ( @button-height / 2 ) - @border-round;
 		padding-left: @comment-format-left-right-padding;
 		padding-right: @button-height / 2;
+		padding-bottom: 7px;
+
 
 		font-size: @font-size; 
 		

@@ -61,7 +61,7 @@ module UI {
 			}
 		}
 		
-		function CreateNewComment ( ) {
+		export function CreateNewComment ( ) {
 			HideTheKaryHorse( );
 			UpdateGlobalInputVariables( );
 			UpdateCommentChars( );
@@ -293,7 +293,7 @@ module UI {
 	// ─── VIEW CLEANER ───────────────────────────────────────────────────────────────
 	//	
 	
-		function CleanCommentView ( ) {
+		export function CleanCommentView ( ) {
 			document.getElementById( ViewDivID ).innerHTML = '';
 			ShowTheKaryHorse( );
 		}

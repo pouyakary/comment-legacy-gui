@@ -31,6 +31,7 @@
 				<div class="control-bar-spacer"></div>
 				<!-- Comment Kind Control -->
 				<div class="button-zone">
+					<!-- Kind Choose Box -->
 					Kind <select id="commentformatbox" onchange="UI.LoadInputBoxes()" onclick="UI.LoadInputBoxes()" onselect="UI.LoadInputBoxes()" class="text-box-base">
 						<option value="class">Class Comment</option>
 						<option value="flag">Flag Comment</option>
@@ -41,6 +42,11 @@
 						<option value="separator">Separator Comment</option>
 						<!--option value="note">Note Comment</option-->
 					</select>
+					<!-- Buttons -->
+					<button class="text-box-base text-box-button-extention" onclick="UI.CreateNewComment( );">Make</button>
+					<button class="text-box-base text-box-button-extention" onclick="">Copy</button>
+					<button class="text-box-base text-box-button-extention" onclick="UI.CleanCommentView( );">Clean</button>
+					<div style="clear: both;"></div>
 				</div>
 				<!-- Inputs -->
 				<div class="control-bar-spacer"></div>
@@ -89,6 +95,7 @@
 					</div>
 				</pre-->
 			</div>
+			<!-- kary's logo on the page -->
 			<div id="kary-horse-back"></div>
 		</div>
 	</body>
