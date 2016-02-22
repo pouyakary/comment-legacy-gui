@@ -46,10 +46,13 @@ module UI {
 		const ViewDivID							= 'view';
 		const CommentBoxStyleClassName 			= 'comment-box';
 		const TheKaryHorseDivID 				= 'kary-horse-back';
+		const ErrorMessageBoxClassName			= 'error-box';
 		
 		// Constant Settings
 		const displayOn 						= 'inline';
 		const displayOff  						= 'none';	
+		const viewBoxBackgroundImageHide		= 'kary-horse-back-hide';
+		const viewBoxBackgroundImageShow		= 'kary-horse-back-show';
 			
 	//
 	// ─── ON ADD COMMENT ─────────────────────────────────────────────────────────────
@@ -63,24 +66,52 @@ module UI {
 		
 		export function CreateNewComment ( ) {
 			HideTheKaryHorse( );
-			UpdateGlobalInputVariables( );
 			UpdateCommentChars( );
 			
-			const commentString = GenerateComment( );
-			
-			var commentBox = document.createElement( 'pre' );
-			commentBox.className = CommentBoxStyleClassName;
-			commentBox.innerHTML = commentString;
-			
-			
+			let successOfLoadingNumericalInputs = UpdateGlobalInputVariables( );
 			var viewDiv = document.getElementById( ViewDivID );
-			if ( viewDiv.children.length == 0 ) {
-				viewDiv.appendChild( commentBox );
+			var resultBox = document.createElement( 'pre' );
+			
+			if ( successOfLoadingNumericalInputs ) {
+				
+				//
+				// - - adding the comment - - - - - - - - - - - - - - - - - - - - - - - -
+				//
+				
+					// Generating the Comment
+					const commentString = GenerateComment( );
+					
+					// Generating the Comment Box
+					resultBox.className = CommentBoxStyleClassName;
+					resultBox.innerHTML = commentString;
+					
+				//  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+				
 			} else {
-				viewDiv.insertBefore( commentBox , viewDiv.firstChild );
+				
+				//
+				// - - showing errors - - - - - - - - - - - - - - - - - - - - - - - - - -
+				//
+				
+					var errorBox = document.createElement( 'pre' );
+					resultBox.className = CommentBoxStyleClassName;
+					resultBox.classList.add( ErrorMessageBoxClassName );
+					resultBox.innerHTML = 'OPERATION FAILD: ERROR IN LOADING THE NUMERICAL INPUTS';
+				
+				//  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+				
 			}
 			
-			if ( viewDiv.children.length > 20 ) {
+			// Adding the comment
+			if ( viewDiv.children.length == 0 ) {
+				viewDiv.appendChild( resultBox );
+			} else {
+				viewDiv.insertBefore( resultBox , viewDiv.firstChild );
+			}
+			
+			// Removing DOM Elements that are out of the div and are
+			// not visible for memory management reasons
+			if ( viewDiv.children.length > 10 ) {
 				viewDiv.removeChild( viewDiv.lastChild );
 			}
 		}
@@ -227,11 +258,19 @@ module UI {
 		/** 
 		 * Updates the global variables once they are changed 
 		 */
-		export function UpdateGlobalInputVariables ( ) {
+		export function UpdateGlobalInputVariables ( ) : boolean {
 			globalSizeValue 				= ReadNumberInput( CommentSizeBox );
 			globalIndexValue 				= ReadNumberInput( CommentIndexBox );
 			globalSeparatorCharacterValue 	= GetInputElementValue( CommentSeparatorCharacterBox );
 			globalTextValue 				= GetInputElementValue( CommentValueBox );
+			
+			var result = true;
+			if ( globalSizeValue == 0 ) 
+				result = false;
+			if ( globalIndexValue == 0 ) 
+				result = false;
+				
+			return result;
 		}
 
 	//
@@ -256,13 +295,11 @@ module UI {
 		 * user input.
 		 */
 		function ReadNumberInput ( id: string ) : number {
-			var result = parseInt (
-				( <HTMLInputElement> ( document.getElementById( id ) ) ).value 
-			)
-			if ( isNaN( result) ) {
-				return 0;
+			let value = ( <HTMLInputElement> ( document.getElementById( id ) ) ).value;
+			if ( value.match( /^\d+$/ ) ) {
+				return parseInt ( value )
 			} else {
-				return result;
+				return 0;
 			}
 		}
 		
@@ -282,11 +319,15 @@ module UI {
 	//
 		
 		function HideTheKaryHorse ( ) {
-			document.getElementById( TheKaryHorseDivID ).style.display = displayOff;
+			var classNames = document.getElementById( ViewDivID ).classList;
+			classNames.remove( viewBoxBackgroundImageShow );
+			classNames.add( viewBoxBackgroundImageHide );
 		}
 		
 		function ShowTheKaryHorse ( ) {
-			document.getElementById( TheKaryHorseDivID ).style.display = displayOn;
+			var classNames = document.getElementById( ViewDivID ).classList;
+			classNames.remove( viewBoxBackgroundImageHide );
+			classNames.add( viewBoxBackgroundImageShow );
 		}
 	
 	//

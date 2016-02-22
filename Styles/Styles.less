@@ -23,6 +23,8 @@
 	@focos-color: #005CFF;
 	@hover-color: #9A9A9A;
 	
+	@error-box-color: #BC0307;
+	
 //
 // ─── SIZES ──────────────────────────────────────────────────────────────────────
 //
@@ -75,13 +77,13 @@
 // ─── KARY HORSE BACK ────────────────────────────────────────────────────────────
 //
 
-	#kary-horse-back {
+	.kary-horse-back-show {
 		@kary-horse-sise-heigth: @kary-horse-size-width / @kary-horse-width-to-height;
 		
 		width: @kary-horse-size-width;
 		height: @kary-horse-sise-heigth;
 		
-		/*
+        /*
 	     *   ┌───┤
          *   │ N ⎪ I once wrote a peace code to inserted of drawing the
          *   │ O ⎪ Kary Horse on the background div, draw it outside of
@@ -90,16 +92,22 @@
          *   └───┤  written as masterpiece. That's why I'm going to keep
          *       ⎪ this lines of code as a comment.
          *       ⎪  
-		 *
+         *
          *   position: fixed;
          *   @static-logo-heigth-change: ( @kary-horse-sise-heigth - @header-height ) / 2;
          *   top: calc( ~'50vh' - unit( @static-logo-heigth-change , px ) );
          *   @static-logo-width-change: ( @kary-horse-size-width + @control-bar-width ) / 2;
          *   right: calc( ~'50vw' - unit( @static-logo-width-change , px ) );
-		 */
+         */
 		
 		background-image: url( "the-kary-horse-back.svg" );
 		background-size: @kary-horse-size-width @kary-horse-sise-heigth;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+	
+	.kary-horse-back-hide {
+		background-position: left;
 	}
 	
 //
@@ -150,7 +158,7 @@
 	.text-box-base {
 		//float: left;
 		background-color: @tone3-3;
-		color: @tone2;
+		color: @tone1;
 		
 		@text-box-height: @button-height - @text-box-border-size;
 		height: @text-box-height;
@@ -314,12 +322,16 @@
 		margin: @pad-padding;
 		width: calc( ~'100vw' - unit( @control-bar-width + 6 * @pad-padding, px ) );
 		border-radius: @border-round;
-		background-color: #5B5B5B;
+		background-color: @tone3-3;
 		color: @tone2;
 		overflow-x: hidden;
 		padding: @comment-box-padding;
 		font-family: @mono-type-face;
 		font-size: @font-size - 2px;
+	}
+	
+	.error-box {
+		background-color: @error-box-color;
 	}
 
 //
