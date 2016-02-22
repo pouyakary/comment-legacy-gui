@@ -21,6 +21,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
         View.mainFrameURL = NSBundle.mainBundle().pathForResource("index", ofType: "html")
         
+        window.minSize.height = 580
+        
+        window.minSize.width = 1100
+        
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
