@@ -81,11 +81,22 @@
 		width: @kary-horse-size-width;
 		height: @kary-horse-sise-heigth;
 		
-		position: fixed;
-		@static-logo-heigth-change: ( @kary-horse-sise-heigth - @header-height ) / 2;
-		top: calc( ~'50vh' - unit( @static-logo-heigth-change , px ) );
-		@static-logo-width-change: ( @kary-horse-size-width + @control-bar-width ) / 2;
-		right: calc( ~'50vw' - unit( @static-logo-width-change , px ) );
+		/*
+	     *   ┌───┤
+         *   │ N ⎪ I once wrote a peace code to inserted of drawing the
+         *   │ O ⎪ Kary Horse on the background div, draw it outside of
+         *   │ T ⎪ it and with many less/css magics make it be there.
+         *   │ E ⎪ just right on the place hence it was a peace of crap
+         *   └───┤  written as masterpiece. That's why I'm going to keep
+         *       ⎪ this lines of code as a comment.
+         *       ⎪  
+		 *
+         *   position: fixed;
+         *   @static-logo-heigth-change: ( @kary-horse-sise-heigth - @header-height ) / 2;
+         *   top: calc( ~'50vh' - unit( @static-logo-heigth-change , px ) );
+         *   @static-logo-width-change: ( @kary-horse-size-width + @control-bar-width ) / 2;
+         *   right: calc( ~'50vw' - unit( @static-logo-width-change , px ) );
+		 */
 		
 		background-image: url( "the-kary-horse-back.svg" );
 		background-size: @kary-horse-size-width @kary-horse-sise-heigth;
