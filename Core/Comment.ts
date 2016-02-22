@@ -162,8 +162,7 @@ module Core {
 		function MakeTitle ( text: string ) {
 			var result = '';
 			for ( var index = 0 ; index < text.length ; index++ ) {
-				var element = text[ index ];
-				result += ' ' + element;
+				result += ' ' + text[ index ];
 			}
 			return result.toUpperCase( );			
 		}
