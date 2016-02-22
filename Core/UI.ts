@@ -16,13 +16,15 @@ module UI {
 		const OneLineInputDivID 				= "one-line-value-div";
 		const SizeInputDivID 					= "size-value-div";
 		const IndexInputDivID 					= "index-value-div";
+		const SeparatorCharacterDivID			= "separator-value-div";
 		
 		// Input Box IDs
 		const CommentKindBox 					= "commentformatbox";
 		const CommentValueBox 					= "cp-value";
 		const CommentSizeBox					= "cp-size";
 		const CommentIndexBox 					= "cp-index";
-		
+		const CommentSeparatorCharacterBox		= "cp-separator";
+				
 		// Language Settings
 		const CommentStyleMultiLineTopLeft 		= 'cs-top-left';
 		const CommentStyleMultiLineTopRight 	= 'cs-top-right';
@@ -38,6 +40,7 @@ module UI {
 		const CommentStyleLine					= 'line';
 		const CommentStyleSubLine				= 'subline';
 		const CommentStyleNote					= 'note';
+		const CommentStyleSeparator 			= 'separator';
 		
 		// Generating Settings
 		const ViewDivID							= 'view';
@@ -112,6 +115,10 @@ module UI {
 					commentString = Core.GenerateSubLineComment( );
 					break;
 					
+				case CommentStyleSeparator:
+					commentString = Core.GenerateSeparatorComment( );
+					break;
+					
 			}
 			return commentString;
 		}
@@ -131,51 +138,66 @@ module UI {
 			var 	sizeBox 		= document.getElementById( SizeInputDivID );
 			var 	indexBox 		= document.getElementById( IndexInputDivID );
 			var 	valueBox		= document.getElementById( OneLineInputDivID );
+			var 	separtorBox		= document.getElementById( SeparatorCharacterDivID );
 			
 			const 	displayOn 		= 'inline';
 			const 	displayOff  	= 'none';	
 
 			switch ( GetCommentKind( ) ) {
 				case CommentStyleClass:
-					sizeBox.style.display 	= displayOn;
-					indexBox.style.display 	= displayOff;
-					valueBox.style.display 	= displayOn;
+					sizeBox.style.display 		= displayOn;
+					indexBox.style.display 		= displayOff;
+					valueBox.style.display 		= displayOn;
+					separtorBox.style.display 	= displayOff;
 					break;
 				
 				case CommentStyleFlag:
-					sizeBox.style.display 	= displayOn;
-					indexBox.style.display 	= displayOn;
-					valueBox.style.display 	= displayOn;
+					sizeBox.style.display 		= displayOn;
+					indexBox.style.display 		= displayOn;
+					valueBox.style.display 		= displayOn;
+					separtorBox.style.display 	= displayOff;
 					break;
 					
 				case CommentStyleSection:
-					sizeBox.style.display 	= displayOn;
-					indexBox.style.display	 = displayOff;
-					valueBox.style.display 	= displayOn;
+					sizeBox.style.display 		= displayOn;
+					indexBox.style.display	 	= displayOff;
+					valueBox.style.display 		= displayOn;
+					separtorBox.style.display	= displayOff;
 					break;
 				
 				case CommentStyleSubSection:
-					sizeBox.style.display 	= displayOn;
-					indexBox.style.display 	= displayOff;
-					valueBox.style.display 	= displayOn;
+					sizeBox.style.display 		= displayOn;
+					indexBox.style.display 		= displayOff;
+					valueBox.style.display 		= displayOn;
+					separtorBox.style.display	= displayOff;
 					break;
 					
 				case CommentStyleLine:
-					sizeBox.style.display 	= displayOn;
-					indexBox.style.display 	= displayOff;
-					valueBox.style.display 	= displayOff;
+					sizeBox.style.display 		= displayOn;
+					indexBox.style.display 		= displayOff;
+					valueBox.style.display 		= displayOff;
+					separtorBox.style.display	= displayOff;
 					break;
 					
 				case CommentStyleSubLine:
-					sizeBox.style.display 	= displayOn;
-					indexBox.style.display 	= displayOff;
-					valueBox.style.display 	= displayOff;
+					sizeBox.style.display 		= displayOn;
+					indexBox.style.display 		= displayOff;
+					valueBox.style.display 		= displayOff;
+					separtorBox.style.display	= displayOff;
+					break;
+					
+				case CommentStyleSeparator:
+					sizeBox.style.display 		= displayOff;
+					indexBox.style.display 		= displayOff;
+					valueBox.style.display 		= displayOff;
+					separtorBox.style.display	= displayOn;
 					break;
 					
 				case CommentStyleNote:
-					sizeBox.style.display 	= displayOff;
-					indexBox.style.display 	= displayOff;
-					valueBox.style.display 	= displayOff;
+					sizeBox.style.display 		= displayOff;
+					indexBox.style.display 		= displayOff;
+					valueBox.style.display 		= displayOff;
+					separtorBox.style.display	= displayOff;
 					break;
 			}
 		}
@@ -203,9 +225,10 @@ module UI {
 		 * Updates the global variables once they are changed 
 		 */
 		export function UpdateGlobalInputVariables ( ) {
-			globalSizeValue = ReadNumberInput( CommentSizeBox );
-			globalIndexValue = ReadNumberInput( CommentIndexBox );
-			globalTextValue = GetInputElementValue( CommentValueBox );
+			globalSizeValue 				= ReadNumberInput( CommentSizeBox );
+			globalIndexValue 				= ReadNumberInput( CommentIndexBox );
+			globalSeparatorCharacterValue 	= GetInputElementValue( CommentSeparatorCharacterBox );
+			globalTextValue 				= GetInputElementValue( CommentValueBox );
 		}
 
 	//

@@ -11,6 +11,7 @@ var languageMultiLineBottomRight: string;
 var languageOneLine: string;
 
 var globalTextValue: string;
+var globalSeparatorCharacterValue: string;
 var globalSizeValue: number;
 var globalIndexValue: number;
 
@@ -140,6 +141,14 @@ module Core {
 			comment += languageOneLine;
 			// Done
 			return comment;	
+		}
+		
+	//
+	// ─── SEPARATOR COMMENT GENERATOR ────────────────────────────────────────────────
+	//
+	
+		export function GenerateSeparatorComment ( ) : string {
+			return '//' + MakeRepeat( ' ' + globalSeparatorCharacterValue , 5 );
 		}
 
 	// ────────────────────────────────────────────────────────────────────────────────
