@@ -24,16 +24,22 @@
 // ─── SIZES ──────────────────────────────────────────────────────────────────────
 //
 
-	@header-height: 			50px;
-	@header-width: 				100vw;
-	@pad-padding: 				30px;
-	@control-bar-width: 		230px;
-	@border-round: 				5px;
-	@button-height: 			28px;
-	@font-size: 				14px;
-	@control-bar-spacer-size: 	@pad-padding / 2;
-	@text-box-border-size: 		3px;
-	@focus-glow-radius: 		20px;
+	@header-height: 				50px;
+	@header-width: 					100vw;
+	@pad-padding: 					30px;
+	@control-bar-width: 			230px;
+	@border-round: 					5px;
+	@button-height: 				28px;
+	@font-size: 					14px;
+	@control-bar-spacer-size: 		@pad-padding / 2;
+	@text-box-border-size: 			3px;
+	@focus-glow-radius: 			20px;
+	@kary-horse-size-width: 		400px;
+	@kary-horse-width-to-height: 	1.313343328335832;
+	
+//
+// ─── FONTS ──────────────────────────────────────────────────────────────────────
+//
 	
 	@mono-type-face: 'Menlo-Regular';
 	@regular-type-face: 'avenir-light';
@@ -53,6 +59,8 @@
 		overflow: hidden;
 		outline-color: transparent;
 		outline-style: none;
+		min-width: 1100px;
+		min-height: 600px;
 	}
 	
 	:focus {
@@ -60,6 +68,26 @@
   		outline-style: none;
 	}
 
+//
+// ─── KARY HORSE BACK ────────────────────────────────────────────────────────────
+//
+
+	#kary-horse-back {
+		@kary-horse-sise-heigth: @kary-horse-size-width / @kary-horse-width-to-height;
+		
+		width: @kary-horse-size-width;
+		height: @kary-horse-sise-heigth;
+		
+		position: fixed;
+		@static-logo-heigth-change: ( @kary-horse-sise-heigth - @header-height ) / 2;
+		top: calc( ~'50vh' - unit( @static-logo-heigth-change , px ) );
+		@static-logo-width-change: ( @kary-horse-size-width + @control-bar-width ) / 2;
+		right: calc( ~'50vw' - unit( @static-logo-width-change , px ) );
+		
+		background-image: url( "the-kary-horse-back.svg" );
+		background-size: @kary-horse-size-width @kary-horse-sise-heigth;
+	}
+	
 //
 // ─── HEADER ─────────────────────────────────────────────────────────────────────
 //

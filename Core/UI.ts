@@ -45,6 +45,11 @@ module UI {
 		// Generating Settings
 		const ViewDivID							= 'view';
 		const CommentBoxStyleClassName 			= 'comment-box';
+		const TheKaryHorseDivID 				= 'kary-horse-back';
+		
+		// Constant Settings
+		const displayOn 						= 'inline';
+		const displayOff  						= 'none';	
 			
 	//
 	// ─── ON ADD COMMENT ─────────────────────────────────────────────────────────────
@@ -57,6 +62,7 @@ module UI {
 		}
 		
 		function CreateNewComment ( ) {
+			HideTheKaryHorse( );
 			UpdateGlobalInputVariables( );
 			UpdateCommentChars( );
 			
@@ -88,7 +94,7 @@ module UI {
 		 * function to generate that kind of comment
 		 * and then returns the comment as a string.
 		 */
-		function GenerateComment ( ) : string {
+		function GenerateComment ( ) : string {	
 			var commentString: string;
 			switch ( GetCommentKind( ) ) {
 				case CommentStyleClass:
@@ -139,9 +145,6 @@ module UI {
 			var 	indexBox 		= document.getElementById( IndexInputDivID );
 			var 	valueBox		= document.getElementById( OneLineInputDivID );
 			var 	separtorBox		= document.getElementById( SeparatorCharacterDivID );
-			
-			const 	displayOn 		= 'inline';
-			const 	displayOff  	= 'none';	
 
 			switch ( GetCommentKind( ) ) {
 				case CommentStyleClass:
@@ -272,6 +275,27 @@ module UI {
 		 */
 		function GetInputElementValue ( id: string ) {
 			return ( <HTMLInputElement> document.getElementById( id ) ).value;
+		}
+		
+	//
+	// ─── KARY LOGO HANDLERS ─────────────────────────────────────────────────────────
+	//
+		
+		function HideTheKaryHorse ( ) {
+			document.getElementById( TheKaryHorseDivID ).style.display = displayOff;
+		}
+		
+		function ShowTheKaryHorse ( ) {
+			document.getElementById( TheKaryHorseDivID ).style.display = displayOn;
+		}
+	
+	//
+	// ─── VIEW CLEANER ───────────────────────────────────────────────────────────────
+	//	
+	
+		function CleanCommentView ( ) {
+			document.getElementById( ViewDivID ).innerHTML = '';
+			ShowTheKaryHorse( );
 		}
 
 	// ────────────────────────────────────────────────────────────────────────────────

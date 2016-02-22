@@ -4384,10 +4384,21 @@ body {
   overflow: hidden;
   outline-color: transparent;
   outline-style: none;
+  min-width: 1100px;
+  min-height: 600px;
 }
 :focus {
   outline-color: transparent;
   outline-style: none;
+}
+#kary-horse-back {
+  width: 400px;
+  height: 304.56621005px;
+  position: fixed;
+  top: calc(50vh - 127.28310502px);
+  right: calc(50vw - 315px);
+  background-image: url("the-kary-horse-back.svg");
+  background-size: 400px 304.56621005px;
 }
 header {
   height: 50px;
