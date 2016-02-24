@@ -21,7 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
         View.mainFrameURL = NSBundle.mainBundle().pathForResource("index", ofType: "html")
         
-        window.minSize.height = 580
+        window.minSize.height = 600
         
         window.minSize.width = 1100
         
