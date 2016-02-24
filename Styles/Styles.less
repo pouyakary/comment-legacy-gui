@@ -251,11 +251,6 @@
 //
 // ─── CONTROL BAR TITLE ──────────────────────────────────────────────────────────
 //
-
-	.controlBarTitleTop {
-		border-top-left-radius: @border-round;
-		border-top-right-radius: @border-round;
-	}
 	
 	@control-bar-padding: 7px;
 	
@@ -264,7 +259,13 @@
 		background-color: @tone3-3;
 		width: @control-bar-width - ( 2 * @control-bar-padding );
 		padding: @control-bar-padding;
+		padding-top: @control-bar-padding + 3px;
 		letter-spacing: 1.2;
+	}
+	
+	.controlBarTitleTop {
+		border-top-left-radius: @border-round;
+		border-top-right-radius: @border-round;
 	}
 	
 //
