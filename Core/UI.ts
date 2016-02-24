@@ -59,12 +59,19 @@ module UI {
 	// ─── ON ADD COMMENT ─────────────────────────────────────────────────────────────
 	//
 	
-		export function OnTextInputKeyPress ( event: any ) {
+		/**
+		 * On the event of keypress if the key be the enter it 
+		 * will generate a new comment
+		 */
+		export function OnTextInputKeyPress ( event: KeyboardEvent ) {
 			if ( event.keyCode == 13 ) {
 				CreateNewComment( );
 			}
 		}
 		
+		/**
+		 * Generates a new commnet and displays it on the main view.
+		 */
 		export function CreateNewComment ( ) {
 			HideTheKaryHorse( );
 			UpdateCommentChars( );
@@ -276,7 +283,7 @@ module UI {
 			// Loading the data
 			globalSizeValue 				= ReadNumberInput( CommentSizeBox );
 			globalIndexValue 				= ReadNumberInput( CommentIndexBox );
-			globalSeparatorCharacterValue 	= GetInputElementValue( CommentSeparatorCharacterBox );
+			globalSeparatorCharacterValue 	= GetChooseBoxValue( CommentSeparatorCharacterBox );
 			globalTextValue 				= GetInputElementValue( CommentValueBox );
 			
 			// Checking their results
@@ -298,8 +305,19 @@ module UI {
 		 * Getts the current Command Kind from the select box of dashboard. 
 		 */
 		function GetCommentKind ( ) : string {
-			var styleBox = <HTMLSelectElement> document.getElementById( CommentKindBox );
-			return styleBox.options[ styleBox.selectedIndex ].value;
+			return GetChooseBoxValue( CommentKindBox );
+		}
+		
+	//
+	// ─── GET CHOOSE BOX VALUE ───────────────────────────────────────────────────────
+	//
+
+		/**
+		 * Reads the choose box value by passing an id.
+		 */
+		function GetChooseBoxValue ( id: string ) {
+			var chooseBox = <HTMLSelectElement> document.getElementById( id );
+			return chooseBox.options[ chooseBox.selectedIndex ].value;
 		}
 
 	//
@@ -335,12 +353,18 @@ module UI {
 	// ─── KARY LOGO HANDLERS ─────────────────────────────────────────────────────────
 	//
 		
+		/**
+		 * Hides the kary Hrose loge in the main view
+		 */
 		function HideTheKaryHorse ( ) {
 			var classNames = document.getElementById( ViewDivID ).classList;
 			classNames.remove( viewBoxBackgroundImageShow );
 			classNames.add( viewBoxBackgroundImageHide );
 		}
 		
+		/**
+		 * Shows the kary Hrose loge in the main view
+		 */
 		function ShowTheKaryHorse ( ) {
 			var classNames = document.getElementById( ViewDivID ).classList;
 			classNames.remove( viewBoxBackgroundImageHide );
@@ -351,6 +375,9 @@ module UI {
 	// ─── VIEW CLEANER ───────────────────────────────────────────────────────────────
 	//	
 	
+		/**
+		 * Removes all the commnet generated in the main view.
+		 */
 		export function CleanCommentView ( ) {
 			document.getElementById( ViewDivID ).innerHTML = '';
 			ShowTheKaryHorse( );

@@ -32,7 +32,7 @@
 				<!-- Comment Kind Control -->
 				<div class="button-zone">
 					<!-- Kind Choose Box -->
-					Kind <select id="commentformatbox" onchange="UI.LoadInputBoxes()" onclick="UI.LoadInputBoxes()" onselect="UI.LoadInputBoxes()" class="text-box-base">
+					Kind <select id="commentformatbox" onchange="UI.LoadInputBoxes()" onclick="UI.LoadInputBoxes()" onselect="UI.LoadInputBoxes()" class="text-box-base choose-box-extention">
 						<option value="class">Class Comment</option>
 						<option value="flag">Flag Comment</option>
 						<option value="section" selected="selected">Section Comment</option>
@@ -70,7 +70,10 @@
 					</span>
 					<!-- Separator Character -->
 					<span id="separator-value-div" style="display: none;">
-						Character <input type="text" id="cp-separator" name="cp-separator" class="text-box-base" value="&bull;" size="1" onkeypress="UI.OnTextInputKeyPress( event )"/> 
+						Character <select id="cp-separator"  class="text-box-base choose-box-extention" onselect="UI.OnTextInputKeyPress( event )">
+							<option value="&bull;">&bull;</option>
+							<option value="&dash;">&dash;</option>
+						</select>
 					</span>
 				</div>
 				<!-- Language Settings -->

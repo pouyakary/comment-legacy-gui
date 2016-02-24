@@ -10,20 +10,20 @@
 // ─── COLORS ─────────────────────────────────────────────────────────────────────
 //
 
-	@tone1: 	#ffffff; // 1
-	@tone1-2:  	#eeeeee; // 2
-	@tone2: 	#cccccc; // 3
-	@tone3: 	#AEAEAE; // 4
-	@tone3-2: 	#858585; // 6
-	@tone3-3: 	#4F4F4F; // 7
-	@tone4: 	#424242; // 8
-	@tone5: 	#2E2E2E; // 9
-	@tone6: 	#171717; // 10
+	@tone1: 	#ffffff;
+	@tone1-2:  	#eeeeee;
+	@tone2: 	#cccccc;
+	@tone3: 	#AEAEAE;
+	@tone3-2: 	#858585;
+	@tone3-3: 	#4F4F4F;
+	@tone4: 	#424242;
+	@tone5: 	#2E2E2E;
+	@tone6: 	#171717;
 	
 	@focos-color: #005CFF;
-	@hover-color: #9A9A9A; // 5
+	@hover-color: #9A9A9A;
 	
-	@error-box-color: #BC0307; 
+	@error-box-color: #BC0307;
 	
 //
 // ─── SIZES ──────────────────────────────────────────────────────────────────────
@@ -40,6 +40,7 @@
 	@text-box-border-size: 			3px;
 	@focus-glow-radius: 			20px;
 	@kary-horse-size-width: 		400px;
+	@kary-horse-width-to-height: 	1.313343328335832;
 	
 //
 // ─── FONTS ──────────────────────────────────────────────────────────────────────
@@ -47,14 +48,6 @@
 	
 	@mono-type-face: 'Menlo-Regular';
 	@regular-type-face: 'avenir-light';
-
-//
-// ─── THE KARY HORSE SIZE ────────────────────────────────────────────────────────
-//
-
-	 @view-div-back: "the-kary-horse-back.svg";
-	 @kary-horse-width-to-height:  1.313343328335832;
-	 @kary-horse-size-width: 280px;
 	
 //
 // ─── MAIN ELEMENTS ──────────────────────────────────────────────────────────────
@@ -107,7 +100,7 @@
          *   right: calc( ~'50vw' - unit( @static-logo-width-change , px ) );
          */
 		
-		background-image: url( @view-div-back );
+		background-image: url( "the-kary-horse-back.svg" );
 		background-size: @kary-horse-size-width @kary-horse-sise-heigth;
 		background-repeat: no-repeat;
 		background-position: center;
@@ -278,7 +271,7 @@
 // ─── CHOOSE BOX ─────────────────────────────────────────────────────────────────
 //
 
-	#commentformatbox {
+	.choose-box-extention {
 		padding: @border-round;
 		height: @button-height;
 		
