@@ -14,9 +14,10 @@ var globalTextValue: string;
 var globalSeparatorValue: string;
 var globalSizeValue: number;
 var globalIndexValue: number;
-var globalIndentValue: number;
+var globalIndentSizeValue: number;
+var globalIndentStringValue: string;
 
-var globalErrorPlaceHolder: string;
+var errorPlaceHolder: string;
 
 module Core {
 	
@@ -200,8 +201,7 @@ module Core {
 			var result = '';
 			let countOfLines = lines.length;
 			for ( var couter = 0 ; couter < countOfLines ; couter++ ) {
-				// FYI: &#09; is the tab character
-				result += MakeRepeat( '&#09;' , globalIndentValue ) + lines[ couter ];
+				result += MakeRepeat( globalIndentStringValue , globalIndentSizeValue ) + lines[ couter ];
 				if ( couter < countOfLines - 1 ) {
 					result += '\n';
 				}

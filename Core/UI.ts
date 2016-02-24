@@ -24,7 +24,6 @@ module UI {
 		const CommentSizeBox					= "cp-size";
 		const CommentIndexBox 					= "cp-index";
 		const CommentSeparatorCharacterBox		= "cp-separator";
-		const CommentIndentBox					= "cp-indent";
 				
 		// Language Settings
 		const CommentStyleMultiLineTopLeft 		= 'cs-top-left';
@@ -32,6 +31,10 @@ module UI {
 		const CommentStyleMultiLineBottomLeft 	= 'cs-bottom-left';
 		const CommentStyleMultiLineBottomRight 	= 'cs-bottom-right';
 		const CommentStyleOneLine				= 'cs-one-line';
+		
+		// Indentation
+		const CommentIndentString               = 'ci-string';
+		const CommentIndentSize	                = 'ci-size';
 		
 		// Comment Sytle Values
 		const CommentStyleClass					= 'class';
@@ -288,6 +291,7 @@ module UI {
 			
 			// Loading select boxes
 			globalSeparatorValue        = GetChooseBoxValue( CommentSeparatorCharacterBox );
+			globalIndentStringValue  	= GetChooseBoxValue( CommentIndentString );
 			
 			// Loading simple text boxes
 			globalTextValue             = GetInputElementValue( CommentValueBox );
@@ -296,7 +300,7 @@ module UI {
 			try {
 				globalSizeValue         = ReadNumberInput( CommentSizeBox );
 				globalIndexValue        = ReadNumberInput( CommentIndexBox );
-				globalIndentValue       = ReadNumberInput( CommentIndentBox );
+				globalIndentSizeValue   = ReadNumberInput( CommentIndentSize );
 				
 				// all done
 				return true;
