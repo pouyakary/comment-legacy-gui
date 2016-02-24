@@ -245,14 +245,14 @@
 	
 	.control-bar-spacer {
 		width: @control-bar-width;
-		height: @control-bar-spacer-size;
+		height: @control-bar-spacer-size - 5px;
 	}
 
 //
 // ─── CONTROL BAR TITLE ──────────────────────────────────────────────────────────
 //
 	
-	@control-bar-padding: 7px;
+	@control-bar-padding: 4px;
 	
 	.controlBarTitle {
 		color: @tone3;
@@ -260,6 +260,7 @@
 		width: @control-bar-width - ( 2 * @control-bar-padding );
 		padding: @control-bar-padding;
 		padding-top: @control-bar-padding + 3px;
+		padding-left: @control-bar-padding + 5px;
 		letter-spacing: 1.2;
 	}
 	

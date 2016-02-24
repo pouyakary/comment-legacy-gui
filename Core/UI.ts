@@ -24,6 +24,7 @@ module UI {
 		const CommentSizeBox					= "cp-size";
 		const CommentIndexBox 					= "cp-index";
 		const CommentSeparatorCharacterBox		= "cp-separator";
+		const CommentIndentBox					= "cp-indent";
 				
 		// Language Settings
 		const CommentStyleMultiLineTopLeft 		= 'cs-top-left';
@@ -78,7 +79,7 @@ module UI {
 			
 			let successOfLoadingNumericalInputs = UpdateGlobalInputVariables( );
 			var viewDiv = document.getElementById( ViewDivID );
-			var resultBox = document.createElement( 'pre' );
+			var resultBox: HTMLPreElement;
 			
 			if ( successOfLoadingNumericalInputs ) {
 				
@@ -90,6 +91,7 @@ module UI {
 					const commentString = GenerateComment( );
 					
 					// Generating the Comment Box
+					resultBox = document.createElement( 'pre' );
 					resultBox.className = CommentBoxStyleClassName;
 					resultBox.innerHTML = commentString;
 					
@@ -100,11 +102,8 @@ module UI {
 				//
 				// - - showing errors - - - - - - - - - - - - - - - - - - - - - - - - - -
 				//
-				
-					var errorBox = document.createElement( 'pre' );
-					resultBox.className = CommentBoxStyleClassName;
-					resultBox.classList.add( ErrorMessageBoxClassName );
-					resultBox.innerHTML = 'OPERATION FAILD: ERROR IN LOADING THE NUMERICAL INPUTS';
+					
+					resultBox = CreateErrorMessage( 'ERROR IN LOADING THE NUMERICAL INPUTS' );
 				
 				//  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 				
@@ -137,6 +136,8 @@ module UI {
 		 */
 		function GenerateComment ( ) : string {	
 			var commentString: string;
+			
+			// Generating the Comment Based on the Commnet Style
 			switch ( GetCommentKind( ) ) {
 				case CommentStyleClass:
 					commentString = Core.GenerateClassComment( );
@@ -169,8 +170,12 @@ module UI {
 				case CommentStyleSeparator:
 					commentString = Core.GenerateSeparatorComment( );
 					break;
-					
 			}
+			
+			// Appling the indentation:
+			commentString = Core.ApplyIndentation( commentString );
+			
+			// And we are done
 			return commentString;
 		}
 
@@ -280,21 +285,26 @@ module UI {
 		 * Updates the global variables once they are changed 
 		 */
 		export function UpdateGlobalInputVariables ( ) : boolean {
-			// Loading the data
-			globalSizeValue 				= ReadNumberInput( CommentSizeBox );
-			globalIndexValue 				= ReadNumberInput( CommentIndexBox );
-			globalSeparatorCharacterValue 	= GetChooseBoxValue( CommentSeparatorCharacterBox );
-			globalTextValue 				= GetInputElementValue( CommentValueBox );
 			
-			// Checking their results
-			var result = true;
-			if ( globalSizeValue == 0 ) 
-				result = false;
-			if ( globalIndexValue == 0 ) 
-				result = false;
+			// Loading select boxes
+			globalSeparatorValue        = GetChooseBoxValue( CommentSeparatorCharacterBox );
 			
-			// return time
-			return result;
+			// Loading simple text boxes
+			globalTextValue             = GetInputElementValue( CommentValueBox );
+			
+			// Loading numerical text boxes
+			try {
+				globalSizeValue         = ReadNumberInput( CommentSizeBox );
+				globalIndexValue        = ReadNumberInput( CommentIndexBox );
+				globalIndentValue       = ReadNumberInput( CommentIndentBox );
+				
+				// all done
+				return true;
+				
+			} catch ( error ) {
+				// could not load numerical boxes
+				return false;
+			}
 		}
 
 	//
@@ -334,7 +344,7 @@ module UI {
 			if ( value.match( /^\d+$/ ) ) {
 				return parseInt ( value )
 			} else {
-				return 0;
+				throw "Bad Input Number";
 			}
 		}
 		
@@ -392,6 +402,17 @@ module UI {
 			// to be completed
 		}
 
+	//
+	// ─── ERROR BOX GENERATOR ─────────────────────────────────────────────────────────
+	//
+	
+		export function CreateErrorMessage ( errorMessage: string ) : HTMLPreElement {
+			var errorBox = document.createElement( 'pre' );
+			errorBox.className = CommentBoxStyleClassName;
+			errorBox.classList.add( ErrorMessageBoxClassName );
+			errorBox.innerHTML = 'OPERATION FAILD: ' + errorMessage.toUpperCase( );
+			return errorBox;
+		}
+		
 	// ────────────────────────────────────────────────────────────────────────────────
-
 }

@@ -26,7 +26,7 @@
 			<div id="control-bar" class="containerChildern">
 				<!-- Comment Model -->
 				<div class="controlBarTitle controlBarTitleTop">
-					Generator Dashboard
+					Inspector
 				</div>
 				<div class="control-bar-spacer"></div>
 				<!-- Comment Kind Control -->
@@ -49,10 +49,12 @@
 					<button class="text-box-base text-box-button-extention" onclick="UI.CleanCommentView( );">Clean</button>
 					<div style="clear: both;"></div>
 				</div>
+				
+				
 				<!-- Inputs -->
 				<div class="control-bar-spacer"></div>
 				<div class="controlBarTitle">
-					Comment Preferences
+					Preferences
 				</div>
 				<div class="control-bar-spacer"></div>
 				<div class="button-zone">
@@ -78,13 +80,36 @@
 						</select>
 					</span>
 				</div>
-				<!-- Language Settings -->
+				
+				
 				<div class="control-bar-spacer"></div>
 				<div class="controlBarTitle">
-					Language Preferences
+					Indentation
 				</div>
 				<div class="control-bar-spacer"></div>
 				<div class="button-zone">
+					<!-- Indent Size -->
+					Size <input type="text" id="cp-indent" name="cp-indent" class="text-box-base" value="0" size="1" />
+					<!-- Indentation Style -->
+					Style <select id="cs-indent-style"  class="text-box-base choose-box-extention">
+						<option value="&#09;">Tab</option>
+						<option value="&nbsp;">1 Space</option>
+						<option value="&nbsp;&nbsp;">2 Spaces</option>
+						<option value="&nbsp;&nbsp;&nbsp;">3 Spaces</option>
+						<option value="&nbsp;&nbsp;&nbsp;&nbsp;">4 Spaces</option>
+						<option value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">5 Spaces</option>
+					</select>
+				</div>
+				
+				
+				<!-- Language Settings -->
+				<div class="control-bar-spacer"></div>
+				<div class="controlBarTitle">
+					Language
+				</div>
+				<div class="control-bar-spacer"></div>
+				<div class="button-zone">
+					<!-- Comment Chars -->
 					<input type="text" id="cs-top-left" name="cs-top-left" class="text-box-base text-box-monofont" value="/*" size="2">
 					<input type="text" id="cs-top-right" name="cs-top-right" class="text-box-base text-box-monofont" value="*" size="2">
 					<input type="text" id="cs-one-line" name="cs-one-line" class="text-box-base text-box-monofont" value="//" size="3"><br />

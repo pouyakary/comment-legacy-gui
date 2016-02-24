@@ -11,9 +11,12 @@ var languageMultiLineBottomRight: string;
 var languageOneLine: string;
 
 var globalTextValue: string;
-var globalSeparatorCharacterValue: string;
+var globalSeparatorValue: string;
 var globalSizeValue: number;
 var globalIndexValue: number;
+var globalIndentValue: number;
+
+var globalErrorPlaceHolder: string;
 
 module Core {
 	
@@ -156,7 +159,7 @@ module Core {
 	//
 	
 		export function GenerateSeparatorComment ( ) : string {
-			return '//' + MakeRepeat( ' ' + globalSeparatorCharacterValue , 5 );
+			return '//' + MakeRepeat( ' ' + globalSeparatorValue , 5 );
 		}
 
 	// ────────────────────────────────────────────────────────────────────────────────
@@ -183,6 +186,27 @@ module Core {
 				text += character;
 			}
 			return text;
+		}
+		
+	//
+	// ─── COMMENT INDENT APPLIER ─────────────────────────────────────────────────────
+	//
+		
+		/** 
+		 * Applies indentation on the comments
+		 */
+		export function ApplyIndentation ( comment: string ) : string {
+			var lines = comment.split( '\n' );
+			var result = '';
+			let countOfLines = lines.length;
+			for ( var couter = 0 ; couter < countOfLines ; couter++ ) {
+				// FYI: &#09; is the tab character
+				result += MakeRepeat( '&#09;' , globalIndentValue ) + lines[ couter ];
+				if ( couter < countOfLines - 1 ) {
+					result += '\n';
+				}
+			}
+			return result;
 		}
 		
 	// ────────────────────────────────────────────────────────────────────────────────
