@@ -200,7 +200,7 @@ module UI {
 					break;
 				
 				case CommentStyleFlag:
-					sizeBox.style.display 		= displayOn;
+					sizeBox.style.display 		= displayOff;
 					indexBox.style.display 		= displayOn;
 					valueBox.style.display 		= displayOn;
 					separtorBox.style.display 	= displayOff;
