@@ -9,6 +9,11 @@ module Kary.Text.Numerics {
 			return 'NULL';
 		}
 		
+		// Also known...
+		if ( input > 4999 ) {
+			return 'HUGE';
+		}
+		
 		// Result
 		var result: string = '';
 		
