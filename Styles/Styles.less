@@ -50,6 +50,19 @@
 	@regular-type-face: 'avenir-light';
 	
 //
+// ─── UNSELECTABLE ───────────────────────────────────────────────────────────────
+//	
+	
+	.unselectable {
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+    	user-select: none;
+	}
+	
+//
 // ─── MAIN ELEMENTS ──────────────────────────────────────────────────────────────
 //
 
@@ -118,12 +131,7 @@
 		height: @header-height;
 		width: @header-width;
 		background-color: @tone6;
-		-webkit-touch-callout: none;
-		-webkit-user-select: none;
-		-khtml-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-    	user-select: none;
+		.unselectable;
 	}
 
 	.kary-header-logo {
@@ -310,12 +318,7 @@
 		float: left;
 		width: @control-bar-width;
 		height: calc( ~'100vh' - unit( ( @header-height + 2 * @pad-padding ) , px ) );
-		-webkit-touch-callout: none;
-		-webkit-user-select: none;
-		-khtml-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-    	user-select: none;
+		.unselectable;
 	}
 	
 //

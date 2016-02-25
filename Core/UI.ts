@@ -116,6 +116,7 @@ module UI {
 			if ( viewDiv.children.length == 0 ) {
 				viewDiv.appendChild( resultBox );
 			} else {
+				viewDiv.firstElementChild.classList.add( 'unselectable' );
 				viewDiv.insertBefore( resultBox , viewDiv.firstChild );
 			}
 			
