@@ -4,6 +4,9 @@
 //    Author: Pouya Kary <k@karyfoundation.org>
 //
 
+/// <reference path="kf.ts" />
+
+
 var languageMultiLineTopLeft: string;
 var languageMultiLineTopRight: string;
 var languageMultiLineBottomLeft: string;
@@ -76,7 +79,7 @@ module Core {
 			var comment = languageOneLine + '\n';
 			// Line 2
 			const text = MakeTitle( globalTextValue );
-			comment += languageOneLine + ' ' + MakeRepeat( boxHorizontalCharacter , text.length + 40 ) + ' ' + globalIndexValue + ' ' + MakeRepeat( boxHorizontalCharacter , 10 ) + '\n';
+			comment += languageOneLine + ' ' + MakeRepeat( boxHorizontalCharacter , text.length + 40 ) + ' ' + Kary.Text.Numerics.Roman( globalIndexValue ) + ' ' + MakeRepeat( boxHorizontalCharacter , 10 ) + '\n';
 			// Line 3
 			comment += languageOneLine + '  ::::::' + text + ' : :  :   :    :     :        :          :\n';
 			// Line 4
