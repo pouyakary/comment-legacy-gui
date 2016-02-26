@@ -155,7 +155,10 @@ module Core {
 	//
 
 		export function GenerateInSectionComment ( ) : string {
-			return '//\n// ' + globalTextValue.toUpperCase( ) + '\n//';
+			var comment =  languageOneLine + '\n';
+			comment += languageOneLine + ' ' + globalTextValue.toUpperCase( ) + '\n';
+			comment += languageOneLine;
+			return comment;
 		}
 		
 	//
