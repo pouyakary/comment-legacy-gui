@@ -116,7 +116,7 @@ module UI {
 			if ( viewDiv.children.length == 0 ) {
 				viewDiv.appendChild( resultBox );
 			} else {
-				viewDiv.firstElementChild.classList.add( 'unselectable' );
+				viewDiv.firstElementChild.classList.add( 'comment-box-deactive' );
 				viewDiv.insertBefore( resultBox , viewDiv.firstChild );
 			}
 			

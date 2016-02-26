@@ -17,6 +17,7 @@
 	@tone3-2: 	#858585;
 	@tone3-3: 	#4F4F4F;
 	@tone4: 	#424242;
+	@tone4-2: 	#2F2F2F;
 	@tone5: 	#2E2E2E;
 	@tone6: 	#171717;
 	
@@ -350,6 +351,12 @@
 		padding: @comment-box-padding;
 		font-family: @mono-type-face;
 		font-size: @font-size - 2px;
+	}
+	
+	.comment-box-deactive {
+		.unselectable;
+		// background-color: @tone3-3;
+		color: @tone3-2;
 	}
 	
 	.error-box {
