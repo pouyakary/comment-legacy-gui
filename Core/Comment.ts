@@ -77,6 +77,12 @@
 		//
 
 			export function GenerateClassComment ( ) : string {
+				
+				// Checking for possibility
+				if ( !CheckCommentSizes( 5 , true , true ) ) {
+					return null;
+				}
+				
 				// First Info
 				var commnet: string;
 				
@@ -112,6 +118,7 @@
 		//
 
 			export function GenerateFlagCommet ( ) : string {
+				
 				// Line 1
 				var comment = languageOneLine + '\n';
 				// Line 2
@@ -140,6 +147,11 @@
 		//
 
 			export function GenerateSubLineComment ( ) : string {
+				// Checking for possibility
+				if ( !CheckCommentSizes( 4 , false , false ) ) {
+					return null;
+				}
+				// Generating the comment
 				var comment = languageOneLine;
 				if ( globalSizeValue % 2 == 0 ) {
 					comment += ' ';
@@ -153,15 +165,24 @@
 		//
 
 			export function GenerateSectionComment (  ) : string {
+				
+				// Checking for possibility
+				if ( !CheckCommentSizes( 8 , true , true ) ) {
+					return null;
+				}
+
 				// Line 1
 				var comment = languageOneLine + '\n';
+				
 				// Line 2
 				comment += (
 					languageOneLine + ' ' + MakeRepeat( boxHorizontalCharacter , 3 ) + ' ' +
 					globalTextValue.toUpperCase( ) + ' ' + MakeRepeat( boxHorizontalCharacter , globalSizeValue - globalTextValue.length - 5 ) + '\n'
 				);
+				
 				// Line 3
 				comment += languageOneLine;
+				
 				// Done
 				return comment;	
 			}
@@ -171,8 +192,15 @@
 		//
 		
 			export function GenerateSubSectionComment (  ) : string {
+				
+				// Checking for possibility
+				if ( !CheckCommentSizes( 6 , true , true ) ) {
+					return null;
+				}
+
 				// Line 1
 				var comment = languageOneLine + '\n';
+				
 				// Line 2
 				comment += languageOneLine + ' ' + '- -' + ' ' + globalTextValue.toLowerCase( );
 				var lineSize = ( globalSizeValue - globalTextValue.length - 5 ) / 2;
@@ -181,8 +209,10 @@
 				} else {
 					comment += MakeRepeat( ' -' , lineSize ) + '\n';
 				}
+				
 				// Line 3
 				comment += languageOneLine;
+				
 				// Done
 				return comment;	
 			}
@@ -192,6 +222,7 @@
 		//
 
 			export function GenerateInSectionComment ( ) : string {
+				// Generating the comment
 				var comment =  languageOneLine + '\n';
 				comment += languageOneLine + ' ' + globalTextValue.toUpperCase( ) + '\n';
 				comment += languageOneLine;
@@ -203,6 +234,7 @@
 		//
 		
 			export function GenerateSeparatorComment ( ) : string {
+				// Generating the comment
 				return '//' + MakeRepeat( ' ' + globalSeparatorValue , 5 );
 			}
 
@@ -240,19 +272,59 @@
 			 * Applies indentation on the comments
 			 */
 			export function ApplyIndentation ( comment: string ) : string {
-				var lines = comment.split( '\n' );
+				
+				// • • • • •
+				var lines: Array<string>;
+				try {
+					lines = comment.split( '\n' );
+				} catch ( err ) {
+					lines = [ comment ];
+				}
+				
+				// • • • • •
 				var result = '';
 				let countOfLines = lines.length;
+				
+				// • • • • •
 				for ( var couter = 0 ; couter < countOfLines ; couter++ ) {
 					result += MakeRepeat( globalIndentStringValue , globalIndentSizeValue ) + lines[ couter ];
 					if ( couter < countOfLines - 1 ) {
 						result += '\n';
 					}
 				}
+				
+				// • • • • •
 				return result;
+				
+			}
+
+		//
+		// ─── COMMENT SIZE CHECKER ───────────────────────────────────────────────────────
+		//
+					
+			/** Checks to see if the size of the comment is right */
+			function CheckCommentSizes ( minStaticTextLenght: number , titeled: boolean , countTextSize: boolean ): boolean {
+				if ( minStaticTextLenght > globalSizeValue ) {
+					UI.GenerateReport( "Given size for the comment is too short." );
+					return false;
+				} else {
+					var textLength = 0
+					if ( countTextSize ) {
+						textLength = globalTextValue.length;
+						if ( titeled ) { 
+							textLength *= 2;
+						}
+					}
+					if ( globalSizeValue - textLength < minStaticTextLenght ) {
+						UI.GenerateReport( "Faild to generate the comment" );
+						return false;
+					}
+				}
+				return true;
 			}
 			
 		// ────────────────────────────────────────────────────────────────────────────────
+		
 	}
 
 // ────────────────────────────────────────────────────────────────────────────────────────────────────
