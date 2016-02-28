@@ -24,7 +24,7 @@ module UI {
 		const CommentSizeBox					= "cp-size";
 		const CommentIndexBox 					= "cp-index";
 		const CommentSeparatorCharacterBox		= "cp-separator";
-				
+		
 		// Language Settings
 		const CommentStyleMultiLineTopLeft 		= 'cs-top-left';
 		const CommentStyleMultiLineTopRight 	= 'cs-top-right';
@@ -58,6 +58,7 @@ module UI {
 		const displayOff  						= 'none';	
 		const viewBoxBackgroundImageHide		= 'kary-horse-back-hide';
 		const viewBoxBackgroundImageShow		= 'kary-horse-back-show';
+
 			
 	//
 	// ─── ON ADD COMMENT ─────────────────────────────────────────────────────────────
@@ -73,60 +74,63 @@ module UI {
 			}
 		}
 		
-		/**
-		 * Generates a new commnet and displays it on the main view.
-		 */
+		/** Generates a new commnet and displays it on the main view. */
 		export function CreateNewComment ( ) {
+			
+			// • • • • •	
+			FreeGlobalErrorStorage( );
 			HideTheKaryHorse( );
+			UpdateGlobalInputVariables( );
 			UpdateCommentChars( );
 			
-			let successOfLoadingNumericalInputs = UpdateGlobalInputVariables( );
-			var viewDiv = document.getElementById( ViewDivID );
-			var resultBox: HTMLPreElement;
+			// • • • • •
+			var commentString = GenerateComment( );
 			
-			if ( successOfLoadingNumericalInputs ) {
-				
-				//
-				// - - adding the comment - - - - - - - - - - - - - - - - - - - - - - - -
-				//
-				
-					// Generating the Comment
-					const commentString = GenerateComment( );
-					
-					// Generating the Comment Box
-					resultBox = document.createElement( 'pre' );
-					resultBox.className = CommentBoxStyleClassName;
-					resultBox.innerHTML = commentString;
-					
-				//  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-				
-			} else {
-				
-				//
-				// - - showing errors - - - - - - - - - - - - - - - - - - - - - - - - - -
-				//
-					
-					resultBox = CreateErrorMessage( 'ERROR IN LOADING THE NUMERICAL INPUTS' );
-				
-				//  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-				
+			// • • • • •
+			if ( doneSuccessfully ) {
+				var result = document.createElement( 'pre' );
+				result.className = CommentBoxStyleClassName;
+				result.innerHTML = commentString;
+				AppendElementToMainView( result );
+			}
+
+			// • • • • •
+			FadeResultViews( );
+			
+		}
+		
+	//
+	// ─── APPEND NEW ELEMENT TO MAIN VIEW ────────────────────────────────────────────
+	//
+		
+		/**
+		 * Appends a div element to the main view of the element and applies 
+		 * the effects regarding the status of the elements in the view.
+		 */
+		function AppendElementToMainView ( newElement: Element ) {
+			
+			// • • • • •
+			var viewDiv = document.getElementById( ViewDivID );
+			
+			// • • • • •
+			if ( isLastAppendedChildErrorBox ) {
+				alert( 'here' );
+				viewDiv.removeChild( viewDiv.firstChild );
+				isLastAppendedChildErrorBox = false;
 			}
 			
-			// Adding the comment
+			// • • • • •
 			if ( viewDiv.children.length == 0 ) {
-				viewDiv.appendChild( resultBox );
+				viewDiv.appendChild( newElement );
 			} else {
 				viewDiv.firstElementChild.classList.add( 'comment-box-deactive' );
-				viewDiv.insertBefore( resultBox , viewDiv.firstChild );
+				viewDiv.insertBefore( newElement , viewDiv.firstChild );
 			}
 			
-			// Removing DOM Elements that are out of the div and are
-			// not visible for memory management reasons
+			// • • • • •
 			if ( viewDiv.children.length > 10 ) {
 				viewDiv.removeChild( viewDiv.lastChild );
 			}
-			
-			FadeResultViews( );
 		}
 
 	//
@@ -139,9 +143,11 @@ module UI {
 		 * and then returns the comment as a string.
 		 */
 		function GenerateComment ( ) : string {	
+			
+			// • • • • •
 			var commentString: string;
 			
-			// Generating the Comment Based on the Commnet Style
+			// • • • • •
 			switch ( GetCommentKind( ) ) {
 				case CommentStyleClass:
 					commentString = Core.GenerateClassComment( );
@@ -176,10 +182,10 @@ module UI {
 					break;
 			}
 			
-			// Appling the indentation:
+			// • • • • •
 			commentString = Core.ApplyIndentation( commentString );
 			
-			// And we are done
+			// • • • • •
 			return commentString;
 		}
 
@@ -195,11 +201,13 @@ module UI {
 		 */
 		export function LoadInputBoxes (  ) {
 			
+			// • • • • •
 			var 	sizeBox 		= document.getElementById( SizeInputDivID );
 			var 	indexBox 		= document.getElementById( IndexInputDivID );
 			var 	valueBox		= document.getElementById( OneLineInputDivID );
 			var 	separtorBox		= document.getElementById( SeparatorCharacterDivID );
-
+			
+			// • • • • •
 			switch ( GetCommentKind( ) ) {
 				case CommentStyleClass:
 					sizeBox.style.display 		= displayOn;
@@ -270,9 +278,7 @@ module UI {
 	// ─── UPDATE COMMENT CHARS ───────────────────────────────────────────────────────
 	//
 
-		/**
-		 * Updates the global language setting variables based on the user input.
-		 */
+		/** Updates the global language setting variables based on the user input. */
 		export function UpdateCommentChars ( ) {
 			languageMultiLineBottomLeft 	= GetInputElementValue( CommentStyleMultiLineBottomLeft );
 			languageMultiLineBottomRight 	= GetInputElementValue( CommentStyleMultiLineBottomRight );
@@ -285,40 +291,28 @@ module UI {
 	// ─── UPDATE GLOBAL VARIABLE INFOS ───────────────────────────────────────────────
 	//
 
-		/** 
-		 * Updates the global variables once they are changed 
-		 */
-		export function UpdateGlobalInputVariables ( ) : boolean {
+		/** Updates the global variables once they are changed. */
+		export function UpdateGlobalInputVariables ( ) {
 			
-			// Loading select boxes
+			// • • • • •
 			globalSeparatorValue        = GetChooseBoxValue( CommentSeparatorCharacterBox );
 			globalIndentStringValue  	= GetChooseBoxValue( CommentIndentString );
 			
-			// Loading simple text boxes
+			// • • • • •
 			globalTextValue             = GetInputElementValue( CommentValueBox );
 			
-			// Loading numerical text boxes
-			try {
-				globalSizeValue         = ReadNumberInput( CommentSizeBox );
-				globalIndexValue        = ReadNumberInput( CommentIndexBox );
-				globalIndentSizeValue   = ReadNumberInput( CommentIndentSize );
-				
-				// all done
-				return true;
-				
-			} catch ( error ) {
-				// could not load numerical boxes
-				return false;
-			}
+			// • • • • •
+			globalSizeValue         	= ReadNumberInput( CommentSizeBox );
+			globalIndexValue        	= ReadNumberInput( CommentIndexBox );
+			globalIndentSizeValue   	= ReadNumberInput( CommentIndentSize );
+			
 		}
 
 	//
 	// ─── GET MODEL INFO ─────────────────────────────────────────────────────────────
 	//
 
-		/** 
-		 * Getts the current Command Kind from the select box of dashboard. 
-		 */
+		/** Getts the current Command Kind from the select box of dashboard. */
 		function GetCommentKind ( ) : string {
 			return GetChooseBoxValue( CommentKindBox );
 		}
@@ -327,9 +321,7 @@ module UI {
 	// ─── GET CHOOSE BOX VALUE ───────────────────────────────────────────────────────
 	//
 
-		/**
-		 * Reads the choose box value by passing an id.
-		 */
+		/** Reads the choose box value by passing an id. */
 		function GetChooseBoxValue ( id: string ) {
 			var chooseBox = <HTMLSelectElement> document.getElementById( id );
 			return chooseBox.options[ chooseBox.selectedIndex ].value;
@@ -349,7 +341,8 @@ module UI {
 			if ( value.match( /^\d+$/ ) ) {
 				return parseInt ( value )
 			} else {
-				throw "Bad Input Number";
+				GenerateReport( "Could not read the field: " + GetInputNameById( id ) );
+				return 0;
 			}
 		}
 		
@@ -357,9 +350,7 @@ module UI {
 	// ─── GET INPUT ELEMENT VALUE ────────────────────────────────────────────────────
 	//
 	
-		/** 
-		 * Reads the value of an HTML Input Element by ID. 
-		 */
+		/** Reads the value of an HTML Input Element by ID. */
 		function GetInputElementValue ( id: string ) {
 			var result = ( <HTMLInputElement> document.getElementById( id ) ).value;
 			    result = result.replace( '<' , '&lt;' ).replace( '>' , '&gt;' );
@@ -370,18 +361,14 @@ module UI {
 	// ─── KARY LOGO HANDLERS ─────────────────────────────────────────────────────────
 	//
 		
-		/**
-		 * Hides the kary Hrose loge in the main view
-		 */
+		/** Hides the kary Hrose loge in the main view. */
 		function HideTheKaryHorse ( ) {
 			var classNames = document.getElementById( ViewDivID ).classList;
 			classNames.remove( viewBoxBackgroundImageShow );
 			classNames.add( viewBoxBackgroundImageHide );
 		}
 		
-		/**
-		 * Shows the kary Hrose loge in the main view
-		 */
+		/** Shows the kary Hrose loge in the main view. */
 		function ShowTheKaryHorse ( ) {
 			var classNames = document.getElementById( ViewDivID ).classList;
 			classNames.remove( viewBoxBackgroundImageHide );
@@ -392,9 +379,7 @@ module UI {
 	// ─── VIEW CLEANER ───────────────────────────────────────────────────────────────
 	//	
 	
-		/**
-		 * Removes all the commnet generated in the main view.
-		 */
+		/** Removes all the commnet generated in the main view. */
 		export function CleanCommentView ( ) {
 			document.getElementById( ViewDivID ).innerHTML = '';
 			ShowTheKaryHorse( );
@@ -413,13 +398,51 @@ module UI {
 	// ─── ERROR BOX GENERATOR ─────────────────────────────────────────────────────────
 	//
 	
-		export function CreateErrorMessage ( errorMessage: string ) : HTMLPreElement {
+		/** Creates an HTMLPreElement with a given input string */
+		export function GenerateReport ( text: string ) {
+			
+			// changing the error status
+			doneSuccessfully = false;
+			
+			// generating an error box
 			var errorBox = document.createElement( 'pre' );
 			errorBox.className = CommentBoxStyleClassName;
 			errorBox.classList.add( ErrorMessageBoxClassName );
-			errorBox.innerHTML = 'OPERATION FAILD: ' + errorMessage.toUpperCase( );
-			return errorBox;
+			errorBox.innerHTML = 'OPERATION FAILURE - ' + text;
+			
+			// appending the error box
+			AppendElementToMainView( errorBox );
+			
+			// changing an status:
+			isLastAppendedChildErrorBox = true;
+			
+		}
+		
+	//
+	// ─── FREES THE GLOBAL ERROR MESSAGE PLACES ──────────────────────────────────────
+	//
+		
+		/** Re initilizes the global error place holders */
+		function FreeGlobalErrorStorage ( ) {
+			doneSuccessfully = true;
+		}
+		
+	//
+	// ─── GETS THE INPUT DESCRIPTION ─────────────────────────────────────────────────
+	//
+		
+		/** Gets the description of the input. */
+		function GetInputNameById ( id: string ): string {		
+			switch ( id ) {
+				case CommentIndentSize:
+					return "`Indentation's Scoping Level`  [ &sect; Indentation &rightarrow; Scope ]";
+				case CommentSizeBox:
+					return "`Comment Lenght`  [ &sect; Preferences &rightarrow; Size ]";
+				case CommentIndentSize:
+					return "`Flag Comment Index`  [ &sect; Preferences &rightarrow; Index ]";
+			}
 		}
 		
 	// ────────────────────────────────────────────────────────────────────────────────
+	
 }

@@ -4,6 +4,8 @@
 //    Author: Pouya Kary <k@karyfoundation.org>
 //
 
+/// <reference path="ui.ts" />
+
 
 /* ──────────────────────────────────────────────────────────────────────────────── *
  * ::::::::: K A R Y   F R A M E W O R K   N U M E R I C S   L I B R A R Y :::::::: *
@@ -28,6 +30,7 @@
 				
 				// Also known...
 				if ( input > 4999 ) {
+					UI.GenerateReport( "Can not generate roman number greater than 4999" );
 					return 'HUGE';
 				}
 				

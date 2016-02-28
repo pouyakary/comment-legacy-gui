@@ -40,7 +40,8 @@
 	// ─── SHARED SYSTEM RESOURCES ────────────────────────────────────────────────────
 	//
 
-		var errorPlaceHolder: 				string;
+		var isLastAppendedChildErrorBox     = false;
+		var doneSuccessfully: 				boolean;
 		
 	// ────────────────────────────────────────────────────────────────────────────────
 
