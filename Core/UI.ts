@@ -114,7 +114,6 @@ module UI {
 			
 			// • • • • •
 			if ( isLastAppendedChildErrorBox ) {
-				alert( 'here' );
 				viewDiv.removeChild( viewDiv.firstChild );
 				isLastAppendedChildErrorBox = false;
 			}
