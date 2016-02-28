@@ -13,17 +13,17 @@ echo "   [ done ]"
 
 # Minifing the Code
 echo "-> Minifing the Core"
-uglifyjs -m -o Resources/Comment.js Resources/Comment.js
+uglifyjs -m -o resources/comment.js resources/comment.js
 echo "   [ done ]"
 
 # Bulding the Style Sheets
 echo "-> Builing the Style Sheets"
-lessc Styles/Styles.less Resources/Styles.css
+lessc styles/styles.less resources/styles.css
 echo "   [ done ]"
 
 # Copying the Resource Files
 echo "-> Copying the files"
-for file in Resources/*
+for file in resources/*
 do 
 	echo "    -> Copying ${file}"
 	name=${file##*/}

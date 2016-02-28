@@ -1,13 +1,16 @@
 <!DOCTYPE HTML>
 <html>
+	
 	<!-- Header -->
 	<head>
 		<link rel="stylesheet" href="styles.css">
-		<script type="text/javascript" src="Comment.js"></script>
+		<script type="text/javascript" src="comment.js"></script>
 		<title>Comment IV</title>
 	</head>
+	
 	<!-- Body -->
 	<body onload="UI.LoadInputBoxes( ); UI.UpdateCommentChars( )">
+		
 		<!-- Header -->
 		<header>
 			<div class="gerda-header-name">
@@ -21,16 +24,20 @@
 				<img src="kf-logo.png" width="200px;" draggable="false"/>
 			</div>
 		</header>
+		
 		<!-- Body -->
 		<div id="container" >
 			<div id="control-bar" class="containerChildern">
+				
 				<!-- Comment Model -->
 				<div class="controlBarTitle controlBarTitleTop">
 					Inspector
 				</div>
 				<div class="control-bar-spacer"></div>
+				
 				<!-- Comment Kind Control -->
 				<div class="button-zone">
+					
 					<!-- Kind Choose Box -->
 					Kind <select id="commentformatbox" onchange="UI.LoadInputBoxes()" onclick="UI.LoadInputBoxes()" onselect="UI.LoadInputBoxes()" class="text-box-base choose-box-extention">
 						<option value="class">Class Comment</option>
@@ -43,6 +50,7 @@
 						<option value="separator">Separator Comment</option>
 						<!--option value="note">Note Comment</option-->
 					</select>
+					
 					<!-- Buttons -->
 					<button id="GenerateButton" class="text-box-base text-box-button-extention" onclick="UI.CreateNewComment( );">Generate</button>
 					<!--button class="text-box-base text-box-button-extention" onclick="">Copy</button-->
@@ -58,18 +66,22 @@
 				</div>
 				<div class="control-bar-spacer"></div>
 				<div class="button-zone">
+					
 					<!-- Text Value -->
 					<span id="one-line-value-div">
 						Text <input type="text" id="cp-value" name="cp-value" class="text-box-base" value="Hello World" size="16" onkeypress="UI.OnTextInputKeyPress( event )" /><br />
 					</span>
+					
 					<!-- Size Value -->
 					<span id="size-value-div">
 						Size <input type="text" id="cp-size" name="cp-size" class="text-box-base" value="80" size="3"  onkeypress="UI.OnTextInputKeyPress( event )"/>
 					</span>
+					
 					<!-- Index Value -->
 					<span id="index-value-div">
 						Index <input type="text" id="cp-index" name="cp-index" class="text-box-base" value="1" size="3"  onkeypress="UI.OnTextInputKeyPress( event )"/> 
 					</span>
+					
 					<!-- Separator Character -->
 					<span id="separator-value-div" style="display: none;">
 						Character <select id="cp-separator"  class="text-box-base choose-box-extention text-box-monofont" onselect="UI.OnTextInputKeyPress( event )">
@@ -88,8 +100,10 @@
 				</div>
 				<div class="control-bar-spacer"></div>
 				<div class="button-zone">
+					
 					<!-- Indent Size -->
 					Scope <input type="text" id="ci-size" name="cp-indent" class="text-box-base" value="0" size="1" />
+					
 					<!-- Indentation Style -->
 					as <select id="ci-string"  class="text-box-base choose-box-extention">
 						<option value="&#09;">Tab</option>
@@ -109,6 +123,7 @@
 				</div>
 				<div class="control-bar-spacer"></div>
 				<div class="button-zone">
+					
 					<!-- Comment Chars -->
 					<input type="text" id="cs-top-left" name="cs-top-left" class="text-box-base text-box-monofont" value="/*" size="2">
 					<input type="text" id="cs-top-right" name="cs-top-right" class="text-box-base text-box-monofont" value="*" size="2">
@@ -118,6 +133,7 @@
 					<div style="clear: both;"></div>
 				</div>
 			</div>
+			
 			<!-- Where the Comments are displayed -->
 			<div id="view" class="containerChildern kary-horse-back-show">
 			</div>
