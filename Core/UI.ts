@@ -4,7 +4,7 @@
 //    Author: Pouya Kary <k@karyfoundation.org>
 //
 
-/// <reference path="Comment.ts" />
+/// <reference path="comment.ts" />
 
 module UI {
 
@@ -361,7 +361,9 @@ module UI {
 		 * Reads the value of an HTML Input Element by ID. 
 		 */
 		function GetInputElementValue ( id: string ) {
-			return ( <HTMLInputElement> document.getElementById( id ) ).value;
+			var result = ( <HTMLInputElement> document.getElementById( id ) ).value;
+			    result = result.replace( '<' , '&lt;' ).replace( '>' , '&gt;' );
+			return result;
 		}
 		
 	//
