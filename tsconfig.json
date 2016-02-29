@@ -3,6 +3,6 @@
 		"module": "commonjs",
 		"noImplicitAny": true,
 		"preserveConstEnums": true,
-		"out": "resources/comment.js"
+		"out": "resources/core.js"
 	}
 }

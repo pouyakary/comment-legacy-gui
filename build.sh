@@ -13,7 +13,7 @@ echo "   [ done ]"
 
 # Minifing the Code
 echo "-> Minifing the Core"
-uglifyjs -m -o resources/comment.js resources/comment.js
+uglifyjs -m -o resources/core.js resources/core.js
 echo "   [ done ]"
 
 # Bulding the Style Sheets
