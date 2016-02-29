@@ -78,10 +78,14 @@ module UI {
 		export function CreateNewComment ( ) {
 			
 			// • • • • •	
-			FreeGlobalErrorStorage( );
-			HideTheKaryHorse( );
-			UpdateGlobalInputVariables( );
-			UpdateCommentChars( );
+			try {
+				FreeGlobalErrorStorage( );
+				HideTheKaryHorse( );
+				UpdateGlobalInputVariables( );
+				UpdateCommentChars( );
+			} catch ( err ) {
+				return 1;
+			}
 			
 			// • • • • •
 			var commentString = GenerateComment( );
@@ -301,10 +305,13 @@ module UI {
 			globalTextValue             = GetInputElementValue( CommentValueBox );
 			
 			// • • • • •
-			globalSizeValue         	= ReadNumberInput( CommentSizeBox );
-			globalIndexValue        	= ReadNumberInput( CommentIndexBox );
-			globalIndentSizeValue   	= ReadNumberInput( CommentIndentSize );
-			
+			try {
+				globalSizeValue         = ReadNumberInput( CommentSizeBox );
+				globalIndexValue        = ReadNumberInput( CommentIndexBox );
+				globalIndentSizeValue   = ReadNumberInput( CommentIndentSize );
+			} catch ( err ) {
+				throw 0;
+			}
 		}
 
 	//
@@ -341,7 +348,7 @@ module UI {
 				return parseInt ( value )
 			} else {
 				GenerateReport( "Could not read the field: " + GetInputNameById( id ) );
-				return 0;
+				throw 0;
 			}
 		}
 		
