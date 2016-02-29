@@ -443,7 +443,7 @@ module UI {
 				case CommentIndentSize:
 					return "`Indentation's Scoping Level`  [ &sect; Indentation &rightarrow; Scope ]";
 				case CommentSizeBox:
-					return "`Comment Lenght`  [ &sect; Preferences &rightarrow; Size ]";
+					return "`Comment Length`  [ &sect; Preferences &rightarrow; Length ]";
 				case CommentIndentSize:
 					return "`Flag Comment Index`  [ &sect; Preferences &rightarrow; Index ]";
 			}
