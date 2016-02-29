@@ -167,7 +167,7 @@
 			export function GenerateSectionComment (  ) : string {
 				
 				// Checking for possibility
-				if ( !CheckCommentSizes( 8 , true , true ) ) {
+				if ( !CheckCommentSizes( 8 , false , true ) ) {
 					return null;
 				}
 
@@ -194,7 +194,7 @@
 			export function GenerateSubSectionComment (  ) : string {
 				
 				// Checking for possibility
-				if ( !CheckCommentSizes( 6 , true , true ) ) {
+				if ( !CheckCommentSizes( 6 , false , true ) ) {
 					return null;
 				}
 
