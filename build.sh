@@ -13,12 +13,12 @@ echo "   [ done ]"
 
 # Minifing the Code
 echo "-> Minifing the Core"
-	uglifyjs -m -o resources/core.js resources/core.js
+	uglifyjs 	-m 		-o resources/core.js 	resources/core.js
 echo "   [ done ]"
 
 # Bulding the Style Sheets
 echo "-> Builing the Style Sheets"
-	lessc styles/styles.less resources/styles.css
+	lessc 	styles/styles.less 		resources/styles.css
 echo "   [ done ]"
 
 # Copying the Resource Files
