@@ -9,7 +9,7 @@
 	</head>
 	
 	<!-- Body -->
-	<body onload="UI.LoadInputBoxes( ); UI.UpdateCommentChars( )">
+	<body onload="UI.InitOnLoad( );">
 		
 		<!-- Header -->
 		<header>
@@ -39,7 +39,7 @@
 				<div class="button-zone">
 					
 					<!-- Kind Choose Box -->
-					Kind <select id="commentformatbox" onchange="UI.LoadInputBoxes()" onclick="UI.LoadInputBoxes()" onselect="UI.LoadInputBoxes()" class="text-box-base choose-box-extention">
+					Kind <select id="commentformatbox" onchange="UI.DisplayInputBoxes()" onclick="UI.DisplayInputBoxes()" onselect="UI.DisplayInputBoxes()" class="text-box-base choose-box-extention">
 						<option value="class">Class Comment</option>
 						<option value="flag">Flag Comment</option>
 						<option value="section" selected="selected">Section Comment</option>

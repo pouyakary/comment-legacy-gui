@@ -58,7 +58,111 @@ module UI {
 		const displayOff  						= 'none';	
 		const viewBoxBackgroundImageHide		= 'kary-horse-back-hide';
 		const viewBoxBackgroundImageShow		= 'kary-horse-back-show';
+		
+		// Local Storage Identifiers
+		
 
+	//
+	// ─── THIS RUNS AT LOAD TIME ─────────────────────────────────────────────────────
+	//
+
+		/** Inits the software on load. */
+		export function InitOnLoad ( ) {
+			LoadSettings( );
+			UpdateCommentChars( );
+			DisplayInputBoxes( );
+		}
+		
+	//
+	// ─── LOCAL STORAGE SYSTEM ───────────────────────────────────────────────────────
+	//
+		
+		/** Interface of Local Storage for the Comment IV */
+		module C4LocalStorage {
+			const localStorageIdentifer	= 'org.karyfoundation.comment-iv.';
+			
+			/** Stores data in the localStorage as the Comment IV.  */
+			export function Store ( key: string , data: any ) {
+				localStorage.setItem( localStorageIdentifer + key , data );
+			}
+			
+			/** Loads the Comment IV's data from the storage. */
+			export function Load ( key: string ) : any {
+				return localStorage.getItem( localStorageIdentifer + key );
+			}
+		}
+		
+	//
+	// ─── LOAD SETTINGS ──────────────────────────────────────────────────────────────
+	//
+		
+		/** Loads the settings from localStorage and sets them to their values */
+		function LoadSettings ( ) {
+			LoadSelectBoxValues( );
+			LoadInputBoxValues( );
+		}
+
+	//
+	// ─── CURRENT COMMENT SETTING LOADER ─────────────────────────────────────────────
+	//
+		
+		/** Loads the current comment setting. */
+		function LoadSelectBoxSettingById ( selectBoxID: string ) {
+			SetChooseBoxSelection( 
+				selectBoxID,
+				C4LocalStorage.Load( selectBoxID )
+			);
+		}
+	
+	//
+	// ─── LOAD SELECT BOX VALUES ─────────────────────────────────────────────────────
+	//
+		
+		/** Loads the selectBoxes */
+		function LoadSelectBoxValues ( ) {
+			LoadSelectBoxSettingById( CommentKindBox );
+			LoadSelectBoxSettingById( CommentSeparatorCharacterBox );	
+		}
+	
+	//
+	// ─── LOAD INPUT BOXES ───────────────────────────────────────────────────────────
+	//
+		
+		function LoadInputBoxValues ( ) {
+			UpdateAndStoreCommentCharacters( );
+			// • • • • •
+			LoadInputBoxFromLocalStorageById( CommentValueBox );
+			LoadInputBoxFromLocalStorageById( CommentSizeBox );
+			LoadInputBoxFromLocalStorageById( CommentIndentSize );
+			LoadInputBoxFromLocalStorageById( CommentIndentString );
+			LoadInputBoxFromLocalStorageById( CommentIndentSize );
+		}
+		
+	//
+	// ─── CHARACTER UPDATE AND STORER ────────────────────────────────────────────────
+	//
+		
+		export function UpdateAndStoreCommentCharacters ( ) {
+			LoadInputBoxFromLocalStorageById( CommentStyleMultiLineBottomLeft );
+			LoadInputBoxFromLocalStorageById( CommentStyleMultiLineBottomRight );
+			LoadInputBoxFromLocalStorageById( CommentStyleMultiLineTopLeft );
+			LoadInputBoxFromLocalStorageById( CommentStyleMultiLineTopRight );
+			LoadInputBoxFromLocalStorageById( CommentStyleOneLine );
+			UpdateCommentChars( );
+		}
+		
+	//
+	// ─── INPUT BOX VALUE LOADER ─────────────────────────────────────────────────────
+	//
+		
+		/** Loads the value of an input box */
+		function LoadInputBoxFromLocalStorageById ( id: string ) {
+			const localStorageValue = C4LocalStorage.Load( id );
+			if ( localStorageValue != undefined && localStorageValue != null ) {
+				var inputBox = <HTMLInputElement> document.getElementById( id );
+				inputBox.value = localStorageValue;
+			}		
+		}
 			
 	//
 	// ─── ON ADD COMMENT ─────────────────────────────────────────────────────────────
@@ -202,7 +306,10 @@ module UI {
 		 * errors and show the necessary settings for the
 		 * current comment style.
 		 */
-		export function LoadInputBoxes (  ) {
+		export function DisplayInputBoxes (  ) {
+			
+			// • • • • •
+			StoreSelectBoxById( CommentKindBox );
 			
 			// • • • • •
 			var 	sizeBox 		= document.getElementById( SizeInputDivID );
@@ -278,16 +385,39 @@ module UI {
 		}
 		
 	//
+	// ─── STORE CURRENT COMMENT SETTING ──────────────────────────────────────────────
+	//
+		
+		/** Stores the current comment setting. */
+		function StoreSelectBoxById ( id: string ) {
+			C4LocalStorage.Store( 
+				id,
+				GetChooseBoxValue( id ) 
+			);
+		}
+		
+	//
 	// ─── UPDATE COMMENT CHARS ───────────────────────────────────────────────────────
 	//
 
 		/** Updates the global language setting variables based on the user input. */
 		export function UpdateCommentChars ( ) {
-			languageMultiLineBottomLeft 	= GetInputElementValue( CommentStyleMultiLineBottomLeft );
-			languageMultiLineBottomRight 	= GetInputElementValue( CommentStyleMultiLineBottomRight );
-			languageMultiLineTopLeft 		= GetInputElementValue( CommentStyleMultiLineTopLeft );
-			languageMultiLineTopRight 		= GetInputElementValue( CommentStyleMultiLineTopRight );
-			languageOneLine 				= GetInputElementValue( CommentStyleOneLine );
+			languageMultiLineBottomLeft 	= UpdateCommentCharParameter( CommentStyleMultiLineBottomLeft );
+			languageMultiLineBottomRight 	= UpdateCommentCharParameter( CommentStyleMultiLineBottomRight );
+			languageMultiLineTopLeft 		= UpdateCommentCharParameter( CommentStyleMultiLineTopLeft );
+			languageMultiLineTopRight 		= UpdateCommentCharParameter( CommentStyleMultiLineTopRight );
+			languageOneLine 				= UpdateCommentCharParameter( CommentStyleOneLine );
+		}
+
+	//
+	// ─── UPDATES DATAS ──────────────────────────────────────────────────────────────
+	//
+		
+		/** Gets the box value as well as setting the new value to the database */
+		function UpdateCommentCharParameter ( styleID: string ) : string {
+			const value = GetInputElementValue( styleID );
+			C4LocalStorage.Store( styleID , value );
+			return value;
 		}
 	
 	//
@@ -329,8 +459,24 @@ module UI {
 
 		/** Reads the choose box value by passing an id. */
 		function GetChooseBoxValue ( id: string ) {
-			var chooseBox = <HTMLSelectElement> document.getElementById( id );
+			const chooseBox = <HTMLSelectElement> document.getElementById( id );
 			return chooseBox.options[ chooseBox.selectedIndex ].value;
+		}
+		
+	//
+	// ─── CHANGES THE SELECTED BOX ITEM ──────────────────────────────────────────────
+	//	
+		
+		/** Changes the a select box's item to the given value */
+		function SetChooseBoxSelection ( selectBoxID: string , toBeSelectedItemValue: string ) {
+			var selectBox = <HTMLSelectElement> document.getElementById( selectBoxID );
+			for ( var index = 0; index < selectBox.children.length; index++ ) {
+				const element = selectBox.options[ index ].value;
+				if ( element == toBeSelectedItemValue ) {
+					selectBox.selectedIndex = index;
+					return;
+				}
+			}
 		}
 
 	//
@@ -343,7 +489,7 @@ module UI {
 		 * user input.
 		 */
 		function ReadNumberInput ( id: string ) : number {
-			let value = ( <HTMLInputElement> ( document.getElementById( id ) ) ).value;
+			const value = ( <HTMLInputElement> ( document.getElementById( id ) ) ).value;
 			if ( value.match( /^\d+$/ ) ) {
 				return parseInt ( value )
 			} else {
