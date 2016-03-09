@@ -129,7 +129,8 @@ module UI {
 	//
 		
 		function LoadInputBoxValues ( ) {
-			UpdateAndStoreCommentCharacters( );
+			// • • • • •
+			LoadCommentChars( );
 			// • • • • •
 			LoadInputBoxFromLocalStorageById( CommentValueBox );
 			LoadInputBoxFromLocalStorageById( CommentSizeBox );
@@ -139,10 +140,29 @@ module UI {
 		}
 		
 	//
-	// ─── CHARACTER UPDATE AND STORER ────────────────────────────────────────────────
+	// ─── COMMENT STORER ─────────────────────────────────────────────────────────────
 	//
 		
 		export function UpdateAndStoreCommentCharacters ( ) {
+			// • • • • •
+			StoreInputBoxById( CommentStyleMultiLineBottomLeft );
+			StoreInputBoxById( CommentStyleMultiLineBottomRight );
+			StoreInputBoxById( CommentStyleMultiLineTopLeft );
+			StoreInputBoxById( CommentStyleMultiLineTopRight );
+			StoreInputBoxById( CommentStyleOneLine );
+		}
+		
+		function StoreInputBoxById ( id: string ) {
+			C4LocalStorage.Store( 
+				id, ( <HTMLInputElement> document.getElementById ( id ) ).value 
+			);
+		}
+		
+	//
+	// ─── CHARACTER UPDATE AND STORER ────────────────────────────────────────────────
+	//
+		
+		function LoadCommentChars ( ) {
 			LoadInputBoxFromLocalStorageById( CommentStyleMultiLineBottomLeft );
 			LoadInputBoxFromLocalStorageById( CommentStyleMultiLineBottomRight );
 			LoadInputBoxFromLocalStorageById( CommentStyleMultiLineTopLeft );
