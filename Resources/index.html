@@ -125,11 +125,16 @@
 				<div class="button-zone">
 					
 					<!-- Comment Chars -->
-					<input type="text" id="cs-top-left" name="cs-top-left" class="text-box-base text-box-monofont" value="/*" size="2">
-					<input type="text" id="cs-top-right" name="cs-top-right" class="text-box-base text-box-monofont" value="*" size="2">
-					<input type="text" id="cs-one-line" name="cs-one-line" class="text-box-base text-box-monofont" value="//" size="3"><br />
-					<input type="text" id="cs-bottom-left" name="cs-bottom-left text-box-monofont" class="text-box-base text-box-monofont" value=" *" size="2">
-					<input type="text" id="cs-bottom-right" name="cs-bottom-right" class="text-box-base text-box-monofont" value="*/" size="2">
+					<input type="text" id="cs-top-left" name="cs-top-left" class="text-box-base text-box-monofont" value="/*" size="2" onchange="UI.UpdateAndStoreCommentCharacters( )">
+					
+					<input type="text" id="cs-top-right" name="cs-top-right" class="text-box-base text-box-monofont" value="*" size="2" onchange="UI.UpdateAndStoreCommentCharacters( )">
+					
+					<input type="text" id="cs-one-line" name="cs-one-line" class="text-box-base text-box-monofont" value="//" size="3" onchange="UI.UpdateAndStoreCommentCharacters( )"><br />
+					
+					<input type="text" id="cs-bottom-left" name="cs-bottom-left text-box-monofont" class="text-box-base text-box-monofont" value=" *" size="2" onchange="UI.UpdateAndStoreCommentCharacters( )">
+					
+					<input type="text" id="cs-bottom-right" name="cs-bottom-right" class="text-box-base text-box-monofont" value="*/" size="2" onchange="UI.UpdateAndStoreCommentCharacters( )">
+					
 					<div style="clear: both;"></div>
 				</div>
 			</div>
