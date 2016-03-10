@@ -574,6 +574,7 @@ module UI {
 		/** Removes all the commnet generated in the main view. */
 		export function CleanCommentView ( ) {
 			document.getElementById( ViewDivID ).innerHTML = '';
+			lastGeneratedCommentText = '';
 			ShowTheKaryHorse( );
 		}
 		
@@ -595,6 +596,7 @@ module UI {
 			
 			// changing the error status
 			doneSuccessfully = false;
+			lastGeneratedCommentText = '';
 			
 			// generating an error box
 			var errorBox = document.createElement( 'pre' );
