@@ -6,6 +6,12 @@
 		<link rel="stylesheet" href="styles.css">
 		<script type="text/javascript" src="core.js"></script>
 		<title>Comment IV</title>
+		<script>
+			const clipboard = require('electron').clipboard;
+			function ElectronCopy ( text ) {
+				clipboard.writeText( text );
+			}
+		</script>
 	</head>
 	
 	<!-- Body -->
@@ -52,8 +58,10 @@
 					</select>
 					
 					<!-- Buttons -->
-					<button id="GenerateButton" class="text-box-base text-box-button-extention" onclick="UI.CreateNewComment( );">Generate</button>
-					<!--button class="text-box-base text-box-button-extention" onclick="">Copy</button-->
+					<button id="GenerateButton" class="text-box-base text-box-button-extention" onclick="UI.CreateNewComment( );">Make</button>
+					
+					<button id="GenerateButton" class="text-box-base text-box-button-extention" onclick="UI.CopyComment( );">Copy</button>
+
 					<button class="text-box-base text-box-button-extention" onclick="UI.CleanCommentView( );">Clean</button>
 					<div style="clear: both;"></div>
 				</div>
@@ -131,7 +139,7 @@
 					
 					<input type="text" id="cs-one-line" name="cs-one-line" class="text-box-base text-box-monofont" value="//" size="3" onchange="UI.UpdateAndStoreCommentCharacters( )"><br />
 					
-					<input type="text" id="cs-bottom-left" name="cs-bottom-left text-box-monofont" class="text-box-base text-box-monofont" value=" *" size="2" onchange="UI.UpdateAndStoreCommentCharacters( )">
+					<input type="text" id="cs-bottom-left" name="cs-bottom-left" class="text-box-base text-box-monofont" value=" *" size="2" onchange="UI.UpdateAndStoreCommentCharacters( )">
 					
 					<input type="text" id="cs-bottom-right" name="cs-bottom-right" class="text-box-base text-box-monofont" value="*/" size="2" onchange="UI.UpdateAndStoreCommentCharacters( )">
 					

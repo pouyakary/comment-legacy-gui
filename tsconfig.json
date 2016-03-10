@@ -3,6 +3,6 @@
 		"module": "commonjs",
 		"noImplicitAny": true,
 		"preserveConstEnums": true,
-		"out": "resources/core.js"
+		"out": "binary/core.js"
 	}
 }
