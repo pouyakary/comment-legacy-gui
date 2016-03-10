@@ -80,6 +80,7 @@
 		outline-style: none;
 		min-width: 1100px;
 		min-height: 600px;
+		.unselectable
 	}
 	
 	:focus {
@@ -187,18 +188,31 @@
 		transition-duration: 0.5s
 	}
 	
-	.text-box-base:hover {
+	.input-hover {
 		background-color: @tone3-2;
 		color: @tone1;
 	}
 	
-	.text-box-base:active,
-	.text-box-base:focus {
+	.text-box-base:hover {
+		.input-hover
+	}
+	
+	
+	input {
+		.text-box-base
+	}
+	input:hover {
+		.input-hover
+	}
+	input:active,
+	input:focus {
 		background-color: @tone1;
 		color: black;
 		border: none;
 		box-shadow: 0 0 @focus-glow-radius @hover-color;
 	}
+	
+	
 	
 //
 // ─── TEXT BOX BUTTON EXTENSIONS ─────────────────────────────────────────────────
@@ -315,7 +329,6 @@
 		float: left;
 		width: @control-bar-width;
 		height: calc( ~'100vh' - unit( ( @header-height + 2 * @pad-padding ) , px ) );
-		.unselectable;
 	}
 	
 //
@@ -350,8 +363,6 @@
 	}
 	
 	.comment-box-deactive {
-		.unselectable;
-		// background-color: @tone3-3;
 		color: @tone3-2;
 	}
 	
