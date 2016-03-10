@@ -5,6 +5,8 @@
 //
 
 /// <reference path="comment.ts" />
+/// <reference path="electron.d.ts" />
+
 
 module UI {
 
@@ -60,7 +62,7 @@ module UI {
 		const viewBoxBackgroundImageShow		= 'kary-horse-back-show';
 		
 		// Local Storage Identifiers
-		
+		var lastGeneratedCommentText			= '';
 
 	//
 	// ─── THIS RUNS AT LOAD TIME ─────────────────────────────────────────────────────
@@ -90,6 +92,10 @@ module UI {
 			export function Load ( key: string ) : any {
 				return localStorage.getItem( localStorageIdentifer + key );
 			}
+		}
+		
+		export function CopyResult ( ) {
+			
 		}
 		
 	//
@@ -219,12 +225,26 @@ module UI {
 				var result = document.createElement( 'pre' );
 				result.className = CommentBoxStyleClassName;
 				result.innerHTML = commentString;
+				
+				lastGeneratedCommentText = result.innerText;
+				
 				AppendElementToMainView( result );
+				CopyComment( );
 			}
 
 			// • • • • •
 			FadeResultViews( );
 			
+		}
+		
+	//
+	// ─── COPY COMMENT TOOL ──────────────────────────────────────────────────────────
+	//
+		
+		export function CopyComment ( ) {
+			if ( lastGeneratedCommentText !== '' ) {
+				ElectronCopy( lastGeneratedCommentText );
+			}
 		}
 		
 	//
