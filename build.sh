@@ -4,39 +4,46 @@
 #    Author: Pouya Kary <k@karyfoundation.org>
 #
 
-echo "Bulding Comment IV"
+#
+# ─── COMPILING THE CORE ─────────────────────────────────────
+#
 
-# Compiling the Code
-echo "-> Compiling the Core"
 	tsc
-echo "   [ done ]"
+	
+#
+# ─── MINFING THE CORE ───────────────────────────────────────
+#
 
-# Minifing the Code
-echo "-> Minifing the Core"
-	uglifyjs 	-m 		-o resources/core.js 	resources/core.js
-echo "   [ done ]"
+	uglifyjs -m -o binary/core.js binary/core.js
 
-# Bulding the Style Sheets
-echo "-> Builing the Style Sheets"
-	lessc 	styles/styles.less 		resources/styles.css
-echo "   [ done ]"
+#
+# ─── COMPILING STYLE SHEETS ─────────────────────────────────
+#
 
-# Copying the Resource Files
-echo "-> Copying the files"
-for file in resources/*
-do 
-	echo "    -> Copying ${file}"
-	name=${file##*/}
-	#cp $file "Comment IV/${name}"
- 		cp $file "/Applications/Comment IV.app/Contents/Resources/${name}"
-done
-echo "   [ done ]"
+	lessc styles/styles.less binary/styles.css
 
-# Compiling the Swift View
-#echo "-> Compiling the Swift View"
-#xcodebuild -list -project "Comment IV.xcodeproj"
-#echo "   [ done ]"
+#
+# ─── COPYING THE RESOURCE FILES ─────────────────────────────
+#
 
+	for file in resources/*
+	do 
+		name=${file##*/}
+		cp $file "binary/${name}"
+	done
+	
+	for file in electron/*
+	do 
+		name=${file##*/}
+		cp $file "binary/${name}"
+	done
 
-# Done
-echo "Finished"
+#
+# ─── RUN ELECTRON ──────────────────────────────────────────
+#
+
+	cd "./binary"
+	npm start
+	cd ".."
+
+# ──────────────────────────────────────────────────────────
