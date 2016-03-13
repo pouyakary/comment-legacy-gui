@@ -35,7 +35,7 @@
 				}
 				
 				// Result
-				var result: string = '';
+				let result: string = '';
 				
 				// Values:
 				const values: Array<number> = [ 
@@ -48,7 +48,7 @@
 				];
 				
 				// Generator 
-				for ( var index = 0 ; index < 13 ; index++ ) {
+				for ( let index = 0 ; index < 13 ; index++ ) {
 					while ( input >= values[ index ] ) {
 						input -= values[ index ];
 						result += numerals[ index ];
