@@ -94,10 +94,6 @@ module UI {
 			}
 		}
 		
-		export function CopyResult ( ) {
-			
-		}
-		
 	//
 	// ─── LOAD SETTINGS ──────────────────────────────────────────────────────────────
 	//
@@ -185,7 +181,7 @@ module UI {
 		function LoadInputBoxFromLocalStorageById ( id: string ) {
 			const localStorageValue = C4LocalStorage.Load( id );
 			if ( localStorageValue != undefined && localStorageValue != null ) {
-				var inputBox = <HTMLInputElement> document.getElementById( id );
+				let inputBox = <HTMLInputElement> document.getElementById( id );
 				inputBox.value = localStorageValue;
 			}		
 		}
@@ -218,11 +214,11 @@ module UI {
 			}
 			
 			// • • • • •
-			var commentString = GenerateComment( );
+			let commentString = GenerateComment( );
 			
 			// • • • • •
 			if ( doneSuccessfully ) {
-				var result = document.createElement( 'pre' );
+				let result = document.createElement( 'pre' );
 				result.className = CommentBoxStyleClassName;
 				result.innerHTML = commentString;
 				
@@ -258,7 +254,7 @@ module UI {
 		function AppendElementToMainView ( newElement: Element ) {
 			
 			// • • • • •
-			var viewDiv = document.getElementById( ViewDivID );
+			let viewDiv = document.getElementById( ViewDivID );
 			
 			// • • • • •
 			if ( isLastAppendedChildErrorBox ) {
@@ -292,7 +288,7 @@ module UI {
 		function GenerateComment ( ) : string {	
 			
 			// • • • • •
-			var commentString: string;
+			let commentString: string;
 			
 			// • • • • •
 			switch ( GetCommentKind( ) ) {
@@ -352,10 +348,10 @@ module UI {
 			StoreSelectBoxById( CommentKindBox );
 			
 			// • • • • •
-			var 	sizeBox 		= document.getElementById( SizeInputDivID );
-			var 	indexBox 		= document.getElementById( IndexInputDivID );
-			var 	valueBox		= document.getElementById( OneLineInputDivID );
-			var 	separtorBox		= document.getElementById( SeparatorCharacterDivID );
+			let 	sizeBox 		= document.getElementById( SizeInputDivID );
+			let 	indexBox 		= document.getElementById( IndexInputDivID );
+			let 	valueBox		= document.getElementById( OneLineInputDivID );
+			let 	separtorBox		= document.getElementById( SeparatorCharacterDivID );
 			
 			// • • • • •
 			switch ( GetCommentKind( ) ) {
@@ -509,8 +505,8 @@ module UI {
 		
 		/** Changes the a select box's item to the given value */
 		function SetChooseBoxSelection ( selectBoxID: string , toBeSelectedItemValue: string ) {
-			var selectBox = <HTMLSelectElement> document.getElementById( selectBoxID );
-			for ( var index = 0; index < selectBox.children.length; index++ ) {
+			let selectBox = <HTMLSelectElement> document.getElementById( selectBoxID );
+			for ( let index = 0; index < selectBox.children.length; index++ ) {
 				const element = selectBox.options[ index ].value;
 				if ( element == toBeSelectedItemValue ) {
 					selectBox.selectedIndex = index;
@@ -544,7 +540,7 @@ module UI {
 	
 		/** Reads the value of an HTML Input Element by ID. */
 		function GetInputElementValue ( id: string ) {
-			var result = ( <HTMLInputElement> document.getElementById( id ) ).value;
+			let result = ( <HTMLInputElement> document.getElementById( id ) ).value;
 			    result = result.replace( '<' , '&lt;' ).replace( '>' , '&gt;' );
 			return result;
 		}
@@ -555,14 +551,14 @@ module UI {
 		
 		/** Hides the kary Hrose loge in the main view. */
 		function HideTheKaryHorse ( ) {
-			var classNames = document.getElementById( ViewDivID ).classList;
+			let classNames = document.getElementById( ViewDivID ).classList;
 			classNames.remove( viewBoxBackgroundImageShow );
 			classNames.add( viewBoxBackgroundImageHide );
 		}
 		
 		/** Shows the kary Hrose loge in the main view. */
 		function ShowTheKaryHorse ( ) {
-			var classNames = document.getElementById( ViewDivID ).classList;
+			let classNames = document.getElementById( ViewDivID ).classList;
 			classNames.remove( viewBoxBackgroundImageHide );
 			classNames.add( viewBoxBackgroundImageShow );
 		}
@@ -599,7 +595,7 @@ module UI {
 			lastGeneratedCommentText = '';
 			
 			// generating an error box
-			var errorBox = document.createElement( 'pre' );
+			let errorBox = document.createElement( 'pre' );
 			errorBox.className = CommentBoxStyleClassName;
 			errorBox.classList.add( ErrorMessageBoxClassName );
 			errorBox.innerHTML = 'OPERATION FAILURE - ' + text;
