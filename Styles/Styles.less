@@ -145,7 +145,21 @@
 	.gerda-header-name {
 		float: left;
 		padding-top: 13px;
-		padding-left: 13px;
+		padding-left: 13px; // in case of enabling header-icon comment out this line.
+	}
+	
+	#header-icon {
+		@header-icon-padding: 4px;
+		@header-icon-size: @header-height - ( 2 * @header-icon-padding );
+		margin: @header-icon-padding;
+		margin-left: @header-icon-padding * 2;
+		float: left; 
+		width: @header-icon-size;
+		height:@header-icon-size;
+		background-image: url('header-icon.png');
+		background-size: @header-icon-size @header-icon-size;
+		background-position: center;
+		background-repeat: no-repeat;
 	}
 	
 //
@@ -338,6 +352,7 @@
 	#view {
 		float: left;
 		margin-left: @pad-padding;
+		// padding-top: 30vh;
 		width: calc( ~'100vw' - unit( @control-bar-width + 3 * @pad-padding, px ) );
 		height: calc( ~'100vh' - unit( ( @header-height + 2 * @pad-padding ) , px ) );
 	}
@@ -350,11 +365,16 @@
 	@copy-icon-size: 40px;
 	
 	.comment-box {
+		@border-width: 10px;
 		position: relative;
 		margin: @pad-padding;
-		width: calc( ~'100vw' - unit( @control-bar-width + 6 * @pad-padding, px ) );
+		width: calc( ~'100vw' - unit( @control-bar-width + @border-width + 6 * @pad-padding, px ) );
 		border-radius: @border-round;
-		background-color: @tone3-3;
+		//border-top-left-radius: 0;
+		//border-bottom-left-radius: 0;
+		border-left: @border-width solid #00A500;
+		// background-color: @tone3-3;
+		background-color: #0C6702;
 		color: @tone2;
 		overflow-x: hidden;
 		padding: @comment-box-padding;
@@ -364,10 +384,13 @@
 	
 	.comment-box-deactive {
 		color: @tone3-2;
+		background-color: @tone3-3;
+		border-left-color: @tone3-3;
 	}
 	
 	.error-box {
-		background-color: @error-box-color;
+		background-color: #7F0002;
+		border-left-color: @error-box-color;
 	}
 
 //
