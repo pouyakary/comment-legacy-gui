@@ -46,6 +46,8 @@
 	copy-to-binary resources
 	copy-to-binary electron
 	
+	cp icon/png/Icon-256x256.png binary/header-icon.png
+	
 #
 # ─── ELECTRON PACKAGER ──────────────────────────────────────
 #
@@ -60,8 +62,10 @@
 
 	echo "─ ─── RUNNIG APP IN ELECTRON ─────────────────────────────────"
 
-	cd "./binary"
-	npm start
-	cd ".."
+	#cd "./binary"
+	#npm start
+	#cd ".."
+	
+	"release/Comment IV-darwin-x64/Comment IV.app/Contents/MacOS/Electron"
 
 # ──────────────────────────────────────────────────────────
