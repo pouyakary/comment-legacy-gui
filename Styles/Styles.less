@@ -20,11 +20,16 @@
 	@tone4-2: 	#2F2F2F;
 	@tone5: 	#2E2E2E;
 	@tone6: 	#171717;
+	@tone7: 	#000000;
 	
 	@focos-color: #005CFF;
 	@hover-color: #9A9A9A;
 	
-	@error-box-color: #BC0307;
+	@error-box-tone-1: #BC0307;
+	@error-box-tone-2: #7F0002;
+	
+	@active-green-tone-1: #00A500;
+	@active-green-tone-2: #0C6702;
 	
 //
 // ─── SIZES ──────────────────────────────────────────────────────────────────────
@@ -221,7 +226,7 @@
 	input:active,
 	input:focus {
 		background-color: @tone1;
-		color: black;
+		color: @tone7;
 		border: none;
 		box-shadow: 0 0 @focus-glow-radius @hover-color;
 	}
@@ -372,9 +377,9 @@
 		border-radius: @border-round;
 		//border-top-left-radius: 0;
 		//border-bottom-left-radius: 0;
-		border-left: @border-width solid #00A500;
+		border-left: @border-width solid @active-green-tone-1;
 		// background-color: @tone3-3;
-		background-color: #0C6702;
+		background-color: @active-green-tone-2;
 		color: @tone2;
 		overflow-x: hidden;
 		padding: @comment-box-padding;
@@ -389,8 +394,8 @@
 	}
 	
 	.error-box {
-		background-color: #7F0002;
-		border-left-color: @error-box-color;
+		background-color: @error-box-tone-2;
+		border-left-color: @error-box-tone-1;
 	}
 
 //
