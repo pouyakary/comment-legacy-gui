@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"module": "commonjs",
+		"module": "amd",
 		"noImplicitAny": true,
 		"preserveConstEnums": true,
 		"out": "binary/core.js"
