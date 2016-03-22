@@ -76,6 +76,9 @@
 		// ─── COMMENT CLASS GENERATOR ────────────────────────────────────────────────────
 		//
 
+			/**
+			 * Function to generatio Kary Class Comment.
+			 */
 			export function GenerateClassComment ( ) : string {
 				
 				// Checking for possibility
@@ -117,17 +120,20 @@
 		// ─── FLAG COMMENT GENERATOR ─────────────────────────────────────────────────────
 		//
 
+			/**
+			 * Function to generate flag comemnt
+			 */
 			export function GenerateFlagCommet ( ) : string {
 				
 				// Line 1
 				let comment = languageOneLine + '\n';
 				// Line 2
 				const text = MakeTitle( globalTextValue );
-				comment += languageOneLine + ' ' + MakeRepeat( boxHorizontalCharacter , text.length + 40 ) + ' ' + Kary.Text.Numerics.Roman( globalIndexValue ) + ' ' + MakeRepeat( boxHorizontalCharacter , 10 ) + '\n';
+				comment += languageOneLine + ' ' + RepeatText( boxHorizontalCharacter , text.length + 40 ) + ' ' + Kary.Text.Numerics.Roman( globalIndexValue ) + ' ' + RepeatText( boxHorizontalCharacter , 10 ) + '\n';
 				// Line 3
 				comment += languageOneLine + '  ::::::' + text + ' : :  :   :    :     :        :          :\n';
 				// Line 4
-				comment += languageOneLine + ' ' + MakeRepeat( boxHorizontalCharacter , 50 + text.length ) + '\n';
+				comment += languageOneLine + ' ' + RepeatText( boxHorizontalCharacter , 50 + text.length ) + '\n';
 				// Line 5
 				comment += languageOneLine
 				// Done
@@ -138,14 +144,20 @@
 		// ─── LINE GENERATOR ─────────────────────────────────────────────────────────────
 		//
 
+			/**
+			 * Function to generate Line Comment
+			 */
 			export function GenerateLineComment ( ) : string {
-				return languageOneLine + ' ' + MakeRepeat( boxHorizontalCharacter , globalSizeValue );
+				return languageOneLine + ' ' + RepeatText( boxHorizontalCharacter , globalSizeValue );
 			}
 			
 		//
 		// ─── SUBLINE COMMENT GENERATOR ──────────────────────────────────────────────────
 		//
 
+			/**
+			 * Function to generate Subline Comment
+			 */
 			export function GenerateSubLineComment ( ) : string {
 				// Checking for possibility
 				if ( !CheckCommentSizes( 4 , false , false ) ) {
@@ -156,7 +168,7 @@
 				if ( globalSizeValue % 2 == 0 ) {
 					comment += ' ';
 				}
-				comment += MakeRepeat ( ' -' , globalSizeValue / 2 );
+				comment += RepeatText ( ' -' , globalSizeValue / 2 );
 				return comment;
 			}
 			
@@ -164,6 +176,9 @@
 		// ─── SECTION COMMENT GENERATOR ──────────────────────────────────────────────────
 		//
 
+			/**
+			 * Function to generate Section Comment
+			 */
 			export function GenerateSectionComment (  ) : string {
 				
 				// Checking for possibility
@@ -176,8 +191,8 @@
 				
 				// Line 2
 				comment += (
-					languageOneLine + ' ' + MakeRepeat( boxHorizontalCharacter , 3 ) + ' ' +
-					globalTextValue.toUpperCase( ) + ' ' + MakeRepeat( boxHorizontalCharacter , globalSizeValue - globalTextValue.length - 5 ) + '\n'
+					languageOneLine + ' ' + RepeatText( boxHorizontalCharacter , 3 ) + ' ' +
+					globalTextValue.toUpperCase( ) + ' ' + RepeatText( boxHorizontalCharacter , globalSizeValue - globalTextValue.length - 5 ) + '\n'
 				);
 				
 				// Line 3
@@ -191,6 +206,9 @@
 		// ─── SUBSECTION COMMENT GENERATOR ───────────────────────────────────────────────
 		//
 		
+			/**
+			 * Comment to generate Subsection Comment
+			 */
 			export function GenerateSubSectionComment (  ) : string {
 				
 				// Checking for possibility
@@ -205,9 +223,9 @@
 				comment += languageOneLine + ' ' + '- -' + ' ' + globalTextValue.toLowerCase( );
 				let lineSize = ( globalSizeValue - globalTextValue.length - 5 ) / 2;
 				if ( lineSize % 2 == 0 ) {
-					comment += ' ' + MakeRepeat( ' -' , lineSize ) + '\n'; 
+					comment += ' ' + RepeatText( ' -' , lineSize ) + '\n'; 
 				} else {
-					comment += MakeRepeat( ' -' , lineSize ) + '\n';
+					comment += RepeatText( ' -' , lineSize ) + '\n';
 				}
 				
 				// Line 3
@@ -221,6 +239,9 @@
 		// ─── IS SECTION COMMENT GENERATOR ───────────────────────────────────────────────
 		//
 
+			/**
+			 * Function to generate Insection Comment
+			 */
 			export function GenerateInSectionComment ( ) : string {
 				// Generating the comment
 				let comment =  languageOneLine + '\n';
@@ -233,19 +254,28 @@
 		// ─── SEPARATOR COMMENT GENERATOR ────────────────────────────────────────────────
 		//
 		
+			/**
+			 * Function to generate Separate Comment
+			 */
 			export function GenerateSeparatorComment ( ) : string {
 				// Generating the comment
-				return '//' + MakeRepeat( ' ' + globalSeparatorValue , 5 );
+				return '//' + RepeatText( ' ' + globalSeparatorValue , 5 );
 			}
 
 		// ────────────────────────────────────────────────────────────────────────────────
 		
+			/**
+			 * Function that generates line with given size.
+			 */
 			function MakeLine ( size: number ) : string {
-				return MakeRepeat( boxHorizontalCharacter , size );
+				return RepeatText( boxHorizontalCharacter , size );
 			}
 
 		// ────────────────────────────────────────────────────────────────────────────────
 		
+			/**
+			 * Transefrs a text like 'title' to 'T I T L E '
+			 */
 			function MakeTitle ( text: string ) {
 				let result = '';
 				for ( let index = 0 ; index < text.length ; index++ ) {
@@ -256,7 +286,10 @@
 			
 		// ────────────────────────────────────────────────────────────────────────────────
 			
-			function MakeRepeat ( character: string , size: number ) : string {
+			/** 
+			 * Repeats a text with given times (used to create lines...)
+			 */
+			function RepeatText ( character: string , size: number ) : string {
 				let text = '';
 				for ( let counter = 0 ; counter < size ; counter++ ) {
 					text += character;
@@ -287,7 +320,7 @@
 				
 				// • • • • •
 				for ( let couter = 0 ; couter < countOfLines ; couter++ ) {
-					result += MakeRepeat( globalIndentStringValue , globalIndentSizeValue ) + lines[ couter ];
+					result += RepeatText( globalIndentStringValue , globalIndentSizeValue ) + lines[ couter ];
 					if ( couter < countOfLines - 1 ) {
 						result += '\n';
 					}
