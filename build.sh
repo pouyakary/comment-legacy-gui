@@ -54,7 +54,7 @@
 
 	echo "─ ─── PACKAGING ELECTRON APP ─────────────────────────────────"
 	
-	electron-packager ./binary "Comment IV" --platform=darwin --arch=x64 --app-copyrigh="Copyright 2016 by Kary Foundation, Inc." --app-version="IV.2.107" --icon=icon/icns/icon.icns --name="Comment IV" --out=release --overwrite=true
+	electron-packager ./binary "Comment IV" --platform=darwin --arch=x64 --app-copyrigh="Copyright 2016 by Kary Foundation, Inc." --app-version="IV.3.121" --icon=icon/icns/icon.icns --name="Comment IV" --out=release --overwrite=true
 	
 #
 # ─── RUN ELECTRON ──────────────────────────────────────────
