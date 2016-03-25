@@ -162,10 +162,9 @@
 
 			var menu = new Menu();
 
-
-			window.addEventListener('contextmenu', function (e) {
-				e.preventDefault();
-				menu.popup(remote.getCurrentWindow());
+			window.addEventListener( 'contextmenu' , function ( e ) {
+				e.preventDefault( );
+				menu.popup( remote.getCurrentWindow() );
 			}, false);
 			
 			var template = [
@@ -208,40 +207,78 @@
 					]
 				},
 				{
+					label: "Engine",
+					submenu: [
+						{
+							label: 'Generate Comment',
+							accelerator: ( function( ) {
+								if ( process.platform == 'darwin' )
+									return 'Command+Enter'
+								else
+									return 'F5'
+							})(),
+							click: function( item , focusedWindow ) {
+								if ( focusedWindow )
+									UI.CreateNewComment( );
+							}
+						},
+						{
+							label: 'Copy Comment',
+							accelerator: ( function( ) {
+								if ( process.platform == 'darwin' )
+									return 'Command+Alt+C'
+								else
+									return 'Alt+Crtl+C'
+							})(),
+							click: function( item , focusedWindow ) {
+								if ( focusedWindow )
+									UI.CopyComment( ); 
+							}
+						},
+					]	
+				},
+				{
 					label: 'View',
 					submenu: [
 						{
-							label: 'Reload',
+							label: 'Clean View',
 							accelerator: 'CmdOrCtrl+R',
-							click: function(item, focusedWindow) {
-							if (focusedWindow)
-								focusedWindow.reload();
+							click: function( item , focusedWindow ) {
+							if ( focusedWindow )
+								UI.CleanCommentView( );
+							}
+						},
+						{
+							label: 'Reload',
+							click: function( item , focusedWindow ) {
+							if ( focusedWindow )
+								focusedWindow.reload( );
 							}
 						},
 						{
 							label: 'Toggle Full Screen',
-							accelerator: (function() {
-							if (process.platform == 'darwin')
-								return 'Ctrl+Command+F';
-							else
-								return 'F11';
+							accelerator: ( function( ) {
+								if ( process.platform == 'darwin' )
+									return 'Ctrl+Command+F'
+								else
+									return 'F11'
 							})(),
-							click: function(item, focusedWindow) {
-							if (focusedWindow)
-								focusedWindow.setFullScreen(!focusedWindow.isFullScreen());
+							click: function( item , focusedWindow ) {
+								if ( focusedWindow )
+									focusedWindow.setFullScreen( !focusedWindow.isFullScreen( ) )
 							}
 						},
 						{
 							label: 'Toggle Developer Tools',
-							accelerator: (function() {
-							if (process.platform == 'darwin')
-								return 'Alt+Command+I';
-							else
-								return 'Ctrl+Shift+I';
-							})(),
-							click: function(item, focusedWindow) {
-							if (focusedWindow)
-								focusedWindow.toggleDevTools();
+							accelerator: ( function( ) {
+								if ( process.platform == 'darwin' )
+									return 'Alt+Command+I'
+								else
+									return 'Ctrl+Shift+I'
+								})( ),
+								click: function( item , focusedWindow ) {
+								if ( focusedWindow )
+									focusedWindow.toggleDevTools( )
 							}
 						},
 					]
@@ -268,29 +305,30 @@
 					submenu: [
 						{
 							label: "Kary Foundation Style Comment Toturials",
-							click: function() { 
+							click: function( ) { 
 								require('electron').shell.openExternal('https://github.com/karyfoundation/comment/wiki') 
 							}
 						},
 						{
 							label: "Kary Foundtation's Website",
-							click: function() { 
+							click: function( ) { 
 								require('electron').shell.openExternal('https://www.karyfoundation.org/') 
 							}
 						},
 						{
 							label: "Comment IV on GitHub",
-							click: function() { 
+							click: function( ) { 
 								require('electron').shell.openExternal('https://github.com/karyfoundation/comment') 
 							}
 						}
 					]
 				},
-				];
+			];
 
-				if (process.platform == 'darwin') {
-					var name = require('electron').remote.app.getName();
-					template.unshift({
+			if ( process.platform == 'darwin' ) {
+				var name = require('electron').remote.app.getName( );
+				template.unshift(
+					{
 						label: name,
 						submenu: [
 							{
@@ -328,25 +366,26 @@
 							{
 								label: 'Quit',
 								accelerator: 'Command+Q',
-								click: function() { app.quit(); }
+								click: function( ) { app.quit(); }
 							},
 						]
-					});
+					}
+				);
 					
-					// Window menu.
-					template[ 3 ].submenu.push(
-						{
-							type: 'separator'
-						},
-						{
-							label: 'Bring All to Front',
-							role: 'front'
-						}
-					);
-				}
-
-				var menu = Menu.buildFromTemplate(template);
-				Menu.setApplicationMenu(menu);
+				// Window menu.
+				template[ 3 ].submenu.push(
+					{
+						type: 'separator'
+					},
+					{
+						label: 'Bring All to Front',
+						role: 'front'
+					}
+				);
+			}
+			
+			var menu = Menu.buildFromTemplate( template );
+			Menu.setApplicationMenu( menu );
 		</script>
 	</body>
 </html>
