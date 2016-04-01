@@ -76,6 +76,14 @@ module UI {
 		}
 		
 	//
+	// ─── HTML GENERATE AND COPY ─────────────────────────────────────────────────────
+	//
+		
+		export function CopyHTMLCode ( ) {
+			ElectronCopy( GenerateComment( ) );
+		}
+		
+	//
 	// ─── LOCAL STORAGE SYSTEM ───────────────────────────────────────────────────────
 	//
 		

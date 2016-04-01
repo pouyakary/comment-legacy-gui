@@ -90,6 +90,13 @@
 								UI.CopyComment();
 						}
 					},
+					{
+						label: 'Generate and Copy HTML Code',
+						click: function( item , focusedWindow ) {
+							if ( focusedWindow )
+								UI.CopyHTMLCode( );
+						}
+					},
 				]
 			},
 			
