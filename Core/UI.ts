@@ -76,11 +76,29 @@ module UI {
 		}
 		
 	//
+	// ─── GENERATE COMMENT HTML ──────────────────────────────────────────────────────
+	//
+	
+		function GenerateCommentHTMLCode ( ): string {
+			try {
+				FreeGlobalErrorStorage( );
+				HideTheKaryHorse( );
+				UpdateGlobalInputVariables( );
+				UpdateCommentChars( );
+				return GenerateComment( );
+			} catch ( err ) {
+				return null;
+			}
+		}
+		
+	//
 	// ─── HTML GENERATE AND COPY ─────────────────────────────────────────────────────
 	//
 		
 		export function CopyHTMLCode ( ) {
-			ElectronCopy( GenerateComment( ) );
+			let commentString = GenerateCommentHTMLCode( );
+			if ( commentString != null )
+				ElectronCopy( GenerateComment( ) );
 		}
 		
 	//
@@ -210,19 +228,10 @@ module UI {
 		
 		/** Generates a new commnet and displays it on the main view. */
 		export function CreateNewComment ( ) {
-			
-			// • • • • •	
-			try {
-				FreeGlobalErrorStorage( );
-				HideTheKaryHorse( );
-				UpdateGlobalInputVariables( );
-				UpdateCommentChars( );
-			} catch ( err ) {
-				return 1;
-			}
-			
+	
 			// • • • • •
-			let commentString = GenerateComment( );
+			let commentString = GenerateCommentHTMLCode( );
+			if ( commentString == null ) return 0;
 			
 			// • • • • •
 			if ( doneSuccessfully ) {
