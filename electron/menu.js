@@ -218,16 +218,20 @@
 
 // ──────────────────────────────────────────────────────────────────────────────────────────
 
+	var AboutPageButton = {
+		label: 'About ' + name,
+		click: ( ) => {
+			UI.OpenAboutPage( );
+		}
+	}
+
 	if ( process.platform == 'darwin' ) {
 		var name = require( 'electron' ).remote.app.getName( ) 
 		CommentMainMenu.unshift(
 			{
 				label: name,
 				submenu: [
-					{
-						label: 'About ' + name,
-						role: 'about'
-					},
+					AboutPageButton,
 					{
 						type: 'separator'
 					},
@@ -259,7 +263,7 @@
 					{
 						label: 'Quit',
 						accelerator: 'Command+Q',
-						click: function( ) {
+						click: ( ) => {
 							app.quit( )
 						}
 					},
@@ -277,6 +281,8 @@
 				role: 'front'
 			}
 		);
+	} else {
+		CommentMainMenu[ 3 ].submenu.push( AboutPageButton );
 	}
 	
 // ──────────────────────────────────────────────────────────────────────────────────────────
