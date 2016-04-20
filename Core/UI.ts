@@ -8,8 +8,6 @@
 /// <reference path="electron.d.ts" />
 /// <reference path="languages.ts" />
 
-
-
 module UI {
 
 	//
@@ -66,8 +64,12 @@ module UI {
 		const viewBoxBackgroundImageHide		= 'kary-horse-back-hide';
 		const viewBoxBackgroundImageShow		= 'kary-horse-back-show';
 		
+		// About Page
+		const AboutPageBoxId					= 'about-page'
+		
 		// Local Storage Identifiers
 		var lastGeneratedCommentText			= '';
+		
 
 	//
 	// ─── THIS RUNS AT LOAD TIME ─────────────────────────────────────────────────────
@@ -79,6 +81,14 @@ module UI {
 			LoadLanguageTemplateBoxes( );
 			UpdateCommentChars( );
 			DisplayInputBoxes( );
+		}
+		
+		export function OpenAboutPage ( ) {
+			document.getElementById( AboutPageBoxId ).style.display = 'block';
+		}
+		
+		export function CloseAboutPage ( ) {
+			document.getElementById( AboutPageBoxId ).style.display = 'none';
 		}
 		
 	//
