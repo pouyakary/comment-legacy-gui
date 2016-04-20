@@ -219,7 +219,7 @@
 // ──────────────────────────────────────────────────────────────────────────────────────────
 
 	var AboutPageButton = {
-		label: 'About ' + name,
+		label: 'About Comment IV',
 		click: ( ) => {
 			UI.OpenAboutPage( );
 		}

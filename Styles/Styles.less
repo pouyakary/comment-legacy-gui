@@ -92,6 +92,20 @@
 		outline-color: transparent;
   		outline-style: none;
 	}
+	
+	h1, h2, h3, h4, h5, h6 {
+		text-transform: none;
+		margin: 0;
+		padding: 0;
+	}
+	
+	h1 {
+		padding-bottom: 10px;
+	}
+	
+	h3 {
+		padding-bottom: 5px;
+	}
 
 //
 // ─── KARY HORSE BACK ────────────────────────────────────────────────────────────
@@ -128,6 +142,87 @@
 	
 	.kary-horse-back-hide {
 		background-position: left;
+	}
+	
+//
+// ─── ABOUT PAGE ─────────────────────────────────────────────────────────────────
+//
+	
+	#about-logo-layer {
+		height: 100vh;
+		width: 100vw;
+		background-image: url('./about-back.png');
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		opacity: 0.7;
+	}
+
+	#about-page {
+		background-color: black;
+		height: 100vh;
+		width: 100vw;
+		left: 0;
+		top: 0;
+		position: fixed;
+	}
+	
+	@about-box-width: 500px;
+	@about-box-height: 370px;
+	
+	.about-text {
+		color: #ccc;
+		font-size: 1rem;
+		line-height: 1.5;
+		padding-bottom: 20px;
+	}
+	
+	#about-box {
+		color: white;
+		
+		left: 100px;
+		top: calc( ~'50vh' - ( @about-box-height / 2 ) );
+		
+		position: fixed;
+		width: @about-box-width;
+		height: @about-box-height;
+		
+		border-radius: 10px;
+	}
+	
+	#about-box-background {
+		background-color: rgba(0, 0, 0, 0.5);
+		width: 100vw;
+		height: 100vh;
+		left: 0;
+		top: 0;
+		position: fixed;
+	}
+	
+	@about-exit-size: 30px;
+	@about-exit-padding: 20px;
+	
+	#about-exit {
+		background-image: url('./about-exit.png');
+		height: @about-exit-size;
+		width: @about-exit-size;
+		background-size: @about-exit-size @about-exit-size;
+		background-position: center;
+		position: fixed;
+		top: @about-exit-padding;
+		left: @about-exit-padding;
+		
+		transition-duration: 0.6s;
+		-webkit-transform:rotate(-90deg);
+		-moz-transform:rotate(-90deg); 
+		-o-transform:rotate(-90deg);
+	}
+	
+	#about-exit:hover {
+		transition-duration: 0.6s;
+		-webkit-transform:rotate(0deg);
+		-moz-transform:rotate(0deg); 
+		-o-transform:rotate(0deg);
 	}
 	
 //
