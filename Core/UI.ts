@@ -32,6 +32,7 @@ module UI {
 		// Language Settings
 		const CommentStyleOptionSelectBox 		= 'language-template';
 		const CommentStyleCustomInputBox		= 'custom-language-inputs';
+		const CommentStyleSelectedTemplate 		= 'starting-selected-item';
 		const CommentStyleMultiLineTopLeft 		= 'cs-top-left';
 		const CommentStyleMultiLineTopRight 	= 'cs-top-right';
 		const CommentStyleMultiLineBottomLeft 	= 'cs-bottom-left';
@@ -663,6 +664,7 @@ module UI {
 				AppendLanguage( optionbox );
 			}
 			AppendEndingLanguageLine( );
+			ApplyStartingSettingsToLanguage( );
 			OnSetLanguageTemplate( );
 		}
 		
@@ -739,10 +741,19 @@ module UI {
 			let optionBox = document.createElement( 'option' );
 			optionBox.value = language.id;
 			if ( language.id === 'c' ) {
-				optionBox.selected = true;
+				optionBox.id = CommentStyleSelectedTemplate;
 			}
 			optionBox.innerText = language.name;
 			return optionBox;
+		}
+		
+	//
+	// ─── LOADING LANGUAGE TEMPLATE SETTINGS ─────────────────────────────────────────
+	//
+		
+		function ApplyStartingSettingsToLanguage ( ) {
+			( <HTMLOptionElement> document.getElementById( CommentStyleSelectedTemplate ) ).selected = true;
+			MakeCustomLanguageBoxesEditableOrNot( false );
 		}
 		
 	//
