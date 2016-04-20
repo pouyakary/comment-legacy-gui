@@ -6,6 +6,8 @@
 
 /// <reference path="comment.ts" />
 /// <reference path="electron.d.ts" />
+/// <reference path="languages.ts" />
+
 
 
 module UI {
@@ -28,6 +30,8 @@ module UI {
 		const CommentSeparatorCharacterBox		= "cp-separator";
 		
 		// Language Settings
+		const CommentStyleOptionSelectBox 		= 'language-template';
+		const CommentStyleCustomInputBox		= 'custom-language-inputs';
 		const CommentStyleMultiLineTopLeft 		= 'cs-top-left';
 		const CommentStyleMultiLineTopRight 	= 'cs-top-right';
 		const CommentStyleMultiLineBottomLeft 	= 'cs-bottom-left';
@@ -71,6 +75,7 @@ module UI {
 		/** Inits the software on load. */
 		export function InitOnLoad ( ) {
 			LoadSettings( );
+			LoadLanguageTemplateBoxes( );
 			UpdateCommentChars( );
 			DisplayInputBoxes( );
 		}
@@ -445,7 +450,7 @@ module UI {
 		function StoreSelectBoxById ( id: string ) {
 			C4LocalStorage.Store( 
 				id,
-				GetChooseBoxValue( id ) 
+				GetSelectBoxValueById( id ) 
 			);
 		}
 		
@@ -481,8 +486,8 @@ module UI {
 		export function UpdateGlobalInputVariables ( ) {
 			
 			// • • • • •
-			globalSeparatorValue        = GetChooseBoxValue( CommentSeparatorCharacterBox );
-			globalIndentStringValue  	= GetChooseBoxValue( CommentIndentString );
+			globalSeparatorValue        = GetSelectBoxValueById( CommentSeparatorCharacterBox );
+			globalIndentStringValue  	= GetSelectBoxValueById( CommentIndentString );
 			
 			// • • • • •
 			globalTextValue             = GetInputElementValue( CommentValueBox );
@@ -503,7 +508,7 @@ module UI {
 
 		/** Getts the current Command Kind from the select box of dashboard. */
 		function GetCommentKind ( ) : string {
-			return GetChooseBoxValue( CommentKindBox );
+			return GetSelectBoxValueById( CommentKindBox );
 		}
 		
 	//
@@ -511,9 +516,9 @@ module UI {
 	//
 
 		/** Reads the choose box value by passing an id. */
-		function GetChooseBoxValue ( id: string ) {
+		function GetSelectBoxValueById ( id: string ) {
 			const chooseBox = <HTMLSelectElement> document.getElementById( id );
-			return chooseBox.options[ chooseBox.selectedIndex ].value;
+			return ( <HTMLSelectElement> chooseBox.options[ chooseBox.selectedIndex ]).value;
 		}
 		
 	//
@@ -524,7 +529,7 @@ module UI {
 		function SetChooseBoxSelection ( selectBoxID: string , toBeSelectedItemValue: string ) {
 			let selectBox = <HTMLSelectElement> document.getElementById( selectBoxID );
 			for ( let index = 0; index < selectBox.children.length; index++ ) {
-				const element = selectBox.options[ index ].value;
+				const element = ( <HTMLSelectElement> selectBox.options[ index ]).value;
 				if ( element == toBeSelectedItemValue ) {
 					selectBox.selectedIndex = index;
 					return;
@@ -623,6 +628,129 @@ module UI {
 			// changing an status:
 			isLastAppendedChildErrorBox = true;
 			
+		}
+		
+	//
+	// ─── LOAD LANGUAGE FROM TEMPLATE ────────────────────────────────────────────────
+	//
+		
+		function LoadLanguageTemplates ( languageChars: LanguageCharacters ) {
+			LoadCharToInputs( CommentStyleMultiLineTopLeft , languageChars.tl );
+			LoadCharToInputs( CommentStyleMultiLineTopRight , languageChars.tr );
+			LoadCharToInputs( CommentStyleMultiLineBottomLeft , languageChars.bl );
+			LoadCharToInputs( CommentStyleMultiLineBottomRight , languageChars.br );
+			LoadCharToInputs( CommentStyleOneLine , languageChars.ol );
+			UpdateCommentChars( );
+		}
+		
+	//
+	// ─── LOAD CHAR INTO INPUT ───────────────────────────────────────────────────────
+	//
+	
+		function LoadCharToInputs ( id: string, value: string ) {
+			( <HTMLInputElement> document.getElementById( id ) ).value = value;
+		}	
+	
+		
+	//
+	// ─── LOAD LANGUAGE TEMPLATES ────────────────────────────────────────────────────
+	//
+	
+		function LoadLanguageTemplateBoxes ( ) {
+			for ( let index = 0; index < Languages.LanguageTemplates.length; index++ ) {
+				let language = <LanguageTemplate> Languages.LanguageTemplates[ index ];
+				let optionbox = MakeLanguageOptionBox( language );
+				AppendLanguage( optionbox );
+			}
+			AppendEndingLanguageLine( );
+			OnSetLanguageTemplate( );
+		}
+		
+	//
+	// ─── APPEND ENDING LINE ─────────────────────────────────────────────────────────
+	//
+		
+		function AppendEndingLanguageLine ( ) {
+			document.getElementById( CommentStyleOptionSelectBox ).innerHTML += (
+				"<option disabled>&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;</option>"
+			);
+		}
+		
+	//
+	// ─── ON SET LANGUAGE TEMPLATE ───────────────────────────────────────────────────
+	//
+		
+		export function OnSetLanguageTemplate ( ) {
+			var languageId = GetSelectBoxValueById( CommentStyleOptionSelectBox );
+			if ( languageId === 'custom' ) {
+				MakeCustomLanguageBoxesEditableOrNot( true );
+			} else {
+				MakeCustomLanguageBoxesEditableOrNot( false );
+				LoadLanguageDetailsById( languageId );
+			}
+		}
+	
+	//
+	// ─── MAKE ELEMENTS DISABLE OR NOT ───────────────────────────────────────────────
+	//
+		
+		function MakeCustomLanguageBoxesEditableOrNot ( display: boolean ) {
+			var languageInputBoxes = <HTMLDivElement> document.getElementById( CommentStyleCustomInputBox );
+			if ( display ) {
+				languageInputBoxes.style.opacity = '1.0';
+			} else {
+				languageInputBoxes.style.opacity = '0.5';
+			}
+			
+			for ( var index = 0; index < languageInputBoxes.children.length; index++ ) {
+				var element = <HTMLInputElement> languageInputBoxes.children[ index ];
+				element.disabled = !display;
+			}
+		}
+		
+	//
+	// ─── ON LOAD COMMENT DETAILS ────────────────────────────────────────────────────
+	//
+
+		function LoadLanguageDetailsById ( id: string ) {
+			var language = GetLanguageTemplateById( id );
+			LoadLanguageTemplates( language.temp );
+		}	
+
+	//
+	// ─── GET LANGUAGE TEMPLATE BY ID ────────────────────────────────────────────────
+	//
+	
+		function GetLanguageTemplateById ( id: string ) : LanguageTemplate {
+			for ( var index = 0; index < Languages.LanguageTemplates.length; index++ ) {
+				var language = Languages.LanguageTemplates[index];
+				if ( language.id === id ) {
+					return language;
+				}
+			}
+			return null;
+		}
+
+	//
+	// ─── MAKE LANGUAGE OPTION BOX ───────────────────────────────────────────────────
+	//
+
+		function MakeLanguageOptionBox ( language: LanguageTemplate ) : HTMLOptionElement {
+			let optionBox = document.createElement( 'option' );
+			optionBox.value = language.id;
+			if ( language.id === 'c' ) {
+				optionBox.selected = true;
+			}
+			optionBox.innerText = language.name;
+			return optionBox;
+		}
+		
+	//
+	// ─── APPEND LANGUAGE OPTION BOX ─────────────────────────────────────────────────
+	//
+	
+		function AppendLanguage ( box: HTMLOptionElement ) {
+			document.getElementById( CommentStyleOptionSelectBox ).appendChild( box );
 		}
 		
 	//
