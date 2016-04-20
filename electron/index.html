@@ -47,14 +47,25 @@
 					
 					<!-- Kind Choose Box -->
 					Kind <select id="commentformatbox" onchange="UI.DisplayInputBoxes()" onclick="UI.DisplayInputBoxes()" onselect="UI.DisplayInputBoxes()" class="text-box-base choose-box-extention">
+						
+						<option disabled>&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;</option>
+						
 						<option value="class">Class Comment</option>
 						<option value="flag">Flag Comment</option>
+						
+						<option disabled>&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;</option>
+						
 						<option value="section" selected="selected">Section Comment</option>
 						<option value="subsection">Subsection Comment</option>
-						<option value="insection">InSection Comment</option>
 						<option value="line">Line Comment</option>
 						<option value="subline">SubLine Comment</option>
+						
+						<option disabled>&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;</option>
+						
+						<option value="insection">InSection Comment</option>
 						<option value="separator">Separator Comment</option>
+						
+						<option disabled>&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;</option>
 						<!--option value="note">Note Comment</option-->
 					</select>
 					
@@ -133,16 +144,25 @@
 				<div class="control-bar-spacer"></div>
 				<div class="button-zone">
 					
+					<!-- Kind Choose Box -->
+					Template <select class="text-box-base choose-box-extention" id="language-template" onchange="UI.OnSetLanguageTemplate()" onclick="UI.OnSetLanguageTemplate()" onselect="UI.OnSetLanguageTemplate()">
+						<option disabled>&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;</option>
+						<option value="custom">Custom</option>
+						<option disabled>&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;</option>
+					</select><br />
+					
 					<!-- Comment Chars -->
-					<input type="text" id="cs-top-left" name="cs-top-left" class="text-box-monofont" value="/*" size="2" onchange="UI.UpdateAndStoreCommentCharacters( )">
+					<div id="custom-language-inputs">
+						<input type="text" id="cs-top-left" name="cs-top-left" class="text-box-monofont" value="/*" size="4" onchange="UI.UpdateAndStoreCommentCharacters( )">
 					
-					<input type="text" id="cs-top-right" name="cs-top-right" class="text-box-monofont" value="*" size="2" onchange="UI.UpdateAndStoreCommentCharacters( )">
-					
-					<input type="text" id="cs-one-line" name="cs-one-line" class="text-box-monofont" value="//" size="3" onchange="UI.UpdateAndStoreCommentCharacters( )"><br />
-					
-					<input type="text" id="cs-bottom-left" name="cs-bottom-left" class="text-box-monofont" value=" *" size="2" onchange="UI.UpdateAndStoreCommentCharacters( )">
-					
-					<input type="text" id="cs-bottom-right" name="cs-bottom-right" class="text-box-monofont" value="*/" size="2" onchange="UI.UpdateAndStoreCommentCharacters( )">
+						<input type="text" id="cs-top-right" name="cs-top-right" class="text-box-monofont" value="*" size="4" onchange="UI.UpdateAndStoreCommentCharacters( )">
+						
+						<input type="text" id="cs-one-line" name="cs-one-line" class="text-box-monofont" value="//" size="3" onchange="UI.UpdateAndStoreCommentCharacters( )"><br />
+						
+						<input type="text" id="cs-bottom-left" name="cs-bottom-left" class="text-box-monofont" value=" *" size="4" onchange="UI.UpdateAndStoreCommentCharacters( )">
+						
+						<input type="text" id="cs-bottom-right" name="cs-bottom-right" class="text-box-monofont" value="*/" size="4" onchange="UI.UpdateAndStoreCommentCharacters( )">
+					</div>
 					
 					<div style="clear: both;"></div>
 				</div>
