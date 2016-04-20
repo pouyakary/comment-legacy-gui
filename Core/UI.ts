@@ -83,9 +83,15 @@ module UI {
 			DisplayInputBoxes( );
 		}
 		
+	//
+	// ─── ABOUT PAGE HANDLERS ────────────────────────────────────────────────────────
+	//
+		
 		export function OpenAboutPage ( ) {
 			document.getElementById( AboutPageBoxId ).style.display = 'block';
 		}
+		
+	// ────────────────────────────────────────────────────────────────────────────────
 		
 		export function CloseAboutPage ( ) {
 			document.getElementById( AboutPageBoxId ).style.display = 'none';
