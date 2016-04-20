@@ -22,7 +22,7 @@
 	
 	function createWindow ( ) {
 		const window_width = 1100;
-		const window_height = 600;
+		const window_height = 640;
 		mainWindow = new BrowserWindow({ 
 			width: window_width, 	minWidth: window_width - 140, 
 			height: window_height,	minHeight: window_height,
