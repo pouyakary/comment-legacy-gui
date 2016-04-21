@@ -192,7 +192,7 @@
 	}
 	
 	#about-box-background {
-		background-color: rgba(0, 0, 0, 0.3);
+		background-color: rgba(0, 0, 0, 0.0);
 		width: 100vw;
 		height: 100vh;
 		left: 0;
@@ -224,6 +224,15 @@
 		-webkit-transform:rotate(0deg);
 		-moz-transform:rotate(0deg); 
 		-o-transform:rotate(0deg);
+	}
+	
+	#about-version-box {
+		position: relative;
+		left: ( @about-exit-padding * 2 ) + @about-exit-size;
+		top: @about-exit-padding + ( @about-exit-size / 4 );
+		color: #ccc;
+		font-size: 0.9rem;
+		letter-spacing: 2px;
 	}
 	
 //
