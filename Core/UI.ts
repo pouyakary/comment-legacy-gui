@@ -81,6 +81,7 @@ module UI {
 
 		/** Inits the software on load. */
 		export function InitOnLoad ( ) {
+			CloseAboutPage( );
 			LoadSettings( );
 			LoadLanguageTemplateBoxes( );
 			InitVersionBoxContent( );
