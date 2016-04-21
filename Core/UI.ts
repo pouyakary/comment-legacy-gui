@@ -13,6 +13,9 @@ module UI {
 	//
 	// ─── INFO ───────────────────────────────────────────────────────────────────────
 	//
+		
+		// Main Version
+		const CommentVersion					= 'IV.5.146';
 
 		// Input Divs
 		const OneLineInputDivID 				= "one-line-value-div";
@@ -65,7 +68,8 @@ module UI {
 		const viewBoxBackgroundImageShow		= 'kary-horse-back-show';
 		
 		// About Page
-		const AboutPageBoxId					= 'about-page'
+		const AboutPageBoxId					= 'about-page';
+		const AboutPageVersionBox				= 'about-version-box';
 		
 		// Local Storage Identifiers
 		var lastGeneratedCommentText			= '';
@@ -79,8 +83,17 @@ module UI {
 		export function InitOnLoad ( ) {
 			LoadSettings( );
 			LoadLanguageTemplateBoxes( );
+			InitVersionBoxContent( );
 			UpdateCommentChars( );
 			DisplayInputBoxes( );
+		}
+		
+	//
+	// ─── INIT VERSION INFO ──────────────────────────────────────────────────────────
+	//
+		
+		function InitVersionBoxContent ( ) {
+			document.getElementById( AboutPageVersionBox ).innerText = CommentVersion;
 		}
 		
 	//
