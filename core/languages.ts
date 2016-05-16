@@ -80,12 +80,28 @@
 				},
 				
 			//
-			// APPLESCRIPT
+			// COFFEESCRIPT
 			//
 			
 				{
-					'id': 'applescript',
-					'name': 'AppleScript',
+					'id': 'coffeescript',
+					'name': 'CoffeeScript',
+					'temp': {
+						'ol': '#',
+						'tl': '###',
+						'tr': '#',
+						'bl': '  #',
+						'br': '###',		
+					}
+				},
+				
+			//
+			// LUA
+			//
+			
+				{
+					'id': 'lua',
+					'name': 'Lua',
 					'temp': {
 						'ol': '--',
 						'tl': '--',
@@ -112,6 +128,54 @@
 				},
 				
 			//
+			// HASKELL
+			//
+			
+				{
+					'id': 'haskell',
+					'name': 'Haskell',
+					'temp': {
+						'ol': '--',
+						'tl': '{-',
+						'tr': '-',
+						'bl': ' -',
+						'br': '-}',		
+					}
+				},
+				
+			//
+			// MATLAB
+			//
+			
+				{
+					'id': 'octave',
+					'name': 'MATLAB & Octave',
+					'temp': {
+						'ol': '--',
+						'tl': '%{',
+						'tr': '%',
+						'bl': ' %',
+						'br': '}%',		
+					}
+				},
+				
+			//
+			// LATEX
+			//
+			
+				{
+					'id': 'tex',
+					'name': 'Tex & LaTeX',
+					'temp': {
+						'ol': '%',
+						'tl': '%',
+						'tr': '%',
+						'bl': '%',
+						'br': '%',		
+					}
+				},
+				
+			//
 			// MAKE FILE
 			//
 			
@@ -124,6 +188,22 @@
 						'tr': '%',
 						'bl': '%',
 						'br': '%',		
+					}
+				},
+				
+			//
+			// APPLESCRIPT
+			//
+			
+				{
+					'id': 'applescript',
+					'name': 'AppleScript',
+					'temp': {
+						'ol': '--',
+						'tl': '(*',
+						'tr': '*',
+						'bl': ' *',
+						'br': '*)',		
 					}
 				},
 				
@@ -152,6 +232,22 @@
 					'name': 'Mathemathica',
 					'temp': {
 						'ol': '(*',
+						'tl': '(*',
+						'tr': '*',
+						'bl': ' *',
+						'br': '*)',		
+					}
+				},
+				
+			//
+			// F#
+			//
+			
+				{
+					'id': 'fsharp',
+					'name': 'F#',
+					'temp': {
+						'ol': '--',
 						'tl': '(*',
 						'tr': '*',
 						'bl': ' *',
