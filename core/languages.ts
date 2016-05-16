@@ -85,6 +85,28 @@
 					'br': '%',		
 				}
 			},
+			{
+				'id': 'mathemathica',
+				'name': 'Mathemathica',
+				'temp': {
+					'ol': '(*',
+					'tl': '(*',
+					'tr': '*',
+					'bl': ' *',
+					'br': '*)',		
+				}
+			},
+			{
+				'id': 'assembly',
+				'name': 'Assembly',
+				'temp': {
+					'ol': ';',
+					'tl': ';',
+					'tr': ';',
+					'bl': ';',
+					'br': ';',		
+				}
+			},
 		]	
 	}
 	
