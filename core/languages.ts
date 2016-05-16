@@ -96,6 +96,22 @@
 				},
 				
 			//
+			// BASIC
+			//
+			
+				{
+					'id': 'basic',
+					'name': 'Basic Family',
+					'temp': {
+						'ol': "'",
+						'tl': "'",
+						'tr': "'",
+						'bl': "'",
+						'br': "'",		
+					}
+				},
+				
+			//
 			// MAKE FILE
 			//
 			
@@ -112,6 +128,22 @@
 				},
 				
 			//
+			// LISP
+			//
+			
+				{
+					'id': 'lisp',
+					'name': 'Lisp Family',
+					'temp': {
+						'ol': ';;',
+						'tl': '#|',
+						'tr': '|',
+						'bl': ' |',
+						'br': '|#',		
+					}
+				},
+				
+			//
 			// WOLFRAM LANGUAGE, MATHEMATHICA
 			//
 			
@@ -124,6 +156,22 @@
 						'tr': '*',
 						'bl': ' *',
 						'br': '*)',		
+					}
+				},
+				
+			//
+			// FORTRAN
+			//
+			
+				{
+					'id': 'fortran',
+					'name': 'FORTRAN',
+					'temp': {
+						'ol': '!',
+						'tl': '!',
+						'tr': '!',
+						'bl': '!',
+						'br': '!',		
 					}
 				},
 
