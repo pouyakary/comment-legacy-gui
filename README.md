@@ -6,8 +6,24 @@
 
 <br />
 
-## Using Comment IV
-Comment IV is build with web. You can use it [right from your browser](https://www.karyfoundation.org/comment/) or you can download an [offline app](https://github.com/karyfoundation/comment/releases) for your desktop workspace.
+## How to build this?
+Currently for Mac all you have to do is to have these denpendencies:
+
+```
+% npm install -g typescript less electron-packager 
+```
+
+Configure the environment:
+
+```
+% chmod u+x build.sh
+```
+
+And run the build:
+
+```
+% ./build.sh
+```
 
 <br />
 
