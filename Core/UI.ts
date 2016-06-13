@@ -15,7 +15,7 @@ module UI {
 	//
 		
 		// Main Version
-		const CommentVersion					= 'IV.5.168';
+		const CommentVersion					= 'IV.5.169';
 
 		// Input Divs
 		const OneLineInputDivID 				= "one-line-value-div";
@@ -826,6 +826,7 @@ module UI {
 
 		export function ChangeCommentKind ( option: string ) {
 			SetChooseBoxSelection ( CommentKindBox , option );
+			DisplayInputBoxes( );
 		}
 		
 	// ────────────────────────────────────────────────────────────────────────────────
