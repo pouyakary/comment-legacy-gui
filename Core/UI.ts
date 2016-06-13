@@ -15,7 +15,7 @@ module UI {
 	//
 		
 		// Main Version
-		const CommentVersion					= 'IV.5.169';
+		const CommentVersion					= 'IV.5.170';
 
 		// Input Divs
 		const OneLineInputDivID 				= "one-line-value-div";
@@ -86,7 +86,7 @@ module UI {
 			LoadLanguageTemplateBoxes( );
 			InitVersionBoxContent( );
 			UpdateCommentChars( );
-			DisplayInputBoxes( );
+			UpdateViewStateOfActiveInputBoxes( );
 		}
 		
 	//
@@ -395,7 +395,7 @@ module UI {
 		 * errors and show the necessary settings for the
 		 * current comment style.
 		 */
-		export function DisplayInputBoxes (  ) {
+		export function UpdateViewStateOfActiveInputBoxes (  ) {
 			
 			// • • • • •
 			StoreSelectBoxById( CommentKindBox );
@@ -826,7 +826,7 @@ module UI {
 
 		export function ChangeCommentKind ( option: string ) {
 			SetChooseBoxSelection ( CommentKindBox , option );
-			DisplayInputBoxes( );
+			UpdateViewStateOfActiveInputBoxes( );
 		}
 		
 	// ────────────────────────────────────────────────────────────────────────────────
