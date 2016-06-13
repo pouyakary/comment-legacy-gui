@@ -166,7 +166,7 @@
 			
 				{
 					'id': 'tex',
-					'name': 'Tex & LaTeX',
+					'name': 'Tex',
 					'temp': {
 						'ol': '%',
 						'tl': '%',
