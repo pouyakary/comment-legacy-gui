@@ -29,6 +29,7 @@
 //
 
 	module Languages {
+		
 		export var LanguageTemplates: Array<LanguageTemplate> = [
 			
 			//

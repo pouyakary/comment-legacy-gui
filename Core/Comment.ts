@@ -71,7 +71,7 @@
 			const boxTopRightCharacter 		= '&boxdl;';
 			const boxBottomLeftCharacter 	= '&boxur;';
 			const boxBottomRightCharacter	= '&boxul;';
-			
+
 		//
 		// ─── COMMENT CLASS GENERATOR ────────────────────────────────────────────────────
 		//
@@ -97,15 +97,18 @@
 				let	  inCaseOfOddNumber = '';
 				let   dots = '';
 				
+				// • • • • •
 				for ( let counter = 1; counter < ( globalSizeValue - titleText.length ) / 2 ; counter++ ) {
 					dots += '&colon;';
 				}
 				
+				// • • • • •
 				if ( ( globalSizeValue - titleText.length ) % 2 == 0 ) {
 					console.log( 'here');
 					inCaseOfOddNumber = '&colon;';
 				}
 				
+				// • • • • •
 				commnet += languageMultiLineBottomLeft + ' ' + inCaseOfOddNumber + dots + titleText + ' ' + dots + ' ' + languageMultiLineTopRight + '\n' ;
 				
 				// Line Tree
@@ -127,15 +130,20 @@
 				
 				// Line 1
 				let comment = languageOneLine + '\n';
+				
 				// Line 2
 				const text = MakeTitle( globalTextValue );
 				comment += languageOneLine + ' ' + RepeatText( boxHorizontalCharacter , text.length + 40 ) + ' ' + Kary.Text.Numerics.Roman( globalIndexValue ) + ' ' + RepeatText( boxHorizontalCharacter , 10 ) + '\n';
+				
 				// Line 3
 				comment += languageOneLine + '  ::::::' + text + ' : :  :   :    :     :        :          :\n';
+				
 				// Line 4
 				comment += languageOneLine + ' ' + RepeatText( boxHorizontalCharacter , 50 + text.length ) + '\n';
+				
 				// Line 5
 				comment += languageOneLine
+				
 				// Done
 				return comment;
 			}
@@ -341,7 +349,7 @@
 					UI.GenerateReport( "Given size for the comment is too short." );
 					return false;
 				} else {
-					let textLength = 0
+					let textLength = 0;
 					if ( countTextSize ) {
 						textLength = globalTextValue.length;
 						if ( titeled ) { 
