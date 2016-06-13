@@ -352,7 +352,7 @@
 		);
 
 		// Window menu.
-		CommentMainMenu[ 3 ].submenu.push(
+		CommentMainMenu[ 5 ].submenu.push(
 			{
 				type: 'separator'
 			},
@@ -362,7 +362,7 @@
 			}
 		);
 	} else {
-		CommentMainMenu[ 3 ].submenu.push( AboutPageButton );
+		CommentMainMenu[ 5 ].submenu.push( AboutPageButton );
 	}
 	
 // ──────────────────────────────────────────────────────────────────────────────────────────
