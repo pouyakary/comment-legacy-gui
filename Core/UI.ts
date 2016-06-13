@@ -247,7 +247,7 @@ module UI {
 				inputBox.value = localStorageValue;
 			}		
 		}
-			
+
 	//
 	// ─── ON ADD COMMENT ─────────────────────────────────────────────────────────────
 	//
@@ -728,6 +728,7 @@ module UI {
 		
 		function MakeCustomLanguageBoxesEditableOrNot ( display: boolean ) {
 			var languageInputBoxes = <HTMLDivElement> document.getElementById( CommentStyleCustomInputBox );
+			
 			if ( display ) {
 				languageInputBoxes.style.opacity = '1.0';
 			} else {
@@ -817,6 +818,14 @@ module UI {
 				case CommentIndentSize:
 					return "`Flag Comment Index`  [ &sect; Preferences &rightarrow; Index ]";
 			}
+		}
+
+	//
+	// ─── ON CHANGE COMMENT SETTING SHORTCUT ─────────────────────────────────────────
+	//
+
+		export function ChangeCommentKind ( option: string ) {
+			SetChooseBoxSelection ( CommentKindBox , option );
 		}
 		
 	// ────────────────────────────────────────────────────────────────────────────────

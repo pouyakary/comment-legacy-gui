@@ -99,6 +99,86 @@
 					},
 				]
 			},
+
+		//
+		// ─── COMMENT MODE MENU ──────────────────────────────────────────────────────────
+		//
+
+			{
+				label: "Mode",
+				submenu: [
+					{
+						label: 'Class Comment',
+						accelerator: 'Command+1',
+						click: function( item , focusedWindow ) {
+							if ( focusedWindow )
+								UI.ChangeCommentKind('class')
+						}
+					},
+					{
+						label: 'Flag Comment',
+						accelerator: 'Command+2',
+						click: function( item , focusedWindow ) {
+							if ( focusedWindow )
+								UI.ChangeCommentKind('flag')
+						}
+					},
+					{
+						type: 'separator'
+					},
+					{
+						label: 'Section Comment',
+						accelerator: 'Command+3',
+						click: function( item , focusedWindow ) {
+							if ( focusedWindow )
+								UI.ChangeCommentKind('section')
+						}
+					},
+					{
+						label: 'SubSection Comment',
+						accelerator: 'Command+4',
+						click: function( item , focusedWindow ) {
+							if ( focusedWindow )
+								UI.ChangeCommentKind('subsection')
+						}
+					},
+					{
+						label: 'Line Comment',
+						accelerator: 'Command+5',
+						click: function( item , focusedWindow ) {
+							if ( focusedWindow )
+								UI.ChangeCommentKind('line')
+						}
+					},
+					{
+						label: 'SubLine Comment',
+						accelerator: 'Command+6',
+						click: function( item , focusedWindow ) {
+							if ( focusedWindow )
+								UI.ChangeCommentKind('subline')
+						}
+					},
+					{
+						type: 'separator'
+					},
+					{
+						label: 'InSection Comment',
+						accelerator: 'Command+7',
+						click: function( item , focusedWindow ) {
+							if ( focusedWindow )
+								UI.ChangeCommentKind('insection')
+						}
+					},
+					{
+						label: 'Separator Comment',
+						accelerator: 'Command+8',
+						click: function( item , focusedWindow ) {
+							if ( focusedWindow )
+								UI.ChangeCommentKind('separator')
+						}
+					}
+				]
+			},
 			
 		//
 		// ─── VIEW MENU ──────────────────────────────────────────────────────────────────
