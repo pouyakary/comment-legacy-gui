@@ -15,7 +15,7 @@ module UI {
 	//
 		
 		// Main Version
-		const CommentVersion					= 'IV.5.173';
+		const CommentVersion					= 'IV.5.174';
 
 		// Input Divs
 		const OneLineInputDivID 				= "one-line-value-div";
@@ -292,14 +292,14 @@ module UI {
 		
 		export function CopyComment ( ) {
 			if ( lastGeneratedCommentText !== '' ) {
-				ElectronCopy( lastGeneratedCommentText );
+				ElectronCopy( lastGeneratedCommentText.trimLeft( ) );
 			}
 		}
 		
 	//
 	// ─── APPEND NEW ELEMENT TO MAIN VIEW ────────────────────────────────────────────
 	//
-		
+
 		/**
 		 * Appends a div element to the main view of the element and applies 
 		 * the effects regarding the status of the elements in the view.
@@ -834,11 +834,11 @@ module UI {
 	//
 
 		export function OnCommandA ( ) {
-			var valueBox = document.getElementById( CommentValueBox );
+			var valueBox = <HTMLInputElement> document.getElementById( CommentValueBox );
 			valueBox.focus( );
 			valueBox.setSelectionRange(0, valueBox.value.length);
 		}
-		
+	
 	// ────────────────────────────────────────────────────────────────────────────────
 	
 }

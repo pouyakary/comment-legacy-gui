@@ -297,7 +297,7 @@
 			/** 
 			 * Repeats a text with given times (used to create lines...)
 			 */
-			function RepeatText ( character: string , size: number ) : string {
+			export function RepeatText ( character: string , size: number ) : string {
 				let text = '';
 				for ( let counter = 0 ; counter < size ; counter++ ) {
 					text += character;
