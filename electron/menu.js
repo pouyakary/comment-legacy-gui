@@ -52,8 +52,12 @@
 					{
 						label: 'Select All',
 						accelerator: 'CmdOrCtrl+A',
-						role: 'selectall'
-					},
+						click: function ( item , focusedWindow ) {
+							if ( focusedWindow ) {
+								UI.OnCommandA( );
+							}
+						}
+					}
 				]
 			},
 			

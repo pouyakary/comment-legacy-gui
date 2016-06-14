@@ -828,6 +828,16 @@ module UI {
 			SetChooseBoxSelection ( CommentKindBox , option );
 			UpdateViewStateOfActiveInputBoxes( );
 		}
+
+	//
+	// ─── ON COMMAND A ───────────────────────────────────────────────────────────────
+	//
+
+		export function OnCommandA ( ) {
+			var valueBox = document.getElementById( CommentValueBox );
+			valueBox.focus( );
+			valueBox.setSelectionRange(0, valueBox.value.length);
+		}
 		
 	// ────────────────────────────────────────────────────────────────────────────────
 	
