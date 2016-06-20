@@ -109,7 +109,7 @@
 		//
 
 			{
-				label: "Mode",
+				label: "Comment Kind",
 				submenu: [
 					{
 						label: 'Class Comment',

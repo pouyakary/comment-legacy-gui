@@ -15,7 +15,7 @@ module UI {
 	//
 		
 		// Main Version
-		const CommentVersion					= 'IV.5.174';
+		const CommentVersion					= 'IV.5.175';
 
 		// Input Divs
 		const OneLineInputDivID 				= "one-line-value-div";
