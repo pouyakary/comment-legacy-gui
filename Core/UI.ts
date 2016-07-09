@@ -499,7 +499,7 @@ module UI {
         }
 
     //
-    // ─── UPDATES DATAS ──────────────────────────────────────────────────────────────
+    // ─── UPDATES DATA ───────────────────────────────────────────────────────────────
     //
 
         /** Gets the box value as well as setting the new value to the database */
@@ -798,7 +798,7 @@ module UI {
     // ─── FREES THE GLOBAL ERROR MESSAGE PLACES ──────────────────────────────────────
     //
 
-        /** Re initilizes the global error place holders */
+        /** Re initializes the global error place holders */
         function FreeGlobalErrorStorage ( ) {
             doneSuccessfully = true;
         }
@@ -811,7 +811,7 @@ module UI {
         function GetInputNameById ( id: string ): string {
             switch ( id ) {
                 case CommentIndentSize:
-                    return "`Indentation's Scoping Level`  [ &sect; Indentation &rightarrow; Scope ]";
+                    return "`Indentations Scoping Level`  [ &sect; Indentation &rightarrow; Scope ]";
                 case CommentSizeBox:
                     return "`Comment Length`  [ &sect; Preferences &rightarrow; Length ]";
                 case CommentIndentSize:
