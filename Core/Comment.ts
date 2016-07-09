@@ -246,7 +246,7 @@
 		//
 
 			/**
-			 * Function to generate Insection Comment
+			 * Function to generate Insertion Comment
 			 */
 			export function GenerateInSectionComment ( ) : string {
 				// Generating the comment
@@ -355,7 +355,7 @@
 						}
 					}
 					if ( globalSizeValue - textLength < minStaticTextLength ) {
-						UI.GenerateReport( "Faild to generate the comment" );
+						UI.GenerateReport( "Failed to generate the comment" );
 						return false;
 					}
 				}
