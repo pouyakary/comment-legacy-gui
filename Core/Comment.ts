@@ -76,9 +76,7 @@
 		// ─── COMMENT CLASS GENERATOR ────────────────────────────────────────────────────
 		//
 
-			/**
-			 * Function to generatio Kary Class Comment.
-			 */
+			/** Function to generation Kary Class Comment. */
 			export function GenerateClassComment ( ) : string {
 				
 				// Checking for possibility
@@ -87,10 +85,10 @@
 				}
 				
 				// First Info
-				let commnet: string;
+				let comment: string;
 				
 				// Line One
-				commnet = languageMultiLineTopLeft + ' ' + MakeLine( globalSizeValue ) + ' ' + languageMultiLineTopRight + '\n';
+				comment = languageMultiLineTopLeft + ' ' + MakeLine( globalSizeValue ) + ' ' + languageMultiLineTopRight + '\n';
 				
 				// Line Two
 				const titleText = MakeTitle( globalTextValue );
@@ -109,14 +107,14 @@
 				}
 				
 				// • • • • •
-				commnet += languageMultiLineBottomLeft + ' ' + inCaseOfOddNumber + dots + titleText + ' ' + dots + ' ' + languageMultiLineTopRight + '\n' ;
+				comment += languageMultiLineBottomLeft + ' ' + inCaseOfOddNumber + dots + titleText + ' ' + dots + ' ' + languageMultiLineTopRight + '\n' ;
 				
 				// Line Tree
-				commnet += languageMultiLineBottomLeft + ' ' + MakeLine( globalSizeValue ) + ' ' + languageMultiLineBottomRight;
+				comment += languageMultiLineBottomLeft + ' ' + MakeLine( globalSizeValue ) + ' ' + languageMultiLineBottomRight;
 				
 				// Done!
-				console.log( commnet );
-				return commnet;
+				console.log( comment );
+				return comment;
 			}
 			
 		//
@@ -124,9 +122,9 @@
 		//
 
 			/**
-			 * Function to generate flag comemnt
+			 * Function to generate flag comment
 			 */
-			export function GenerateFlagCommet ( ) : string {
+			export function GenerateFlagComment ( ) : string {
 				
 				// Line 1
 				let comment = languageOneLine + '\n';
@@ -282,7 +280,7 @@
 		// ────────────────────────────────────────────────────────────────────────────────
 		
 			/**
-			 * Transefrs a text like 'title' to 'T I T L E '
+			 * Transfers a text like 'title' to 'T I T L E '
 			 */
 			function MakeTitle ( text: string ) {
 				let result = '';
@@ -327,9 +325,9 @@
 				const countOfLines = lines.length;
 				
 				// • • • • •
-				for ( let couter = 0 ; couter < countOfLines ; couter++ ) {
-					result += RepeatText( globalIndentStringValue , globalIndentSizeValue ) + lines[ couter ];
-					if ( couter < countOfLines - 1 ) {
+				for ( let counter = 0 ; counter < countOfLines ; counter++ ) {
+					result += RepeatText( globalIndentStringValue , globalIndentSizeValue ) + lines[ counter ];
+					if ( counter < countOfLines - 1 ) {
 						result += '\n';
 					}
 				}
@@ -344,19 +342,19 @@
 		//
 					
 			/** Checks to see if the size of the comment is right */
-			function CheckCommentSizes ( minStaticTextLenght: number , titeled: boolean , countTextSize: boolean ): boolean {
-				if ( minStaticTextLenght > globalSizeValue ) {
+			function CheckCommentSizes ( minStaticTextLength: number , hasTitle: boolean , countTextSize: boolean ): boolean {
+				if ( minStaticTextLength > globalSizeValue ) {
 					UI.GenerateReport( "Given size for the comment is too short." );
 					return false;
 				} else {
 					let textLength = 0;
 					if ( countTextSize ) {
 						textLength = globalTextValue.length;
-						if ( titeled ) { 
+						if ( hasTitle ) { 
 							textLength *= 2;
 						}
 					}
-					if ( globalSizeValue - textLength < minStaticTextLenght ) {
+					if ( globalSizeValue - textLength < minStaticTextLength ) {
 						UI.GenerateReport( "Faild to generate the comment" );
 						return false;
 					}

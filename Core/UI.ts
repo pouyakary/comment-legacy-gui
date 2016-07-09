@@ -44,7 +44,7 @@ module UI {
 		const CommentIndentString               = 'ci-string';
 		const CommentIndentSize	                = 'ci-size';
 		
-		// Comment Sytle Values
+		// Comment Style Values
 		const CommentStyleClass					= 'class';
 		const CommentStyleFlag					= 'flag';
 		const CommentStyleSection				= 'section';
@@ -79,7 +79,7 @@ module UI {
 	// ─── THIS RUNS AT LOAD TIME ─────────────────────────────────────────────────────
 	//
 
-		/** Inits the software on load. */
+		/** Initializes the software on load. */
 		export function InitOnLoad ( ) {
 			CloseAboutPage( );
 			LoadSettings( );
@@ -204,7 +204,7 @@ module UI {
 		}
 		
 	//
-	// ─── COMMENT STORER ─────────────────────────────────────────────────────────────
+	// ─── COMMENT STORING ────────────────────────────────────────────────────────────
 	//
 		
 		export function UpdateAndStoreCommentCharacters ( ) {
@@ -223,7 +223,7 @@ module UI {
 		}
 		
 	//
-	// ─── CHARACTER UPDATE AND STORER ────────────────────────────────────────────────
+	// ─── CHARACTER UPDATE AND STORING ───────────────────────────────────────────────
 	//
 		
 		function LoadCommentChars ( ) {
@@ -245,7 +245,7 @@ module UI {
 			if ( localStorageValue != undefined && localStorageValue != null ) {
 				let inputBox = <HTMLInputElement> document.getElementById( id );
 				inputBox.value = localStorageValue;
-			}		
+			}
 		}
 
 	//
@@ -262,7 +262,7 @@ module UI {
 			}
 		}
 		
-		/** Generates a new commnet and displays it on the main view. */
+		/** Generates a new comment and displays it on the main view. */
 		export function CreateNewComment ( ) {
 	
 			// • • • • •
@@ -334,7 +334,7 @@ module UI {
 	//
 
 		/**
-		 * Gives the comment style and calls the currect
+		 * Gives the comment style and calls the current
 		 * function to generate that kind of comment
 		 * and then returns the comment as a string.
 		 */
@@ -350,7 +350,7 @@ module UI {
 					break;
 				
 				case CommentStyleFlag:
-					commentString = Core.GenerateFlagCommet( );
+					commentString = Core.GenerateFlagComment( );
 					break;
 				
 				case CommentStyleSection: 
@@ -401,10 +401,10 @@ module UI {
 			StoreSelectBoxById( CommentKindBox );
 			
 			// • • • • •
-			let 	sizeBox 		= document.getElementById( SizeInputDivID );
-			let 	indexBox 		= document.getElementById( IndexInputDivID );
-			let 	valueBox		= document.getElementById( OneLineInputDivID );
-			let 	separtorBox		= document.getElementById( SeparatorCharacterDivID );
+			let 	sizeBox         = document.getElementById( SizeInputDivID );
+			let 	indexBox        = document.getElementById( IndexInputDivID );
+			let 	valueBox        = document.getElementById( OneLineInputDivID );
+			let 	separatorBox    = document.getElementById( SeparatorCharacterDivID );
 			
 			// • • • • •
 			switch ( GetCommentKind( ) ) {
@@ -412,63 +412,63 @@ module UI {
 					sizeBox.style.display 		= displayOn;
 					indexBox.style.display 		= displayOff;
 					valueBox.style.display 		= displayOn;
-					separtorBox.style.display 	= displayOff;
+					separatorBox.style.display 	= displayOff;
 					break;
 				
 				case CommentStyleFlag:
 					sizeBox.style.display 		= displayOff;
 					indexBox.style.display 		= displayOn;
 					valueBox.style.display 		= displayOn;
-					separtorBox.style.display 	= displayOff;
+					separatorBox.style.display 	= displayOff;
 					break;
 					
 				case CommentStyleSection:
 					sizeBox.style.display 		= displayOn;
 					indexBox.style.display	 	= displayOff;
 					valueBox.style.display 		= displayOn;
-					separtorBox.style.display	= displayOff;
+					separatorBox.style.display	= displayOff;
 					break;
 				
 				case CommentStyleSubSection:
 					sizeBox.style.display 		= displayOn;
 					indexBox.style.display 		= displayOff;
 					valueBox.style.display 		= displayOn;
-					separtorBox.style.display	= displayOff;
+					separatorBox.style.display	= displayOff;
 					break;
 					
 				case CommentStyleLine:
 					sizeBox.style.display 		= displayOn;
 					indexBox.style.display 		= displayOff;
 					valueBox.style.display 		= displayOff;
-					separtorBox.style.display	= displayOff;
+					separatorBox.style.display	= displayOff;
 					break;
 					
 				case CommentStyleSubLine:
 					sizeBox.style.display 		= displayOn;
 					indexBox.style.display 		= displayOff;
 					valueBox.style.display 		= displayOff;
-					separtorBox.style.display	= displayOff;
+					separatorBox.style.display	= displayOff;
 					break;
 					
 				case CommentStyleSeparator:
 					sizeBox.style.display 		= displayOff;
 					indexBox.style.display 		= displayOff;
 					valueBox.style.display 		= displayOff;
-					separtorBox.style.display	= displayOn;
+					separatorBox.style.display	= displayOn;
 					break;
 				
 				case CommentStyleInSection:
 					sizeBox.style.display 		= displayOff;
 					indexBox.style.display 		= displayOff;
 					valueBox.style.display 		= displayOn;
-					separtorBox.style.display	= displayOff;
+					separatorBox.style.display	= displayOff;
 					break;
 					
 				case CommentStyleNote:
 					sizeBox.style.display 		= displayOff;
 					indexBox.style.display 		= displayOff;
 					valueBox.style.display 		= displayOff;
-					separtorBox.style.display	= displayOff;
+					separatorBox.style.display	= displayOff;
 					break;
 			}
 		}
@@ -537,7 +537,7 @@ module UI {
 	// ─── GET MODEL INFO ─────────────────────────────────────────────────────────────
 	//
 
-		/** Getts the current Command Kind from the select box of dashboard. */
+		/** Gets the current Command Kind from the select box of dashboard. */
 		function GetCommentKind ( ) : string {
 			return GetSelectBoxValueById( CommentKindBox );
 		}
@@ -602,14 +602,14 @@ module UI {
 	// ─── KARY LOGO HANDLERS ─────────────────────────────────────────────────────────
 	//
 		
-		/** Hides the kary Hrose loge in the main view. */
+		/** Hides the kary Horse loge in the main view. */
 		function HideTheKaryHorse ( ) {
 			let classNames = document.getElementById( ViewDivID ).classList;
 			classNames.remove( viewBoxBackgroundImageShow );
 			classNames.add( viewBoxBackgroundImageHide );
 		}
 		
-		/** Shows the kary Hrose loge in the main view. */
+		/** Shows the kary Horse loge in the main view. */
 		function ShowTheKaryHorse ( ) {
 			let classNames = document.getElementById( ViewDivID ).classList;
 			classNames.remove( viewBoxBackgroundImageHide );
@@ -620,7 +620,7 @@ module UI {
 	// ─── VIEW CLEANER ───────────────────────────────────────────────────────────────
 	//	
 	
-		/** Removes all the commnet generated in the main view. */
+		/** Removes all the comment generated in the main view. */
 		export function CleanCommentView ( ) {
 			document.getElementById( ViewDivID ).innerHTML = '';
 			lastGeneratedCommentText = '';
@@ -690,8 +690,8 @@ module UI {
 		function LoadLanguageTemplateBoxes ( ) {
 			for ( let index = 0; index < Languages.LanguageTemplates.length; index++ ) {
 				let language = <LanguageTemplate> Languages.LanguageTemplates[ index ];
-				let optionbox = MakeLanguageOptionBox( language );
-				AppendLanguage( optionbox );
+				let optionBox = MakeLanguageOptionBox( language );
+				AppendLanguage( optionBox );
 			}
 			AppendEndingLanguageLine( );
 			ApplyStartingSettingsToLanguage( );
