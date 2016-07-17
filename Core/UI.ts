@@ -208,7 +208,6 @@ module UI {
     //
 
         export function UpdateAndStoreCommentCharacters ( ) {
-            // • • • • •
             StoreInputBoxById( CommentStyleMultiLineBottomLeft );
             StoreInputBoxById( CommentStyleMultiLineBottomRight );
             StoreInputBoxById( CommentStyleMultiLineTopLeft );
@@ -261,6 +260,10 @@ module UI {
                 CreateNewComment( );
             }
         }
+
+    //
+    // ─── CREATE A NEW COMMENT ───────────────────────────────────────────────────────
+    //
 
         /** Generates a new comment and displays it on the main view. */
         export function CreateNewComment ( ) {
@@ -579,7 +582,7 @@ module UI {
          */
         function ReadNumberInput ( id: string ) : number {
             const value = ( <HTMLInputElement> ( document.getElementById( id ) ) ).value;
-            if ( value.match( /^\d+$/ ) ) {
+            if ( /^\d+$/.test( value ) ) {
                 return parseInt ( value )
             } else {
                 GenerateReport( "Could not read the field: " + GetInputNameById( id ) );

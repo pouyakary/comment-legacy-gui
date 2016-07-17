@@ -3,6 +3,7 @@
 		"module": "amd",
 		"noImplicitAny": true,
 		"preserveConstEnums": true,
+		"target": "es6",
 		"out": "binary/core.js"
 	}
 }
