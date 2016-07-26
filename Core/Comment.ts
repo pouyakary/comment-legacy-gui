@@ -340,7 +340,9 @@
         //
 
             /** Checks to see if the size of the comment is right */
-            function CheckCommentSizes ( minStaticTextLength: number , hasTitle: boolean , countTextSize: boolean ): boolean {
+            function CheckCommentSizes ( minStaticTextLength: number,
+                                                    hasTitle: boolean,
+                                               countTextSize: boolean ): boolean {
                 if ( minStaticTextLength > globalSizeValue ) {
                     UI.GenerateReport( "Given size for the comment is too short." );
                     return false;
