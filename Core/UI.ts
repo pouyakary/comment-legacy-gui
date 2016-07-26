@@ -393,7 +393,7 @@ module UI {
     //
 
         /**
-         * Set's the visibility of the user input elements
+         * Sets the visibility of the user input elements
          * based on the current comment style to reduce user
          * errors and show the necessary settings for the
          * current comment style.
