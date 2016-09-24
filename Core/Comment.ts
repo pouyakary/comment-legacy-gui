@@ -1,5 +1,5 @@
 //
-// Comment IV 
+// Comment IV
 //    Copyright 2016 Kary Foundation, Inc.
 //    Author: Pouya Kary <k@karyfoundation.org>
 //
@@ -350,7 +350,7 @@
                     let textLength = 0;
                     if ( countTextSize ) {
                         textLength = globalTextValue.length;
-                        if ( hasTitle ) { 
+                        if ( hasTitle ) {
                             textLength *= 2;
                         }
                     }

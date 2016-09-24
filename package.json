@@ -1,0 +1,28 @@
+{
+  "name": "Comment IV",
+  "version": "4.2.98",
+  "description": "Kary Foundation's Comment System Generator.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karyfoundation/comment"
+  },
+  "keywords": [
+    "Kary Foundation",
+    "Comment IV",
+    "comment",
+    "kary"
+  ],
+  "author": "Kary Foundation",
+  "license": "GPLv3.0",
+  "bugs": {
+    "url": "https://github.com/karyfoundationl/comment/issues"
+  },
+  "homepage": "https://www.karyfoundation.org/developer/comment",
+  "devDependencies": {
+    "electron-prebuilt": "^0.36.0"
+  }
+}
