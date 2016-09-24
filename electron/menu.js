@@ -1,5 +1,5 @@
 //
-// Comment IV 
+// Comment IV
 //    Copyright 2016 Kary Foundation, Inc.
 //    Author: Pouya Kary <k@karyfoundation.org>
 //
@@ -13,11 +13,11 @@
 // ──────────────────────────────────────────────────────────────────────────────────────────
 
 	var CommentMainMenu = [
-		
+
 		//
 		// ─── EDIT MENU ──────────────────────────────────────────────────────────────────
 		//
-		
+
 			{
 				label: 'Edit',
 				submenu: [
@@ -60,11 +60,11 @@
 					}
 				]
 			},
-			
+
 		//
 		// ─── ENGINE MENU ────────────────────────────────────────────────────────────────
 		//
-		
+
 			{
 				label: "Engine",
 				submenu: [
@@ -183,11 +183,11 @@
 					}
 				]
 			},
-			
+
 		//
 		// ─── VIEW MENU ──────────────────────────────────────────────────────────────────
 		//
-		
+
 			{
 				label: 'View',
 				submenu: [
@@ -347,9 +347,7 @@
 					{
 						label: 'Quit',
 						accelerator: 'Command+Q',
-						click: ( ) => {
-							app.quit( )
-						}
+						click: ( ) => require('electron').remote.getCurrentWindow( ).close( )
 					},
 				]
 			}
@@ -368,5 +366,5 @@
 	} else {
 		CommentMainMenu[ 5 ].submenu.push( AboutPageButton );
 	}
-	
+
 // ──────────────────────────────────────────────────────────────────────────────────────────
