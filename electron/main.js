@@ -27,7 +27,7 @@
 			width: window_width, 	minWidth: window_width - 140,
 			height: window_height,	minHeight: window_height,
 			backgroundColor: "black",
-			show: false,
+			show: false
 		});
 
 		mainWindow.once('ready-to-show', () => {

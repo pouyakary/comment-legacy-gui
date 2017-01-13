@@ -848,13 +848,14 @@ module UI {
             const [ startingWindowWidth, windowHeight ] = mainWindow.getSize( );
             const minWidthOnInspectorOnly = 290;
             const minWidthOnFullView = 960;
+            const minHeight = 640;
             const frames = 20;
             const animationDelay = 10;
             let   logoBox = document.getElementById( 'logoBox' );
 
             // changer
             if ( !windowOnInspectorOnlyMode ) {
-                mainWindow.setMinimumSize( minWidthOnInspectorOnly, windowHeight );
+                mainWindow.setMinimumSize( minWidthOnInspectorOnly, minHeight );
                 logoBox.hidden = true;
                 const sizeUnit = ( startingWindowWidth - minWidthOnInspectorOnly ) / frames;
                 for ( let counter = 0; counter < frames; counter++ ) {
@@ -878,7 +879,8 @@ module UI {
                 }
                 logoBox.hidden = false;
                 mainWindow.setSize( minWidthOnFullView, windowHeight );
-                mainWindow.setMinimumSize( minWidthOnFullView, windowHeight );
+                mainWindow.setMinimumSize( minWidthOnFullView, minHeight );
+                mainWindow.setResizable( true );
             }
 
             windowOnInspectorOnlyMode = !windowOnInspectorOnlyMode;
