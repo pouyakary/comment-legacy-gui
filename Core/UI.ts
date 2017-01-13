@@ -4,10 +4,6 @@
 //    Author: Pouya Kary <k@karyfoundation.org>
 //
 
-/// <reference path="comment.ts" />
-/// <reference path="electron.d.ts" />
-/// <reference path="languages.ts" />
-
 module UI {
 
     //
@@ -73,6 +69,7 @@ module UI {
 
         // Local Storage Identifiers
         var lastGeneratedCommentText            = '';
+        var windowOnInspectorOnlyMode           = false;
 
 
     //
@@ -295,7 +292,7 @@ module UI {
 
         export function CopyComment ( ) {
             if ( lastGeneratedCommentText !== '' ) {
-                ElectronCopy( lastGeneratedCommentText.trimLeft( ) );
+                ElectronCopy( lastGeneratedCommentText.replace( /^\s+/, '' ) );
             }
         }
 
@@ -552,7 +549,7 @@ module UI {
         /** Reads the choose box value by passing an id. */
         function GetSelectBoxValueById ( id: string ) {
             const chooseBox = <HTMLSelectElement> document.getElementById( id );
-            return ( <HTMLSelectElement> chooseBox.options[ chooseBox.selectedIndex ]).value;
+            return ( <HTMLSelectElement> <any> chooseBox.options[ chooseBox.selectedIndex ]).value;
         }
 
     //
@@ -563,7 +560,7 @@ module UI {
         function SetChooseBoxSelection ( selectBoxID: string , toBeSelectedItemValue: string ) {
             let selectBox = <HTMLSelectElement> document.getElementById( selectBoxID );
             for ( let index = 0; index < selectBox.children.length; index++ ) {
-                const element = ( <HTMLSelectElement> selectBox.options[ index ]).value;
+                const element = ( <HTMLSelectElement> <any> selectBox.options[ index ]).value;
                 if ( element == toBeSelectedItemValue ) {
                     selectBox.selectedIndex = index;
                     return;
@@ -838,7 +835,53 @@ module UI {
         export function OnCommandA ( ) {
             var valueBox = <HTMLInputElement> document.getElementById( CommentValueBox );
             valueBox.focus( );
-            valueBox.setSelectionRange(0, valueBox.value.length);
+            valueBox.setSelectionRange( 0, valueBox.value.length );
+        }
+
+    //
+    // ─── WINDOW RESIZE TOOL ─────────────────────────────────────────────────────────
+    //
+
+        export async function changeInspectorOnlyMode ( ) {
+            // sizes
+            const mainWindow = require( 'electron' ).remote.getCurrentWindow( );
+            const [ startingWindowWidth, windowHeight ] = mainWindow.getSize( );
+            const minWidthOnInspectorOnly = 290;
+            const minWidthOnFullView = 960;
+            const frames = 20;
+            const animationDelay = 10;
+            let   logoBox = document.getElementById( 'logoBox' );
+
+            // changer
+            if ( !windowOnInspectorOnlyMode ) {
+                mainWindow.setMinimumSize( minWidthOnInspectorOnly, windowHeight );
+                logoBox.hidden = true;
+                const sizeUnit = ( startingWindowWidth - minWidthOnInspectorOnly ) / frames;
+                for ( let counter = 0; counter < frames; counter++ ) {
+                    mainWindow.setSize(
+                        Math.floor( startingWindowWidth - counter * sizeUnit ), 
+                        windowHeight
+                    );
+                    await kary.processes.delay( animationDelay );
+                }
+                mainWindow.setSize( minWidthOnInspectorOnly, windowHeight );
+                mainWindow.setResizable( false );
+
+            } else {
+                const sizeUnit = ( minWidthOnFullView - minWidthOnInspectorOnly ) / frames;
+                for ( let counter = 0; counter < frames; counter++ ) {
+                    mainWindow.setSize(
+                        Math.floor( startingWindowWidth + counter * sizeUnit ), 
+                        windowHeight
+                    );
+                    await kary.processes.delay( animationDelay );
+                }
+                logoBox.hidden = false;
+                mainWindow.setSize( minWidthOnFullView, windowHeight );
+                mainWindow.setMinimumSize( minWidthOnFullView, windowHeight );
+            }
+
+            windowOnInspectorOnlyMode = !windowOnInspectorOnlyMode;
         }
 
     // ────────────────────────────────────────────────────────────────────────────────

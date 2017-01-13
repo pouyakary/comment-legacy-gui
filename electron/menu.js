@@ -192,6 +192,12 @@
 				label: 'View',
 				submenu: [
 					{
+						label: 'Inspector Only Mode',
+						accelerator: 'CmdOrCtrl+I',
+						type: 'checkbox',
+						click: UI.changeInspectorOnlyMode,
+					},
+					{
 						label: 'Clean View',
 						accelerator: 'CmdOrCtrl+R',
 						click: function ( item , focusedWindow ) {

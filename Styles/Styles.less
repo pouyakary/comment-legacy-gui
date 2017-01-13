@@ -48,6 +48,7 @@
 	@focus-glow-radius: 			20px;
 	@kary-horse-size-width: 		400px;
 	@kary-horse-width-to-height: 	1.313343328335832;
+	@window-min-width: 				960pt;
 	
 //
 // ─── FONTS ──────────────────────────────────────────────────────────────────────
@@ -84,7 +85,7 @@
 		overflow: hidden;
 		outline-color: transparent;
 		outline-style: none;
-		min-width: 1100px;
+		min-width: @window-min-width;
 		min-height: 600px;
 		.unselectable
 	}
