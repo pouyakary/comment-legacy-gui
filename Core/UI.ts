@@ -319,7 +319,7 @@ module UI {
             if ( viewDiv.children.length == 0 ) {
                 viewDiv.appendChild( newElement );
             } else {
-                viewDiv.firstElementChild.classList.add( 'comment-box-deactive' );
+                viewDiv.firstElementChild.classList.add( 'comment-box-deactivate' );
                 viewDiv.insertBefore( newElement , viewDiv.firstChild );
             }
 
@@ -755,13 +755,16 @@ module UI {
 
         function GetLanguageTemplateById ( id: string ) : LanguageTemplate {
             for ( var index = 0; index < Languages.LanguageTemplates.length; index++ ) {
-                var language = Languages.LanguageTemplates[index];
+                var language = Languages.LanguageTemplates[ index ];
                 if ( language.id === id ) {
                     return language;
                 }
             }
             return null;
         }
+
+    // ────────────────────────────────────────────────────────────────────────────────
+
 
     //
     // ─── MAKE LANGUAGE OPTION BOX ───────────────────────────────────────────────────
