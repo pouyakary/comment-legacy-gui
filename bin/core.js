@@ -1310,7 +1310,6 @@ var UI;
     // ─── KEYBOARD EVENTS ────────────────────────────────────────────────────────────
     //
     function AddKeyBoardEvents() {
-        console.log('here');
         document.addEventListener('keydown', OnKeyEvent);
     }
     UI.AddKeyBoardEvents = AddKeyBoardEvents;
