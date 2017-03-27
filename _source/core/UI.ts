@@ -84,6 +84,7 @@ module UI {
             LoadSettings( );
             LoadLanguageTemplateBoxes( );
             InitVersionBoxContent( );
+            AddKeyBoardEvents( );
             UpdateCommentChars( );
             UpdateViewStateOfActiveInputBoxes( );
         }
@@ -825,6 +826,15 @@ module UI {
         }
 
     //
+    // ─── ON VISUAL CHANGE ───────────────────────────────────────────────────────────
+    //
+
+        export function DisplayInputBoxes ( ) {
+            let commentformatbox = <HTMLSelectElement> document.getElementById('commentformatbox');
+            UI.ChangeCommentKind( commentformatbox.value );
+        }
+
+    //
     // ─── ON CHANGE COMMENT SETTING SHORTCUT ─────────────────────────────────────────
     //
 
@@ -844,11 +854,53 @@ module UI {
         }
 
     //
-    // ─── WINDOW RESIZE TOOL ─────────────────────────────────────────────────────────
+    // ─── KEYBOARD EVENTS ────────────────────────────────────────────────────────────
     //
 
-        export async function changeInspectorOnlyMode ( ) {
-            
+        export function AddKeyBoardEvents ( ) {
+            document.addEventListener( 'keydown', OnKeyEvent );
+        }
+
+    //
+    // ─── ON KEYBOARD EVENT ──────────────────────────────────────────────────────────
+    //
+
+        function OnKeyEvent ( event: KeyboardEvent ) {
+            if ( event.altKey ) {
+                switch ( event.keyCode ) {
+                    case 49:
+                        UI.ChangeCommentKind('class');
+                        break;
+
+                    case 50:
+                        UI.ChangeCommentKind('flag');
+                        break;
+
+                    case 51:
+                        UI.ChangeCommentKind('section');
+                        break;
+
+                    case 52:
+                        UI.ChangeCommentKind('subsection');
+                        break;
+
+                    case 53:
+                        UI.ChangeCommentKind('line');
+                        break;
+
+                    case 54:
+                        UI.ChangeCommentKind('subline');
+                        break;
+                    
+                    case 55:
+                        UI.ChangeCommentKind('insection');
+                        break;
+
+                    case 56:
+                        UI.ChangeCommentKind('separator');
+                        break;
+                }
+            }
         }
 
     // ────────────────────────────────────────────────────────────────────────────────

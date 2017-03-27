@@ -1,11 +1,3 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments)).next());
-    });
-};
 //
 // Comment IV
 //    Copyright 2016 Kary Foundation, Inc.
@@ -673,6 +665,7 @@ var UI;
         LoadSettings();
         LoadLanguageTemplateBoxes();
         InitVersionBoxContent();
+        AddKeyBoardEvents();
         UpdateCommentChars();
         UpdateViewStateOfActiveInputBoxes();
     }
@@ -1289,6 +1282,14 @@ var UI;
         }
     }
     //
+    // ─── ON VISUAL CHANGE ───────────────────────────────────────────────────────────
+    //
+    function DisplayInputBoxes() {
+        let commentformatbox = document.getElementById('commentformatbox');
+        UI.ChangeCommentKind(commentformatbox.value);
+    }
+    UI.DisplayInputBoxes = DisplayInputBoxes;
+    //
     // ─── ON CHANGE COMMENT SETTING SHORTCUT ─────────────────────────────────────────
     //
     function ChangeCommentKind(option) {
@@ -1306,12 +1307,45 @@ var UI;
     }
     UI.OnCommandA = OnCommandA;
     //
-    // ─── WINDOW RESIZE TOOL ─────────────────────────────────────────────────────────
+    // ─── KEYBOARD EVENTS ────────────────────────────────────────────────────────────
     //
-    function changeInspectorOnlyMode() {
-        return __awaiter(this, void 0, void 0, function* () {
-        });
+    function AddKeyBoardEvents() {
+        console.log('here');
+        document.addEventListener('keydown', OnKeyEvent);
     }
-    UI.changeInspectorOnlyMode = changeInspectorOnlyMode;
+    UI.AddKeyBoardEvents = AddKeyBoardEvents;
+    //
+    // ─── ON KEYBOARD EVENT ──────────────────────────────────────────────────────────
+    //
+    function OnKeyEvent(event) {
+        if (event.altKey) {
+            switch (event.keyCode) {
+                case 49:
+                    UI.ChangeCommentKind('class');
+                    break;
+                case 50:
+                    UI.ChangeCommentKind('flag');
+                    break;
+                case 51:
+                    UI.ChangeCommentKind('section');
+                    break;
+                case 52:
+                    UI.ChangeCommentKind('subsection');
+                    break;
+                case 53:
+                    UI.ChangeCommentKind('line');
+                    break;
+                case 54:
+                    UI.ChangeCommentKind('subline');
+                    break;
+                case 55:
+                    UI.ChangeCommentKind('insection');
+                    break;
+                case 56:
+                    UI.ChangeCommentKind('separator');
+                    break;
+            }
+        }
+    }
     // ────────────────────────────────────────────────────────────────────────────────
 })(UI || (UI = {}));
