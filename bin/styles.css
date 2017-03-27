@@ -4375,8 +4375,8 @@ AAAAAAEAAAAAxtQumQAAAADFdBkzAAAAAMYXD28=) format('woff'), url('Menlo-Regular.ttf
 }
 @font-face {
   font-family: "avenir-light";
-  src: url("avenir-light.eot");
-  src: url("venir-light.eot?#iefix") format("embedded-opentype"), url("avenir-light.woff") format("woff"), url("avenir-light.ttf") format("truetype"), url("avenir-light.svg#avenir-light") format("svg");
+  src: url("../assets/avenir-light.eot");
+  src: url("../assets/lvenir-light.eot?#iefix") format("embedded-opentype"), url("../assets/avenir-light.woff") format("woff"), url("../assets/avenir-light.ttf") format("truetype"), url("../assets/avenir-light.svg#avenir-light") format("svg");
   font-weight: normal;
   font-style: normal;
 }
