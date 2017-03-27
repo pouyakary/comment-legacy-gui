@@ -1,1 +1,0 @@
-declare function ElectronCopy ( text: string ): void;

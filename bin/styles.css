@@ -4447,7 +4447,7 @@ h3 {
          *   @static-logo-width-change: ( @kary-horse-size-width + @control-bar-width ) / 2;
          *   right: calc( ~'50vw' - unit( @static-logo-width-change , px ) );
          */
-  background-image: url("the-kary-horse-back.svg");
+  background-image: url("../assets/the-kary-horse-back.svg");
   background-size: 400px 304.56621005px;
   background-repeat: no-repeat;
   background-position: center;
@@ -4458,7 +4458,7 @@ h3 {
 #about-logo-layer {
   height: 100vh;
   width: 100vw;
-  background-image: url('about-back.jpg');
+  background-image: url('../assets/about-back.jpg');
   background-color: black;
   background-repeat: no-repeat;
   background-position: center;
@@ -4497,7 +4497,7 @@ h3 {
   position: fixed;
 }
 #about-exit {
-  background-image: url('about-exit.png');
+  background-image: url('../assets/about-exit.png');
   height: 30px;
   width: 30px;
   background-size: 30px 30px;
@@ -4552,7 +4552,7 @@ header {
   float: left;
   width: 42px;
   height: 42px;
-  background-image: url('header-icon.png');
+  background-image: url('../assets/header-icon.png');
   background-size: 42px 42px;
   background-position: center;
   background-repeat: no-repeat;
@@ -4721,6 +4721,6 @@ input:focus {
 .copy-box-icon-image-background {
   width: 40px;
   height: 40px;
-  background-image: url("copy-icon.svg");
+  background-image: url("../assets/copy-icon.svg");
   background-size: 40px 40px;
 }
