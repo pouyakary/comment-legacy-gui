@@ -4,6 +4,8 @@
 //    Author: Pouya Kary <k@karyfoundation.org>
 //
 
+declare function ElectronCopy ( text: string ): void;
+
 module UI {
 
     //
@@ -99,13 +101,13 @@ module UI {
     //
         
         export function OpenAboutPage ( ) {
-            document.getElementById( AboutPageBoxId ).style.display = 'block';
+            document.getElementById( AboutPageBoxId ).hidden = false;
         }
 
     // ────────────────────────────────────────────────────────────────────────────────
 
         export function CloseAboutPage ( ) {
-            document.getElementById( AboutPageBoxId ).style.display = 'none';
+            document.getElementById( AboutPageBoxId ).hidden = true;
         }
 
     //

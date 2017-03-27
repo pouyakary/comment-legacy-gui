@@ -687,12 +687,12 @@ var UI;
     // ─── ABOUT PAGE HANDLERS ────────────────────────────────────────────────────────
     //
     function OpenAboutPage() {
-        document.getElementById(AboutPageBoxId).style.display = 'block';
+        document.getElementById(AboutPageBoxId).hidden = false;
     }
     UI.OpenAboutPage = OpenAboutPage;
     // ────────────────────────────────────────────────────────────────────────────────
     function CloseAboutPage() {
-        document.getElementById(AboutPageBoxId).style.display = 'none';
+        document.getElementById(AboutPageBoxId).hidden = true;
     }
     UI.CloseAboutPage = CloseAboutPage;
     //
